@@ -7,8 +7,6 @@ python xlsx2tsv.py data/feedback.xlsx > data-tmp/feedback.tsv
 echo "Combining 2 TSV files into XML"
 python tsv2xml.py > data-tmp/votations.xml
 
-echo "Data analysis"
+echo "Data analysis + relocation"
+python analyzer.py
 
-
-
-# kmeans.py

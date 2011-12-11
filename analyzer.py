@@ -6,6 +6,8 @@
 import sys
 import os
 import pprint
+import kmeans
+import gridgrouper
 
 class Analyzer(object):
     def __init__(self, fn):
@@ -14,10 +16,28 @@ class Analyzer(object):
 
     def run(self):
         voters = self.build_voters()
-        pprint.pprint(voters)
-        voters_sums = self.cross_reference(voters)
-        pprint.pprint(voters_sums)
+        #pprint.pprint(voters)
 
+        voters_sums = self.cross_reference(voters)
+        #pprint.pprint(voters_sums)
+
+        # kmeans with simplified data
+        data = []
+        for voter in voters_sums.keys():
+            data.append([voter, voters_sums[voter][-1]])
+        clusters = kmeans.kmeans(data, 5)
+        pprint.pprint(clusters)
+
+        # prepare for gridgrouper (only count size of groups)
+        groups = []
+        for cluster in clusters:
+            groups.append(len(clusters[cluster]))
+
+        print groups
+
+        grid, groups = gridgrouper.build_grid("10x10", groups)
+        grid.show()
+        
     def build_voters(self):
         voters = {}
         voters_simple = {}
@@ -30,7 +50,7 @@ class Analyzer(object):
                 # Add vote of this voter. If not yet exists, create empty
                 if l[3] not in voters:
                     voters[l[3]] = {}
-                voters[l[3]][l[0]] = l[4]
+                voters[l[3]][l[0]] = l[4]  # col 4 is the vote
 
         # Fill up absent votes and build list
         for v in voters.keys():
@@ -45,7 +65,7 @@ class Analyzer(object):
         return voters_simple
 
     def cross_reference(self, voters):
-        refcounts = []
+        votecounts = []
         for i in xrange(len(self.votation_ids)):
             # For each votation, sum up all votes we can find
             c = {}
@@ -55,7 +75,9 @@ class Analyzer(object):
                     c[vote] = 1
                 else:
                     c[vote] += 1
-            refcounts.append(c)
+            votecounts.append(c)
+
+        pprint.pprint(votecounts)
 
         # Replace votes with sum of people with same vote
         voters_sums = {}
@@ -63,7 +85,7 @@ class Analyzer(object):
             voters_sums[voter] = []
             for i in xrange(len(voters[voter])):
                 vote = voters[voter][i]
-                voters_sums[voter].append(int(refcounts[i][vote]) - 1)
+                voters_sums[voter].append(int(votecounts[i][vote]) - 1)
             voters_sums[voter].append(sum(voters_sums[voter]))
 
         return voters_sums

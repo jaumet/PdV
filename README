@@ -1,54 +1,26 @@
-freeze script - README file
-===========================
+PdV python scripts - README file
+================================
 
-This is the documentation for the freeze.sh script.
-PURPOSE: Create an HTML version of a drupal site from the server were the target drupal is.
+This is the documentation for the PdV python scripts.
 
-It is useful when you don't want to maintain old drupal sites
-that are not edited anymore.
-freeze.sh is a way to archive drupal sites.
+PURPOSE
+-------
 
-REQUERIMENTS
-------------
- - Tested with drupal-5.23 and 6.19.
- - Tested in 2011 in updated Debian & Ubuntu standard machines.
- - httrack: for mirrowing the site.
- - Write permissions in:
-            - [path_to_drupa]/[drupal.domain]
-            - [/tmp/] resp. $WORKDIR
-  - freeze has been tested from the server were the drupal to freeze is.
-
-CONFIGURATION
--------------
-
- - Edit freeze.sh to cange the working directory:
-  WORKDIR="/home/jaume"
-
- - Edit freeze.sh to fix the path to drupal settings.php file:
-  SETTINGS= $LOCALDIR/sites/default/settings.php
+This is a bunch of python scripts used for the theater show PdV (http://rogerbernat.info) .
+The show needs a voting system (hadware) and a visualization system (software: python + OpenFrameworks).
+It does several thing. Basically it gets .xlsx files , convert to .tsv, analize the data and output
+.xml and .tsv files.
 
 USAGE
 -----
 
- Usage: freeze.sh [domain] [local_path]
-
-FEATURES
---------
-
- - The old URLs (like http://[site url]/?q=node/3) will work after freezing the site as .
-   (Using .htaccess RewriteRules)
- - The script does the code & DDBB backUp in your $WORKDIR directory.
-
-FUTURE
-------
-
- - Adapt the freeze script to more web applications: CMS, wikis, etc
+ Usage: run.sh [method_name]
 
 CREDITS
 -------
 
 freeze.sh is a rogerbernat.info project
-Copyright (C) 2010, Jaume Nualart, Chris Hager & Roger Bernat. Catalunya & Austria. Europe
+Copyright (C) 2010, Jaume Nualart, Chris Hager & Roger Bernat.
 Licensed under the GNU GPL 3
 Authors: Jaume Nualart (jaume AT nualart.cat), Chris Hager (chris AT metachris.org).
 Barcelona - Catalonia - UE - December 2010

@@ -32,12 +32,26 @@ class Analyzer(object):
         groups = []
         for cluster in clusters:
             groups.append(len(clusters[cluster]))
-
+        print
         print groups
 
         grid, groups = gridgrouper.build_grid("10x10", groups)
+        print
         grid.show()
-        
+
+        # Map the new seat positions to the cluster
+        clusters_sorted = {}
+        group = 0
+        for cluster in clusters:
+            clusters_sorted[cluster] = []
+            for i in xrange(len(clusters[cluster])):
+                keypad, oldsum = clusters[cluster][i]
+                clusters_sorted[cluster].append((keypad, oldsum, str(groups[group].seats[i])))
+            group += 1
+
+        pprint.pprint(clusters_sorted)
+
+
     def build_voters(self):
         voters = {}
         voters_simple = {}

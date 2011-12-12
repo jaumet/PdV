@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-
+jaume notes:         first_argument = sys.argv[1]
 """
 import sys
 import os
@@ -42,15 +42,24 @@ class Analyzer(object):
         # Map the new seat positions to the cluster
         clusters_sorted = {}
         group = 0
+        xx = []
+        temp = []
         for cluster in clusters:
             clusters_sorted[cluster] = []
             for i in xrange(len(clusters[cluster])):
                 keypad, oldsum = clusters[cluster][i]
-                clusters_sorted[cluster].append((keypad, oldsum, str(groups[group].seats[i])))
+                #clusters_sorted[cluster].append((keypad, oldsum, str(groups[group].seats[i])))
+                clusters_sorted[cluster].append((keypad, str(groups[group].seats[i])))
+                #x = str(groups[group].seats[i]).find("(")
+                aa = str(groups[group].seats[i])[5:-2]
+                temp.append(keypad)
+                temp.append(aa.split(", "))
+                xx.append(temp)
+                temp = []
             group += 1
-
+        # Here I need to math x, y positions with seat-number
         pprint.pprint(clusters_sorted)
-
+        pprint.pprint(xx)
 
     def build_voters(self):
         voters = {}

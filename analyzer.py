@@ -26,13 +26,15 @@ class Analyzer(object):
         for voter in voters_sums.keys():
             data.append([voter, voters_sums[voter][-1]])
         clusters = kmeans.kmeans(data, 5)
+        print
+        print "Group id:(keypad zid, score):"
         pprint.pprint(clusters)
 
         # prepare for gridgrouper (only count size of groups)
         groups = []
         for cluster in clusters:
             groups.append(len(clusters[cluster]))
-        print
+        print "seats per each group: "
         print groups
 
         grid, groups = gridgrouper.build_grid("10x10", groups)
@@ -47,8 +49,8 @@ class Analyzer(object):
             for i in xrange(len(clusters[cluster])):
                 keypad, oldsum = clusters[cluster][i]
                 #clusters_sorted[cluster].append((keypad, oldsum, str(groups[group].seats[i])))
-                xx = str(groups[group].seats[i])
-                clusters_sorted[cluster].append((keypad, xx[5:-2].split(", ")))
+                seat = groups[group].seats[i]
+                clusters_sorted[cluster].append((keypad, seat.x, seat.y, group+1))
 
             group += 1
         # Here I need to math x, y positions with seat-number

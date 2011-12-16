@@ -13,15 +13,16 @@ x = y = 0
 cells = []
 max = 186
 group = 0
+x = 0
 #seats = rows.split("	")
 #print len(rows)
 for row in rows:
     for cell in row.split("\t"):
-        cells.append([max-x, max-x, x, y]+cell.split(", ")+[group])
+        cells.append([max-x+1, max-x+1, x, y]+cell.split(", ")+[group])
         x += 1
     #print "#######################################"
     y += 1
-    x = 0
+
 
 out = ''
 print "seatid   keypadid    Xcolumn Yrow    Xpx Ypx human   group"

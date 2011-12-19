@@ -1,6 +1,7 @@
 ##from __future__ import division
 ##from random import random
 import sys
+import pprint
 
 def kmeans(data, clusters):
     ## Getting the means
@@ -29,48 +30,17 @@ def kmeans(data, clusters):
                 closest_k = k[0]
             means[closest_k] = means[closest_k]*(1-param) + int(y)*(param)
 
-    '''
-    print "Data:"
-    print data
-    print "Means: "
-    print means
-    '''
-
-    ###################################
-    ## Cluster num -> elements
+    # Cluster the items based on their kmeans
     clusters = {}
-    count = 0
-    for x,d in data:
-        count = count + 1
-        if int(d) < means[0]:
-            i = 0
-        elif int(d)<means[1]:
-            i = 1
-        elif int(d)<means[2]:
-            i = 2
-        elif int(d)<means[3]:
-            i = 3
-        else:
-            i = 4
+    for key, value in data:
+        cluster_id = len(means)
+        for i in xrange(len(means)):
+            if value < means[i]:
+                cluster_id = i
+                break
 
-        count = 0
-        if not clusters.has_key(i): clusters[i] = []
-        clusters[i].append((x,d))
-    return clusters
+        if not cluster_id in clusters:
+            clusters[cluster_id] = []
 
-def main():
-    '''print "Cluster:"'''
-    data = [i.strip().split() for i in open("votescoincidence.tsv").readlines()]
-    clusters = kmeans(data, 5)
-    for k,v in clusters.items(): print k,v
-
-if __name__ == '__main__':
-    main()
-
-
-'''
-print clusters
-print "len: "
-for i in clusters:
-	print len(clusters[i])
-'''
+        clusters[cluster_id].append((key, value))
+    return means, clusters

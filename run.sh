@@ -8,6 +8,11 @@ fi
 
 if [ "$1" = "export" ] ; then
     echo "Liberating xlsx files..."
+
+    if [ ! -d data-tmp ]; then
+        mkdir data-tmp
+    fi
+
     python xlsx2tsv.py data/key.xlsx > data-tmp/key.tsv
     python xlsx2tsv.py data/feedback.xlsx > data-tmp/feedback.tsv
 

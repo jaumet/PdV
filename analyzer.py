@@ -9,10 +9,25 @@ import pprint
 import kmeans
 import gridgrouper
 
+
 class Analyzer(object):
     def __init__(self, fn):
         f = open(fn)
         self.data = [i.strip().split() for i in f.readlines()]
+
+        # Read map.tsv and build internal representation
+        f = open("data/map.tsv")
+        self.map_dict = {}
+        for i in f.readlines():
+            seat_id, keypad_id, x, y, x_px, y_px, hid, _ = i.strip().split()
+            if keypad_id == "keypadid":
+                continue
+            seat_id = int(seat_id)
+            x = int(x)
+            y = int(y)
+            self.map_dict[(x, y)] = [seat_id, keypad_id, x, y, x_px, y_px, hid]
+
+        pprint.pprint(self.map_dict)
 
     def run(self):
         voters = self.build_voters()
@@ -21,43 +36,63 @@ class Analyzer(object):
         voters_sums = self.cross_reference(voters)
         #pprint.pprint(voters_sums)
 
-        # kmeans with simplified data
+        # calculate kmeans with simplified data
         data = []
         for voter in voters_sums.keys():
             data.append([voter, voters_sums[voter][-1]])
         clusters = kmeans.kmeans(data, 5)
-        print
-        print "Group id:(keypad zid, score):"
-        pprint.pprint(clusters)
+        #print
+        #print "Group id:(keypad zid, score):"
+        #pprint.pprint(clusters)
 
         # prepare for gridgrouper (only count size of groups)
         groups = []
         for cluster in clusters:
             groups.append(len(clusters[cluster]))
-        print "seats per each group: "
+        print
+        print "Number of people in each cluster: "
         print groups
 
-        grid, groups = gridgrouper.build_grid("10x10", groups)
+        grid, groups = gridgrouper.build_grid("31x6", groups)
         print
         grid.show()
 
-        # Map the new seat positions to the cluster
-        clusters_sorted = {}
+        # Map the new seat positions to the clusters
+        seats_info = {}
         group = 0
         for cluster in clusters:
-            clusters_sorted[cluster] = []
             for i in xrange(len(clusters[cluster])):
                 keypad, oldsum = clusters[cluster][i]
-                #clusters_sorted[cluster].append((keypad, oldsum, str(groups[group].seats[i])))
                 seat = groups[group].seats[i]
-                clusters_sorted[cluster].append((keypad, seat.x, seat.y, group+1))
-
+                seats_info[keypad] = [seat.x, seat.y, group]
             group += 1
-        # Here I need to math x, y positions with seat-number
-        print " clusters:"
-        pprint.pprint(clusters_sorted)
+        #print " clusters:"
+        #pprint.pprint(seats_info)
+
+        # Build new map: replace keypad_id and group in original map based
+        # on the x/y coordinates.
+        map_new = []
+        for keypad_id in seats_info:
+            # Extract new pos info from the clusters
+            x_new, y_new, group_new = seats_info[keypad_id]
+
+            # Extract info from original map
+            seat_id, keypad_id_old, x, y, x_px, y_px, human = \
+                    self.map_dict[(x_new, y_new)]
+
+            # Combine info into map_new
+            map_new.append([seat_id, keypad_id, x, y, x_px, y_px, \
+                    human, group_new])
+
+        map_new.sort()
+
+        print "Map (seat-id, new-keypad-id, x, y, x_px, y_px, human, group)"
+        pprint.pprint(map_new)
 
     def build_voters(self):
+        """
+        Build a dictionary of voters
+        """
         voters = {}
         voters_simple = {}
         votation_ids = []
@@ -84,6 +119,9 @@ class Analyzer(object):
         return voters_simple
 
     def cross_reference(self, voters):
+        """
+
+        """
         votecounts = []
         for i in xrange(len(self.votation_ids)):
             # For each votation, sum up all votes we can find
@@ -96,6 +134,7 @@ class Analyzer(object):
                     c[vote] += 1
             votecounts.append(c)
 
+        print "Summary: vote count per votation"
         pprint.pprint(votecounts)
 
         # Replace votes with sum of people with same vote
@@ -108,6 +147,7 @@ class Analyzer(object):
             voters_sums[voter].append(sum(voters_sums[voter]))
 
         return voters_sums
+
 
 def main():
     analyzer = Analyzer("data-tmp/key.tsv")

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-Analyze votes from a tsv file, perform some functions, cluster the voters in groups,
-possible reorder the groups, etc.
+Analyze votes from a tsv file, perform some functions, cluster the voters in
+groups, possible reorder the groups, etc.
 
 Fast prototype ;)
 
@@ -31,7 +31,11 @@ class Analyzer(object):
     This class is able to read a tsv file with the votes, and perform various
     related functions.
     """
-    def __init__(self, fn):
+    def __init__(self, fn, abstention_id):
+        # 'None' to count as abstention, any string to add to another vote
+        self.abstention_id = abstention_id
+
+        # Read the votes tsv file
         f = open(fn)
         self.data = [i.strip().split() for i in f.readlines()]
 
@@ -135,15 +139,19 @@ class Analyzer(object):
 
                 # Save the respective column of the tsv file into our data structure
                 value = l[mode]
+
+                # If analizing by voting speed, we convert to float
                 if mode == MODE_VOTE_SPEED:
-                    value = float(value) if value else None
+                    value = float(value) if value else 0
+
+                # Store the value we want to analyze
                 voters[l[3]][l[0]] = value
 
         # Fill up absent votes and build list
         for v in voters.keys():
             for vid in votation_ids:
                 if not vid in voters[v]:
-                    voters[v][vid] = None
+                    voters[v][vid] = self.abstention_id if mode == MODE_VOTE_RESULT else 0
                 if not v in voters_simple:
                     voters_simple[v] = []
                 voters_simple[v].append(voters[v][vid])
@@ -183,12 +191,12 @@ class Analyzer(object):
         return voters_sums
 
 
-def analyze(mode, reorder, num_groups):
+def analyze(mode, reorder, num_groups, abstention_id=None):
     """
     Analyzes the votes, groups them with k-means and optionally reorders the seats.
     """
     # Load data from tsv
-    analyzer = Analyzer("data-tmp/key.tsv")
+    analyzer = Analyzer("data-tmp/key.tsv", abstention_id)
     voters, voters_simple = analyzer.read_votes_tsv(mode)
 
     # Prepare data for k-means clustering
@@ -262,6 +270,8 @@ if __name__ == '__main__':
         action="store_true", dest="reorder", help="Use this flag to reorder")
     parser.add_option("-o", "--out-fn", nargs=1,
         dest="out_fn", help="Output filename for new map.tsv (optional)")
+    parser.add_option("-c", "--count_abstention_as", nargs=1, default=None,
+        dest="vote_id", help="Count abstention to a specific vote")
 
     (options, args) = parser.parse_args()
     print options
@@ -272,10 +282,12 @@ if __name__ == '__main__':
         parser.error("Please specify a mode")
 
     elif options.mode == "results":
-        map_new = analyze(mode=MODE_VOTE_RESULT, reorder=options.reorder, num_groups=options.num_groups)
+        map_new = analyze(mode=MODE_VOTE_RESULT, reorder=options.reorder,
+                num_groups=options.num_groups, abstention_id=options.vote_id)
 
     elif options.mode == "speed":
-        map_new = analyze(mode=MODE_VOTE_SPEED, reorder=options.reorder, num_groups=options.num_groups)
+        map_new = analyze(mode=MODE_VOTE_SPEED, reorder=options.reorder,
+                num_groups=options.num_groups, abstention_id=options.vote_id)
 
     if options.out_fn:
         # Write the new map to this tsv file

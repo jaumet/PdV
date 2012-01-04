@@ -44,14 +44,14 @@ class Analyzer(object):
         self.map_xy = {}
         self.map_keypad = {}
         for i in f.readlines():
-            seat_id, keypad_id, x, y, x_px, y_px, hid, _ = i.strip().split()
+            seat_id, keypad_id, x, y, x_px, y_px, hid, group = i.strip().split()
             if keypad_id == "keypadid":
                 continue
             seat_id = int(seat_id)
             x = int(x)
             y = int(y)
-            self.map_xy[(x, y)] = [seat_id, keypad_id, x, y, x_px, y_px, hid]
-            self.map_keypad[keypad_id] = [seat_id, keypad_id, x, y, x_px, y_px, hid]
+            self.map_xy[(x, y)] = [seat_id, keypad_id, x, y, x_px, y_px, hid, group]
+            self.map_keypad[keypad_id] = [seat_id, keypad_id, x, y, x_px, y_px, hid, group]
 
         #pprint.pprint(self.map_dict)
 
@@ -94,12 +94,12 @@ class Analyzer(object):
             x_new, y_new, group_new = seats_info[keypad_id]
 
             # Extract info from original map
-            seat_id, keypad_id_old, x, y, x_px, y_px, human =\
+            seat_id, keypad_id_old, x, y, x_px, y_px, human, grp =\
             self.map_xy[(x_new, y_new)]
 
             # Combine info into map_new
             map_new.append([seat_id, keypad_id, x, y, x_px, y_px,\
-                            human, group_new])
+                            human, grp, group_new])
 
         return map_new
 
@@ -244,26 +244,62 @@ def analyze(mode, reorder, num_groups, abstention_id=None):
         for group_id in clusters:
             for keypad_id, _ in clusters[group_id]:
                 # Extract info from original map
-                seat_id, keypad_id_old, x, y, x_px, y_px, human =\
+                seat_id, keypad_id_old, x, y, x_px, y_px, human, grp =\
                         analyzer.map_keypad[keypad_id]
 
                 # Combine info into map_new
                 map_new.append([seat_id, keypad_id, x, y, x_px, y_px,\
-                                human, group_id])
+                                human, grp, group_id])
 
     print
     print "Updated Map " + \
-          "(seat-id, new-keypad-id, x, y, x_px, y_px, human, group)"
+          "(seat-id, new-keypad-id, x, y, x_px, y_px, human, theater-group, vote-group)"
     map_new.sort()
     pprint.pprint(map_new)
     return map_new
+
+
+def analyze_simple(abstention_id=None):
+    """
+    Analyzes the votes, groups them with k-means and optionally reorders the seats.
+    """
+    # Load data from tsv
+    analyzer = Analyzer("data-tmp/key.tsv", abstention_id)
+    voters, voters_simple = analyzer.read_votes_tsv(MODE_VOTE_RESULT)
+    data = analyzer.voting_correlatation_sums(voters_simple)
+
+    # Sort votes/keypads by sum of correlations
+    s = sorted(data.items(), key=lambda (k, v): v[-1])
+
+    # Extract a simple version of map
+    map_new_tmp = []
+    for keypad_id in analyzer.map_keypad:
+        map_new_tmp.append(analyzer.map_keypad[keypad_id])
+    map_new_tmp.sort()
+
+    # Just update the original map with the calculated group for each keypad.
+    map_new = []
+    cnt = 0
+    for seat_id, keypad_id_old, x, y, x_px, y_px, human, grp in map_new_tmp:
+        # Combine info into map_new
+        map_new.append([seat_id, s[cnt][0], x, y, x_px, y_px, human, grp])
+        cnt += 1
+        if cnt >= len(s):
+            break
+
+    print
+    print "Updated Map " +\
+          "(seat-id, new-keypad-id, x, y, x_px, y_px, human, theater-group)"
+    pprint.pprint(map_new)
+    return map_new
+
 
 if __name__ == '__main__':
     usage = """usage: %prog [-m mode] [options]"""
     version = "%prog " + __version__
     parser = OptionParser(usage=usage, version=version)
-    parser.add_option("-m", "--mode", nargs=1, choices=["results", "speed"],
-        dest="mode", help="Either 'results' or 'speed'")
+    parser.add_option("-m", "--mode", nargs=1, choices=["results", "speed", "simple1"],
+        dest="mode", help="Either ('results', 'speed', 'simple1')")
     parser.add_option("-n", "--num-groups", default=3, type="int",
         dest="num_groups", help="How many groups to build (default=3)")
     parser.add_option("-r", "--reorder", default=False,
@@ -288,6 +324,10 @@ if __name__ == '__main__':
     elif options.mode == "speed":
         map_new = analyze(mode=MODE_VOTE_SPEED, reorder=options.reorder,
                 num_groups=options.num_groups, abstention_id=options.vote_id)
+
+    elif options.mode == "simple1":
+        # Every keypad votes; we regroup simply based on the order of correlating-votes-sums
+        map_new = analyze_simple(abstention_id=options.vote_id)
 
     if options.out_fn:
         # Write the new map to this tsv file

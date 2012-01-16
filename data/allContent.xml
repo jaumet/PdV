@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<allContent>
+	<screen>
+	<id>0</id>
+	<type>question</type> 
+	<content>¿Te sientes capaz de utilizar el telemando sin recibir instrucciones? Es importante que te sientes en la butaca que has escogido</content>
+	<pro></pro>
+	<contra></contra>
+	<action></action>
+	<time>1800</time>
+	<answers>
+		<reply>
+			<text>Si</text> 
+			<link>1</link>
+			<statement></statement>
+		</reply>
+		<reply>
+			<text>No</text> 
+			<link>2</link>
+			<statement></statement>
+		</reply>
+	</answers>
+	</screen>
+</allContent>
+
+###############################
+
+STATEMENT
+<text></text>
+<image></image> //opcional
+<link></link>
+
+Pregunta amb PRO i CONTRA
+
+Cal afegir al allcontent TOT el guió:
+
+************ Guió tècnic: seqüència de fets.
+
+- PPT/Win Preconfig:
+	- Resolució portàtil: ?????? MAR
+	- PowerPoint en Full screen
+	- Sunvote: numero participants : 180 (Quants???? ROGER)
+	- Temps per votació: = 15 minuts
+	- Desar el file (ppt) abans de començar
+	- ... (REVISAR JAUME)
+	- Default files and paths: 
+		- c:\{PATH}\PdV\
+		- c:\{PATH}\PdV\results\key.xlsx
+		- c:\{PATH}\PdV\results\feedback.xlsx
+		
+- Primera votació: 
+	# OF: llegeix allContent.xml
+	# OF crida ROBOT (1 clic) -> neteja resultats 
+	# OF: Mostra screen 0 (votació) amb crono llarg (10 min? ROGER)
+	# TEATRE:
+		- Es reparteixen els kp i es col.loquen. 
+		- Quan donem el kp fem un vot abstenció -> cal que votin tots, aquesta votació equival al signin
+		- Els kp tenen un número. Han de seure al seient del mateix número.
+	# OF a crono 0 crida ROBOT (1 clic) -> parar votació -> 
+		# EXPORTAR o Pyodbc (???? JAUME) -> generar keys.xlsx i feedback.xlsx
+			# Si Pyodbc, Py: generar keys.xlsx i feedback.xlsx
+			# Si EXPORTAR, ROBOT -> exit fullscreen, 5 clicks x 2, fullscreen (No volem aquesta opció!!!! MAR JAUME)
+	# OF crida ROBOT (1 clic) -> neteja resultats
+	# OF: crida python run.sh export (!!!! JAUME: cal fer el run.bat)
+		(# Py: Converteix keys.xlsx i feedback.xlsx -> keys.tsv i feedback.tsv. )
+		# Py: Genera votations.xml
+	# OF: llegeix votacions.xml Passant el filtre dels actius -> Calcula i representa resultats -> I escolta el MIDI "next"
+	# MIDI: Si "next" -> llegeix allContent.xml
+	# MIDI/OF: botó BACK (???? MAR)
+	
+- Arbre de votacions
+	# OF:
+	# Py:
+	# SunV:
+
+- Aclarir els statements: tipus que n'hi ha, amb resultats sempre o no,....
+
+TYPES.
+- type:  DEBAT: 
+	# accions: crono 1 (1 min) + crono 2 (1 min) + chrono votacio
+- type: question
+- type: 
+
+- Casos amb enunciat dinamic : Hi afegim en numero de vots
+
+
+ATENCIO:: encara que eliminem kps, en realitat en recolocacio1 cada kp en representa 2, 
+i en recolocacio2, cada kp representa els del seu grup -> de cara a recompte de resultats
+
+- Recolocació 1: Pas de 180 a 90 "simple1"
+	# OF: llegeix allContent.xml "next" i troba -> <type>recolocation1</type>
+	# OF crida Py
+		# Py:
+	# SunV:
+
+- Si es dona el cas: tria president random, ..... Es podran triar 0 , 1  o 2 presidents
+	# OF:
+	# Py:
+	# SunV:
+	
+- Recolocacio 2: Pas de 90 a 5 "results" (5 grups) + recolocacio -> cal escollir un keypad per grup i anular tots els altres.(MANUALMENT??)
+	# OF:
+	# Py:
+	# SunV:
+
+- ***** MIRAR SI EL GRUP DELS MAJORITARIS POT ESTAR AL CENTRE.
+
+- Pas de 5 keypads a 1 -> central (escollir-lo)
+	# OF:
+	# Py:
+	# SunV:
+
+- Despres tots tornen a poder votar, fent musica, etc etc, -> PER DEFINIR
+	# OF:
+	# Py:
+	# SunV:
+
+- PENSAR WEB
+

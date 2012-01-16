@@ -7,22 +7,21 @@ PURPOSE
 -------
 
 This is a bunch of python scripts used for the theater show PdV (http://rogerbernat.info) .
-The show needs a voting system (hadware) and a visualization system (software: python + OpenFrameworks).
-It does several thing. Basically it gets .xlsx files , convert to .tsv, analize the data and output
-.xml and .tsv files.
+The show needs a voting system (hadware) and a voting analysis & visualization system (software: python + OpenFrameworks).
+
 
 USAGE
 -----
 
- Usage: run.sh [method_name]
+ Help: run.sh -h
 
 CREDITS
 -------
 
-freeze.sh is a rogerbernat.info project
-Copyright (C) 2010, Jaume Nualart, Chris Hager & Roger Bernat.
+
+Copyright (C) 2010, Jaume Nualart, Mar Canet, Chris Hager & Roger Bernat.
 Licensed under the GNU GPL 3
-Authors: Jaume Nualart (jaume AT nualart.cat), Chris Hager (chris AT metachris.org).
+Authors: Jaume Nualart (jaume AT nualart.cat), Mar Canet Chris Hager (chris AT metachris.org).
 Barcelona - Catalonia - UE - December 2010
 Contact/Comments: jaume AT nualart.cat
 

@@ -281,7 +281,7 @@ def build_groups(groups):
     symbols = [u"♥", u"☼", u"♪", u"✌", u"☺", u"x", u"/", u"#", u"@", u"o"]
     if not len(groups):
         # If no command-line specified group sizes, use default ones
-        groups = [35, 28, 25, 46, 36]
+        groups = [3, 8, 91, 2, 10]
     # Build the groups and return them in a list
     return [Group(symbols[i], int(groups[i])) for i in xrange(len(groups))]
 

@@ -16,6 +16,8 @@ __version__ = "0.1"
 import sys
 import os
 import pprint
+import time
+import shutil
 from optparse import OptionParser
 
 import kmeans
@@ -44,14 +46,14 @@ class Analyzer(object):
         self.map_xy = {}
         self.map_keypad = {}
         for i in f.readlines():
-            seat_id, keypad_id, x, y, x_px, y_px, hid, group = i.strip().split()
+            seat_id, keypad_id, x, y, x_px, y_px, active, group = i.strip().split()
             if keypad_id == "keypadid":
                 continue
             seat_id = int(seat_id)
             x = int(x)
             y = int(y)
-            self.map_xy[(x, y)] = [seat_id, keypad_id, x, y, x_px, y_px, hid, group]
-            self.map_keypad[keypad_id] = [seat_id, keypad_id, x, y, x_px, y_px, hid, group]
+            self.map_xy[(x, y)] = [seat_id, keypad_id, x, y, x_px, y_px, active, group]
+            self.map_keypad[keypad_id] = [seat_id, keypad_id, x, y, x_px, y_px, active, group]
 
         #pprint.pprint(self.map_dict)
 
@@ -94,12 +96,12 @@ class Analyzer(object):
             x_new, y_new, group_new = seats_info[keypad_id]
 
             # Extract info from original map
-            seat_id, keypad_id_old, x, y, x_px, y_px, human, grp =\
+            seat_id, keypad_id_old, x, y, x_px, y_px, active, grp =\
             self.map_xy[(x_new, y_new)]
 
             # Combine info into map_new
             map_new.append([seat_id, keypad_id, x, y, x_px, y_px,\
-                            human, grp, group_new])
+                            active, grp, group_new])
 
         return map_new
 
@@ -195,7 +197,7 @@ def analyze(mode, reorder, num_groups, abstention_id=None):
     """
     Analyzes the votes, groups them with k-means and optionally reorders the seats.
     """
-    # Load data from tsv
+    # Load data from tsvº
     analyzer = Analyzer("data-tmp/key.tsv", abstention_id)
     voters, voters_simple = analyzer.read_votes_tsv(mode)
 
@@ -244,16 +246,16 @@ def analyze(mode, reorder, num_groups, abstention_id=None):
         for group_id in clusters:
             for keypad_id, _ in clusters[group_id]:
                 # Extract info from original map
-                seat_id, keypad_id_old, x, y, x_px, y_px, human, grp =\
+                seat_id, keypad_id_old, x, y, x_px, y_px, active, grp =\
                         analyzer.map_keypad[keypad_id]
 
                 # Combine info into map_new
                 map_new.append([seat_id, keypad_id, x, y, x_px, y_px,\
-                                human, grp, group_id])
+                                active, grp, group_id])
 
     print
     print "Updated Map " + \
-          "(seat-id, new-keypad-id, x, y, x_px, y_px, human, theater-group, vote-group)"
+          "(seat-id, new-keypad-id, x, y, x_px, y_px, active, theater-group, vote-group)"
     map_new.sort()
     pprint.pprint(map_new)
     return map_new
@@ -280,16 +282,16 @@ def analyze_simple(abstention_id=None):
     # Just update the original map with the calculated group for each keypad.
     map_new = []
     cnt = 0
-    for seat_id, keypad_id_old, x, y, x_px, y_px, human, grp in map_new_tmp:
+    for seat_id, keypad_id_old, x, y, x_px, y_px, active, grp in map_new_tmp:
         # Combine info into map_new
-        map_new.append([seat_id, s[cnt][0], x, y, x_px, y_px, human, grp])
+        map_new.append([seat_id, s[cnt][0], x, y, x_px, y_px, active, grp])
         cnt += 1
         if cnt >= len(s):
             break
 
     print
     print "Updated Map " +\
-          "(seat-id, new-keypad-id, x, y, x_px, y_px, human, theater-group)"
+          "(seat-id, new-keypad-id, x, y, x_px, y_px, active, theater-group)"
     pprint.pprint(map_new)
     return map_new
 
@@ -330,6 +332,10 @@ if __name__ == '__main__':
         map_new = analyze_simple(abstention_id=options.vote_id)
 
     if options.out_fn:
+        # Log the old map in data-tmp/log/
+            # Check if the file exist
+        fn = "data-tmp/map.tsv" if os.path.exists("data-tmp/map.tsv") else "data/map.tsv"
+        shutil.copyfile(fn, "data-tmp/log/map-%s.tsv" % int(time.time()))
         # Write the new map to this tsv file
         f = open(options.out_fn, "w")
         for entry in map_new:

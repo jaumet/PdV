@@ -197,7 +197,7 @@ def analyze(mode, reorder, num_groups, abstention_id=None):
     Analyzes the votes, groups them with k-means and optionally reorders the seats.
     """
     # Load data from tsvº
-    analyzer = Analyzer("data-tmp/key.tsv", abstention_id)
+    analyzer = Analyzer("data-tmp/allkey.tsv", abstention_id)
     voters, voters_simple = analyzer.read_votes_tsv(mode)
 
     # Prepare data for k-means clustering

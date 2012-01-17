@@ -1,13 +1,26 @@
-import sys
-import pprint
+"""This file gets the votation list (key.tsv) and then adds the votation results' '\n'
+ 'to the active(yes,no,abs|true,false,block) column in map.tsv for each "true" keypadid.' '\n'
+ 'Finally it log map.tsv in data-temp/log/ and rewrites data-temp/map.tsv"""
 
-'''This file gets the votation list (key.tsv) and then adds the votation results
- to the active(yes,no,abs|true,false,block) column in map.tsv for each "true" keypadid.
- Finally it rewrites map.tsv'''
+import pprint
+import time
+import shutil
 
 #### Getting the data
+
 data1 = open("data-tmp/key.tsv")
 votes = [i.strip().split() for i in data1.readlines()]
+
+print len(votes)
+
+# add key.tsv to allkey.tsv. BUT change the first element of each newline (!)
+f = open("data-tmp/allkey.tsv", 'a') # 'a' open existing file to append new line
+timename = int(time.time())
+for entry in votes:
+    if entry[0] != "Topic":
+        entry[0] = timename
+    f.write("%s\n" % "\t".join([str(x) for x in entry]))
+f.close()
 
 data2 = open("data/map.tsv")
 map = [i.strip().split() for i in data2.readlines()]
@@ -19,6 +32,7 @@ map = [i.strip().split() for i in data2.readlines()]
 def main():
     #print list2tsv(votes2map(map, get_votations(votes)))
     pprint.pprint(votes2map(map, get_votations(votes)))
+    #log_rewrite_map(votes2map(map, get_votations(votes)))
 
 ####################
 def get_votations(votes):
@@ -31,6 +45,7 @@ def get_votations(votes):
 
 def votes2map(map, votes_list):
     new_map = []
+    maphead = ""
     for line in map:
         if is_number(line[0]):
             if line[9] != "false" and line[9] != "block":
@@ -42,9 +57,12 @@ def votes2map(map, votes_list):
                     elif votes_list[line[1]] == "3":
                         line[9] = "abs"
                 elif line[9] != "0":
-                    '''this are the voters who have not vote but could do it'''
+                    #this are the voters who have not vote but could do it
                     line[9] = "absXX"
             new_map.append(line)
+        else:
+            maphead = line
+    new_map.insert(0, maphead)
     return new_map
 
 def list2tsv(list):
@@ -55,6 +73,18 @@ def list2tsv(list):
         mytsv += "\n"
     mytsv = mytsv.strip()
     return mytsv
+
+def log_rewrite_map(map_new1):
+    # Log the old map in data-tmp/log/
+    # Check if the file exist
+    fn = "data/map.tsv"
+    shutil.copyfile(fn, "data-tmp/log/map-%s.tsv" % int(time.time()))
+    # Write the new map to this tsv file
+    f = open(fn, "w")
+    for entry in map_new1:
+        f.write("%s\n" % "\t".join([str(x) for x in entry]))
+        #pprint.pprint("%s\n" % "\t".join([str(x) for x in entry]))
+    f.close()
 
 def is_number(s):
     try:

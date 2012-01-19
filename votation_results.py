@@ -11,7 +11,7 @@ import shutil
 data1 = open("data-tmp/key.tsv")
 votes = [i.strip().split() for i in data1.readlines()]
 
-print len(votes)
+print ' -> number of votes: '+str(len(votes))
 
 # add key.tsv to allkey.tsv. BUT change the first element of each newline (!)
 f = open("data-tmp/allkey.tsv", 'a') # 'a' open existing file to append new line
@@ -21,6 +21,7 @@ for entry in votes:
         entry[0] = timename
     f.write("%s\n" % "\t".join([str(x) for x in entry]))
 f.close()
+print ' -> Appended votes from key.tsv to data-tmp/allkey.tsv'
 
 data2 = open("data/map.tsv")
 map = [i.strip().split() for i in data2.readlines()]
@@ -31,8 +32,8 @@ map = [i.strip().split() for i in data2.readlines()]
 ####################################
 def main():
     #print list2tsv(votes2map(map, get_votations(votes)))
-    pprint.pprint(votes2map(map, get_votations(votes)))
-    #log_rewrite_map(votes2map(map, get_votations(votes)))
+    #pprint.pprint(votes2map(map, get_votations(votes)))
+    log_rewrite_map(votes2map(map, get_votations(votes)))
 
 ####################
 def get_votations(votes):
@@ -40,7 +41,7 @@ def get_votations(votes):
     for vote in votes:
         if is_number(vote[4]):
             votes_list[vote[3]] = vote[4]
-    #pprint.pprint(votes_list)
+    pprint.pprint(votes_list)
     return votes_list
 
 def votes2map(map, votes_list):
@@ -79,12 +80,15 @@ def log_rewrite_map(map_new1):
     # Check if the file exist
     fn = "data/map.tsv"
     shutil.copyfile(fn, "data-tmp/log/map-%s.tsv" % int(time.time()))
+    print ' -> map.tsv log in data-tmp/log/'
     # Write the new map to this tsv file
     f = open(fn, "w")
     for entry in map_new1:
         f.write("%s\n" % "\t".join([str(x) for x in entry]))
         #pprint.pprint("%s\n" % "\t".join([str(x) for x in entry]))
     f.close()
+    print ' -> a new map.tsv writen'
+    print
 
 def is_number(s):
     try:

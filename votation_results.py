@@ -85,7 +85,7 @@ def log_rewrite_map(map_new1):
     f = open(fn, "w")
     for entry in map_new1:
         f.write("%s\n" % "\t".join([str(x) for x in entry]))
-        #pprint.pprint("%s\n" % "\t".join([str(x) for x in entry]))
+        pprint.pprint("%s\n" % "\t".join([str(x) for x in entry]))
     f.close()
     print ' -> a new map.tsv writen'
     print

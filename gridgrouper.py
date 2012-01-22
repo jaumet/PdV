@@ -201,7 +201,7 @@ class Group(object):
                 grid.rows else grid.rows - 1
 
         # Occupy seats until we have enough
-        while (len(self.seats) < self.count):
+        while len(self.seats) < self.count:
             if self.grid.is_free(self.cur_pos):
                 self.grid.set_used(self.cur_pos, self.id)
                 self.seats.append(Pos.copy(self.cur_pos))
@@ -278,7 +278,8 @@ class Group(object):
 def build_groups(groups):
     """Build the initial list of groups based on a list of sizes"""
     # Symbols (id/representations) to use for the groups
-    symbols = [u"♥", u"☼", u"♪", u"✌", u"☺", u"x", u"/", u"#", u"@", u"o"]
+    #symbols = [u"♥", u"☼", u"♪", u"✌", u"☺", u"x", u"/", u"#", u"@", u"o"]
+    symbols = [u"-", u"O", u"+", u"*", u"X", u"x", u"/", u"#", u"@", u"0"]
     if not len(groups):
         # If no command-line specified group sizes, use default ones
         groups = [3, 8, 91, 2, 10]

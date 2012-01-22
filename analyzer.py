@@ -130,7 +130,7 @@ class Analyzer(object):
         voters_simple = {}
         votation_ids = []
         for l in self.data[1:]:
-            print l
+            #print l
             if l[1] != "Sign":
                 # Build the list of votation ids
                 if l[0] not in votation_ids:
@@ -256,7 +256,7 @@ def analyze(mode, reorder, num_groups, abstention_id=None):
     print "Updated Map " + \
           "(seat-id, new-keypad-id, x, y, x_px, y_px, active, theater-group, vote-group)"
     map_new.sort()
-    pprint.pprint(map_new)
+    #pprint.pprint(map_new)
     return map_new
 
 
@@ -287,15 +287,10 @@ def analyze_simple(abstention_id=None):
         cnt += 1
         if cnt >= len(s):
             break
-    # TODO JAUME adding active = block for every second keypad
-    for line in map_new:
-        if line[9] != "block" and line[9] != "false" and int(line[1])%2 == 0:
-            print "canviar a block- KP = "+line[1]+" | action = "+line[9]
-            line[9] = "block"
-    print
+
     print "Updated Map " +\
           "(seat-id, new-keypad-id, x, y, x_px, y_px, section, group, type, active)"
-    pprint.pprint(map_new)
+    #pprint.pprint(map_new)
     return map_new
 
 
@@ -333,6 +328,27 @@ if __name__ == '__main__':
     elif options.mode == "simple1":
         # Every keypad votes; we regroup simply based on the order of correlating-votes-sums
         map_new = analyze_simple(abstention_id=options.vote_id)
+        # TODO JAUME adding active = block for every second keypad
+        for line in map_new:
+            if line[9] != "block" and line[9] != "false" and int(line[1])%2 == 0:
+                #print "canviar a block- KP = "+line[1]+" | action = "+line[9]
+                line[9] = "block"
+
+        data2 = open("data/map.tsv")
+        map_orig = [i.strip().split() for i in data2.readlines()]
+
+        mymap = dict()
+        for i in map_orig:
+            myindex = int(i[0])
+            mymap[myindex] = i
+        #print mymap
+        for m in map_new:
+            if m[0] in mymap:
+                mymap[m[0]] = m
+        pprint.pprint(mymap)
+
+
+
 
     if options.out_fn:
         # Log the old map in data-tmp/log/
@@ -344,3 +360,4 @@ if __name__ == '__main__':
         for entry in map_new:
             f.write("%s\n" % "\t".join([str(x) for x in entry]))
         f.close()
+

@@ -130,6 +130,7 @@ class Analyzer(object):
         voters_simple = {}
         votation_ids = []
         for l in self.data[1:]:
+            print l
             if l[1] != "Sign":
                 # Build the list of votation ids
                 if l[0] not in votation_ids:
@@ -286,7 +287,11 @@ def analyze_simple(abstention_id=None):
         cnt += 1
         if cnt >= len(s):
             break
-
+    # TODO JAUME adding active = block for every second keypad
+    for line in map_new:
+        if line[9] != "block" and line[9] != "false" and int(line[1])%2 == 0:
+            print "canviar a block- KP = "+line[1]+" | action = "+line[9]
+            line[9] = "block"
     print
     print "Updated Map " +\
           "(seat-id, new-keypad-id, x, y, x_px, y_px, section, group, type, active)"

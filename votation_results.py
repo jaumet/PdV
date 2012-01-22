@@ -1,5 +1,5 @@
-"""This file gets the votation list (key.tsv) and then adds the votation results' '\n'
- 'to the active(yes,no,abs|true,false,block) column in map.tsv for each "true" keypadid.' '\n'
+"""This file gets the votation list (key.tsv) and then adds the votation results
+    to the active(yes,no,abs|true,false,block) column in map.tsv for no ("false" or "block") keypadid.' '\n'
  'Finally it log map.tsv in data-temp/log/ and rewrites data-temp/map.tsv"""
 
 import pprint
@@ -37,6 +37,8 @@ def main():
 
 ####################
 def get_votations(votes):
+    pprint.pprint(votes)
+    #sys.exit()
     votes_list = dict()
     for vote in votes:
         if is_number(vote[4]):
@@ -48,6 +50,8 @@ def votes2map(map, votes_list):
     new_map = []
     maphead = ""
     for line in map:
+        print "line"
+        print line
         if is_number(line[0]):
             if line[9] != "false" and line[9] != "block":
                 if line[1] in votes_list:

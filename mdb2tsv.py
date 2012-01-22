@@ -1,10 +1,9 @@
 import sys
 import os
 import pprint
-import csv
 import pyodbc
 import shutil
-import pickle
+import time
 
 path = u'C:\\SunVote ARS 2010\\Resources\\DataBase\\'
 
@@ -17,14 +16,25 @@ fn1 = files[-1]
 print path
 fn1 = path+fn1
 fn = fn1.replace("\\", "\\\\")
+print "fn:"
 print fn
 #sys.exit()
+
+#### Check whether the *.ars file is empty
+if os.path.getsize(fn) > 0:
+    pass
+else:
+    print "-----------> ARS file is empty!!"
+    print os.path.getsize(fn)
+    sys.exit()
 
 #####################################
 #### cp last file everytime we want to read the votes (coz t
 #### he MS Access file looks like is blocked during votations
 fn2 = u'C:\\PdV\\00.ars'
 shutil.copyfile(fn, fn2)
+print "- Size of 00.ars:"
+print os.path.getsize(fn)
 
 #########################################
 #### pyodbc: getting the votes
@@ -35,17 +45,43 @@ DRV = '{Microsoft Access Driver (*.mdb, *.accdb)}'
 conn = pyodbc.connect('DRIVER=%s;DBQ=%s;' % (DRV,MDB))
 curs = conn.cursor()
 
-SQL = 'SELECT R_KeypadID, R_Result, R_Speed FROM ARS_Response;' # insert your query here
+#SQL = 'SELECT R_KeypadID, R_Result, R_Speed FROM ARS_Response;' # insert your query here
+SQL = 'SELECT * FROM ARS_Response;' # insert your query here
 curs.execute(SQL)
 rows = curs.fetchall()
 
 curs.close()
 conn.close()
 
-output =[]
+output = []
 for row in rows:
     print row
-    #pickle.dump("%s" % "\t".join([str(x) for x in row]), 'myoutput.tsv')
     output.append("%s" % "\t".join([str(x) for x in row]))
-print output
-print
+
+def main():
+    write_votes(list2tsvx(output))
+
+def write_votes(key):
+    # Write the new votes to key.tsv file
+    f = open("C:\PdV\data-tmp\key.tsv", "w")
+    f.write(key)
+    pprint.pprint(key)
+    f.close()
+    print " -> a new key.tsv writen in data-tmp/key.tsv"
+    return
+
+def list2tsvx(list):
+    """
+    list to string (in tsv format)
+    """
+    mytsv = "Topic\tjudge\tuser\tkeypad\tvote\tspeed\n"
+    for line in list:
+        mytsv += "%s\t" % line
+        mytsv += "\n"
+    mytsv = mytsv.strip()
+    #print "mytsv:"
+    #print mytsv
+    return mytsv
+
+##################
+main()

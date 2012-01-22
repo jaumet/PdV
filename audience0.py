@@ -26,6 +26,8 @@ def get_votations(votes):
     for vote in votes:
         if is_number(vote[4]):
             votes_list[vote[3]] = vote[4]
+    print "votes list:"+str(len(votes_list))
+    print votes_list
     return votes_list
 
 def votes2map(map, votes_list):
@@ -33,10 +35,12 @@ def votes2map(map, votes_list):
     for line in map:
         if is_number(line[0]):
             if line[1] in votes_list:
-                line[6] = "true"
+                line[9] = "true"
             else:
-                line[6] = "false"
+                line[9] = "false"
             new_map.append(line)
+    print " map0:"
+    pprint.pprint(new_map)
     return new_map
 
 def list2tsv(list):
@@ -57,13 +61,13 @@ def log_rewrite_map(map_new1):
     Check if the file exist
     """
     fn = "data/map.tsv"
-    shutil.copyfile(fn, "data-tmp/log/map0-%s.tsv" % int(time.time()))
-    print ' -> map0-XXX.tsv log in data-tmp/log/'
+    shutil.copyfile(fn, "data-tmp/log/map0.tsv")
+    print ' -> First map log in data-tmp/log/map0.tsv'
     # Write the new map to this tsv file
     f = open(fn, "w")
     f.write(map_new1)
     f.close()
-    print map_new1
+    #print map_new1
     print " -> a new map.tsv writen in data/map.tsv"
     return
 

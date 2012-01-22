@@ -1,13 +1,12 @@
 """This file choose 1 or 2 or n random values from active!=false in map.tsv and set those to active=block and rewrites map.tsv"""
 
-# TODO: Need to rewrite map adding block to the chosen keypads
+# TODO: Need to rewrite map.tav adding block to the chosen keypads and type (president)
 
 import sys
 import pprint
 import random
 
 # Getting arguments first argument
-
 #noinspection PyBroadException
 try:
 	sys.argv[1]
@@ -30,18 +29,22 @@ map = [i.strip().split() for i in map0.readlines()]
 def main():
 	print chooser(method,getvoters(map))
 
-
-####################
 def getvoters(map):
-	choosed = []
+	"""
+	 Getting the voter that can be eligible (active not false voters)
+	 """
+	eligible = []
 	for voter in map:
 		if voter[9] != "false" and is_number(voter[0]):
-			choosed.append(voter[1])
+			eligible.append(voter[1])
 	print " Possibles per elegir:"
-	print choosed
-	return choosed
+	print eligible
+	return eligible
 
 def chooser(method, voters):
+	"""
+    Choose random users from available ones and check if is possible to choose them
+    """
 	chosen = []
 	c = 0
 	if is_number(int(method)):
@@ -51,6 +54,8 @@ def chooser(method, voters):
 				chosen.append(random.choice(voters))
 				voters.remove(chosen[c])
 				c += 1
+		elif len(voters) < 1:
+			print "No eligible voters available!"
 		else:
 			print "The method is too big"
 			chosen = ["none"]

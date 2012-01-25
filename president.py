@@ -66,6 +66,8 @@ def chooser(method, voters):
 		chosen = ["none"]
 	return chosen
 
+
+
 def is_number(s):
 	try:
 		float(s)

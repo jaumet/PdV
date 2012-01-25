@@ -63,7 +63,7 @@ def votes2map(map, votes_list):
                         line[9] = "abs"
                 elif line[9] != "0":
                     #this are the voters who have not vote but could do it
-                    line[9] = "absXX"
+                    line[9] = "abs"
             new_map.append(line)
         else:
             maphead = line

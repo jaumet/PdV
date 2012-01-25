@@ -6,7 +6,6 @@ Finally it rewrites map.tsv"""
 
 import shutil
 import pprint
-import time
 
 #### Getting the data
 data1 = open("data-tmp/key.tsv")
@@ -19,18 +18,28 @@ map = [i.strip().split() for i in map0.readlines()]
 #exit()
 
 def main():
+    """
+    main function
+    """
     log_rewrite_map(list2tsv(votes2map(map, get_votations(votes))))
     #print list2tsv(votes2map(map, get_votations(votes)))
+
 def get_votations(votes):
+    """
+    Get votations
+    """
     votes_list = dict()
     for vote in votes:
         if is_number(vote[4]):
             votes_list[vote[3]] = vote[4]
     print "votes list:"+str(len(votes_list))
-    print votes_list
+    #print votes_list
     return votes_list
 
 def votes2map(map, votes_list):
+    """
+    votes 2 map
+    """
     new_map = []
     for line in map:
         if is_number(line[0]):
@@ -39,8 +48,8 @@ def votes2map(map, votes_list):
             else:
                 line[9] = "false"
             new_map.append(line)
-    print " map0:"
-    pprint.pprint(new_map)
+    #print " map0:"
+    #pprint.pprint(new_map)
     return new_map
 
 def list2tsv(list):
@@ -72,6 +81,9 @@ def log_rewrite_map(map_new1):
     return
 
 def is_number(s):
+    """
+    Check if s is number
+    """
     try:
         float(s)
         return True

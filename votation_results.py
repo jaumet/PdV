@@ -5,9 +5,24 @@
 import pprint
 import time
 import shutil
+import sys
+
+# Getting first argument
+usage = """
+	Usage:
+		python votation_results.py [questionID]
+		"""
+
+#noinspection PyBroadException
+try:
+    sys.argv[1]
+except:
+    print usage
+    sys.exit(1)
+else:
+    questionID = sys.argv[1]
 
 #### Getting the data
-
 data1 = open("data-tmp/key.tsv")
 votes = [i.strip().split() for i in data1.readlines()]
 
@@ -33,25 +48,23 @@ map = [i.strip().split() for i in data2.readlines()]
 def main():
     #print list2tsv(votes2map(map, get_votations(votes)))
     #pprint.pprint(votes2map(map, get_votations(votes)))
-    log_rewrite_map(votes2map(map, get_votations(votes)))
+    log_rewrite_map(questionID, votes2map(map, get_votations(votes)))
 
 ####################
 def get_votations(votes):
-    pprint.pprint(votes)
+    #pprint.pprint(votes)
     #sys.exit()
     votes_list = dict()
     for vote in votes:
         if is_number(vote[4]):
             votes_list[vote[3]] = vote[4]
-    pprint.pprint(votes_list)
+    #pprint.pprint(votes_list)
     return votes_list
 
 def votes2map(map, votes_list):
     new_map = []
     maphead = ""
     for line in map:
-        print "line"
-        print line
         if is_number(line[0]):
             if line[9] != "false" and line[9] != "block":
                 if line[1] in votes_list:
@@ -79,17 +92,17 @@ def list2tsv(list):
     mytsv = mytsv.strip()
     return mytsv
 
-def log_rewrite_map(map_new1):
+def log_rewrite_map(questionID, map_new1):
     # Log the old map in data-tmp/log/
     # Check if the file exist
     fn = "data/map.tsv"
-    shutil.copyfile(fn, "data-tmp/log/map-%s.tsv" % int(time.time()))
+    shutil.copyfile(fn, "data-tmp/log/map-%s-%s.tsv" % (questionID, int(time.time())))
     print ' -> map.tsv log in data-tmp/log/'
     # Write the new map to this tsv file
     f = open(fn, "w")
     for entry in map_new1:
         f.write("%s\n" % "\t".join([str(x) for x in entry]))
-        pprint.pprint("%s\n" % "\t".join([str(x) for x in entry]))
+        #pprint.pprint("%s\n" % "\t".join([str(x) for x in entry]))
     f.close()
     print ' -> a new map.tsv writen'
     print

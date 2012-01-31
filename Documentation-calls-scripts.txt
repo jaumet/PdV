@@ -3,7 +3,7 @@ Call List and scripts to call:
 
 1) The python scripts and the data files are in C:\PdV\
 
-2) The ditrectory structure is:
+2) The directory structure is:
 	C:\PdV\ -> python scripts (See description below)
 
 	C:\PdV\data\ -> 
@@ -16,23 +16,30 @@ Call List and scripts to call:
 			allkey.tsv -> all the votations (key.tsv) appended. Usefull for votes analysis
 
 
-	C:\PdV\data-tmp\log\ -> copies of all map.tsv with timestamp tag, i.e.: map-1327230982.tsv
+	C:\PdV\data-tmp\log\ -> copies of all map.tsv with questionID and timestamp tag, map-[questionID]-[tiestamp].tsv i.e.: map-12-1327230982.tsv
 
 3) Votation sequence:
 	3.0 Read allContents.xml to get the question, time & questionID and represent it
 	3.1) Click START votation
 	3.2) Click STOP votation (from allContents.xml time)
-	3.3) Call python script to EXPORT (mdb2stv.py)
+	3.3) Call python script to EXPORT votes: mdb2stv.py
+		(it creates key.tsv)
 	3.4) Click to clean the votation
-	3.5) Call python script to get the RESULTS in map.tsv (votation_results.py) passing the questionID as argument.
+	3.5) Call python script to get the RESULTS in map.tsv: votation_results.py [ID] -> passing the question ID as argument.
 	3.6) Read map.tsv from OF and represent it
 
 4) Action -> python scripts call
-	- EXPORT
-		call -> mdb2tsv.py
 
-	- FIRST VOTATION: where we put action = false (empty seats)
-		call -> audience0.py
+	NOTE: from the windows-command-line you can call directly the python scrits as it follows: c:\PdV\[script_name + argv]. F.e.:  c:\PdV\president.py 5 army
+
+	- EXPORT (takes last votes and generates 
+				c:\PdV\data-tmp\key.tsv )
+
+		call -> c:\PdV\mdb2tsv.py
+
+	- FIRST VOTATION: after first votation we put action = false (empty seats) in map.tsv for no voting keypads. False ones will not change anymore during the show, unless you wanna map again the active keypads.
+
+		call -> c:\PdV\audience0.py
 
 	- REST of votations, where we put in map.tsv: action = yes/no/abs in the not "false" and not "block" rows.
 		call -> votation_results [questionID]

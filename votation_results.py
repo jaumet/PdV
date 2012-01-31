@@ -22,6 +22,19 @@ except:
 else:
     questionID = sys.argv[1]
 
+usage = """
+	Usage:
+		python votation_results.py [questionID] "gender"(optional)
+		"""
+#noinspection PyBroadException
+try:
+    sys.argv[2]
+except:
+    gender = ""
+    pass
+else:
+    gender = sys.argv[2]
+
 #### Getting the data
 data1 = open("data-tmp/key.tsv")
 votes = [i.strip().split() for i in data1.readlines()]
@@ -42,13 +55,12 @@ data2 = open("data/map.tsv")
 map = [i.strip().split() for i in data2.readlines()]
 
 #pprint.pprint (votes)
-#exit()
 
 ####################################
 def main():
     #print list2tsv(votes2map(map, get_votations(votes)))
     #pprint.pprint(votes2map(map, get_votations(votes)))
-    log_rewrite_map(questionID, votes2map(map, get_votations(votes)))
+    log_rewrite_map(questionID, votes2map(map, get_votations(votes), gender))
 
 ####################
 def get_votations(votes):
@@ -61,7 +73,7 @@ def get_votations(votes):
     #pprint.pprint(votes_list)
     return votes_list
 
-def votes2map(map, votes_list):
+def votes2map(map, votes_list, gender):
     new_map = []
     maphead = ""
     for line in map:
@@ -70,8 +82,12 @@ def votes2map(map, votes_list):
                 if line[1] in votes_list:
                     if votes_list[line[1]] == "1":
                         line[9] = "yes"
+                        if gender == "gender":
+                            line[8] = "M"
                     elif votes_list[line[1]] == "2":
                         line[9] = "no"
+                        if gender == "gender":
+                            line[8] = "W"
                     elif votes_list[line[1]] == "3":
                         line[9] = "abs"
                 elif line[9] != "0":
@@ -81,6 +97,8 @@ def votes2map(map, votes_list):
         else:
             maphead = line
     new_map.insert(0, maphead)
+    if gender == "gender":
+        print  "   (Added M/W for Men/Women in column type of map.tsv)"
     return new_map
 
 def list2tsv(list):

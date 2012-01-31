@@ -28,7 +28,8 @@ Call List and scripts to call:
 	3.5) Call python script to get the RESULTS in map.tsv: votation_results.py [ID] -> passing the question ID as argument.
 	3.6) Read map.tsv from OF and represent it
 
-4) Action -> python scripts call
+4) SCRIPT -> python scripts call
+	In the allContents.xml, the call is inside <script></script>
 
 	NOTE: from the windows-command-line you can call directly the python scrits as it follows: c:\PdV\[script_name + argv]. F.e.:  c:\PdV\president.py 5 army
 
@@ -42,8 +43,9 @@ Call List and scripts to call:
 		call -> c:\PdV\audience0.py
 
 	- REST of votations, where we put in map.tsv: action = yes/no/abs in the not "false" and not "block" rows.
-		call -> votation_results [questionID]
+		call -> votation_results [questionID] "gender"(option)
 			(questionID is an integer number)
+			(if you pass "gender" as a second argument, the column type (W/M) will be rewriten
 		TODO JAUME: get the questionID and add it to log map
 
 	- PRESIDENT: we can choose n presidents. This scripts choose them randombly and adds action = block for each one

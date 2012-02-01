@@ -31,7 +31,7 @@ else:
 #####################################
 #### cp last file everytime we want to read the votes (coz t
 #### he MS Access file looks like is blocked during votations
-fn2 = u'C:\\PdV\\00.ars'
+fn2 = u'C:\\PdV\\data-tmp\\00.ars'
 shutil.copyfile(fn, fn2)
 print "- Size of 00.ars:"
 print os.path.getsize(fn)

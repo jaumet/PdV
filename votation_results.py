@@ -6,13 +6,14 @@ import pprint
 import time
 import shutil
 import sys
+import os
 
 # Getting first argument
+
 usage = """
 	Usage:
-		python votation_results.py [questionID]
+		python votation_results.py [questionID] "gender"(optional)
 		"""
-
 #noinspection PyBroadException
 try:
     sys.argv[1]
@@ -22,10 +23,7 @@ except:
 else:
     questionID = sys.argv[1]
 
-usage = """
-	Usage:
-		python votation_results.py [questionID] "gender"(optional)
-		"""
+
 #noinspection PyBroadException
 try:
     sys.argv[2]
@@ -36,13 +34,13 @@ else:
     gender = sys.argv[2]
 
 #### Getting the data
-data1 = open("data-tmp/key.tsv")
+data1 = open("C:\\PdV\\data-tmp\\key.tsv")
 votes = [i.strip().split() for i in data1.readlines()]
 
 print ' -> number of votes: '+str(len(votes))
 
 # add key.tsv to allkey.tsv. BUT change the first element of each newline (!)
-f = open("data-tmp/allkey.tsv", 'a') # 'a' open existing file to append new line
+f = open("C:\\PdV\\data-tmp\\allkey.tsv", 'a') # 'a' open existing file to append new line
 timename = int(time.time())
 for entry in votes:
     if entry[0] != "Topic":
@@ -51,7 +49,7 @@ for entry in votes:
 f.close()
 print ' -> Appended votes from key.tsv to data-tmp/allkey.tsv'
 
-data2 = open("data/map.tsv")
+data2 = open("C:\\PdV\\data\\map.tsv")
 map = [i.strip().split() for i in data2.readlines()]
 
 #pprint.pprint (votes)
@@ -60,9 +58,53 @@ map = [i.strip().split() for i in data2.readlines()]
 def main():
     #print list2tsv(votes2map(map, get_votations(votes)))
     #pprint.pprint(votes2map(map, get_votations(votes)))
-    log_rewrite_map(questionID, votes2map(map, get_votations(votes), gender))
+
+    if questionID >= 205:
+        abs = check4abs()
+    else:
+        abs = []
+
+    log_rewrite_map(questionID, votes2map(map, get_votations(votes), gender, abs))
 
 ####################
+def check4abs():
+    """
+    Check if a voter , has voted 4 abs for the last 4 votations. It true, then type=block them
+    """
+    # Get the list of log maps:
+    pathlog = "C:\\PdV\\data-tmp\\log\\"
+    maps = []
+    for filename in os.listdir(pathlog):
+        name = "map-"
+        if name in filename:
+            maps.append(filename)
+    maps.reverse()
+    maps = maps[:4]
+    print  "--->"
+    print maps
+    abs = []
+    c = 0
+    for map in maps:
+        data = open(pathlog+map)
+        votes = [i.strip().split() for i in data.readlines()]
+        c += 1
+        # Check abstentions
+        for vote in votes:
+            if vote[9] == "abs":
+                if c<2:
+                    abs.append(vote[1])
+            if vote[1] in abs and vote[9] != "abs":
+                try:
+                    print "remove: "+str(vote[1])
+                    abs.remove(vote[1])
+                except:
+                    pass
+
+        print "map checking: "+map
+    print abs
+    print "---------------"
+    return abs
+
 def get_votations(votes):
     #pprint.pprint(votes)
     #sys.exit()
@@ -73,13 +115,15 @@ def get_votations(votes):
     #pprint.pprint(votes_list)
     return votes_list
 
-def votes2map(map, votes_list, gender):
+def votes2map(map, votes_list, gender, abs):
     new_map = []
     maphead = ""
     for line in map:
+        if len(abs) > 0 and line[1] in abs:
+            line[9] = "block"
         if is_number(line[0]):
             if line[9] != "false" and line[9] != "block":
-                if line[1] in votes_list:
+                if line[1] in votes_list :
                     if votes_list[line[1]] == "1":
                         line[9] = "yes"
                         if gender == "gender":
@@ -90,9 +134,9 @@ def votes2map(map, votes_list, gender):
                             line[8] = "W"
                     elif votes_list[line[1]] == "3":
                         line[9] = "abs"
-                elif line[9] != "0":
+                elif line[1] != 0:
                     #this are the voters who have not vote but could do it
-                    line[9] = "abs"
+                    line[9] = "absXXX"
             new_map.append(line)
         else:
             maphead = line
@@ -111,11 +155,13 @@ def list2tsv(list):
     return mytsv
 
 def log_rewrite_map(questionID, map_new1):
-    # Log the old map in data-tmp/log/
-    # Check if the file exist
-    fn = "data/map.tsv"
-    shutil.copyfile(fn, "data-tmp/log/map-%s-%s.tsv" % (questionID, int(time.time())))
-    print ' -> map.tsv log in data-tmp/log/'
+    """
+    Log the old map in data-tmp/log/
+    Check if the file exist
+    """
+    fn = "C:\\PdV\\data\\map.tsv"
+    shutil.copyfile(fn, "C:\\PdV\\data-tmp\\log\\map-%s-%s.tsv" % (questionID, int(time.time())))
+    print ' -> map.tsv log in C:\\PdV\\data-tmp\\log\\'
     # Write the new map to this tsv file
     f = open(fn, "w")
     for entry in map_new1:

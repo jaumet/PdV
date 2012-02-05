@@ -6,34 +6,113 @@ redenir arguments per aquesta accio
 """
 
 import os
+import random
+import pprint
+import sys
 
 class CheckResults(object):
-    def __init__(self, id, vote):
+    def __init__(self, id, vote, number, action):
         """
         Class to access to the log map files snd count votes="No" or "Si"
         """
+        # arguments
         self.id = id
         self.vote = vote
-        self.path = "C:\\PdV\\data-tmp\\log\\"
+        self.action = action
+        self.number = number
+
+        # variables
+        self.pathlog = "C:\\PdV\\data-tmp\\log\\"
+        self.srcmap = "C:\\PdV\\data\\map.tsv"
         self.mytsv = ""
 
-    def get_votes(self):
+    def get_filename_from_ID(self):
         """
         get the map-log for the name starting by "map-[ID]-"
         """
-        for filename in os.listdir(self.path):
+        for filename in os.listdir(self.pathlog):
             name = "map-"+str(self.id)+"-"
-            #print filename
-            #print "---"+name
             if name in filename:
                 print  "--->"+filename
                 self.mytsv = filename
         return self.mytsv
-        #fopen(path)
 
-#################################
+    def chooser(self, mapold, number, action):
+        """
+        1) Getting the oldmap data. 2) choosing [number] random keypads (if needed). 3) writing action in current map.tsv
+        """
+        # 1)
+        file = open(self.pathlog+mapold, "r")
+        old = [i.strip().split() for i in file.readlines()]
+        negatives = []
+        for line in old:
+            if line[9] == "no":
+                negatives.append(line[1])
+        print "list of negatives votes:"
+        print negatives
 
-check = CheckResults(3, "No")
-print check.get_votes()
+        # 2)
+        if number>0:
+            choosen = []
+            c = 0
+            for x in range(int(number)):
+                choosen.append(random.choice(negatives))
+                negatives.remove(choosen[c])
+                c += 1
+            print "Choosen keypads:"
+            print choosen
+            print "numer:"
+            print number
+
+        # 3)
+        f = open(self.srcmap)
+        last = [i.strip().split() for i in f.readlines()]
+        for line in last:
+            if line[1] in negatives:
+                line[9] = action
+        mytsv = ""
+        for line1 in last:
+            for l in line1:
+                mytsv += "%s\t" % l
+            mytsv += "\n"
+        mytsv = mytsv.strip()
+        f = open(self.srcmap, "w")
+        f.write(mytsv)
+        f.close()
+        return mytsv
+
+###########################################################
+
+# language:
+# CheckResults(3, "No", 2, "block")
+# meants: take from the votation ID=3, the votes = "No". Choose 2 of tem, and put type=block in each
+
+# Getting arguments:
+usage = """
+	Usage:
+		python check_old_results.py [screenID] [vote=yes/no] [random number|0] [action=block]
+		"""
+
+
+#noinspection PyBroadException
+try:
+    id = sys.argv[1]
+    vote = sys.argv[2]
+    number = sys.argv[3]
+    action = sys.argv[4]
+except:
+    print usage
+    sys.exit(1)
+else:
+    print "id= "+id+" | vote= "+vote
+
+check = CheckResults(id, vote, number, action)
+newmap = check.chooser(check.get_filename_from_ID(), number, action)
+#print newmap
+print "We got the votation id="+str(id)
+print "We selected the votes="+vote
+if number>0:
+    print "Then we took "+str(number)+" random"
+print "Then edited the current map, with type="+action+" for selected voters"
 
 

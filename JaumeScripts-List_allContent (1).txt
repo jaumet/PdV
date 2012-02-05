@@ -1,0 +1,476 @@
+Actions del allCOntents.xml
+---------------------------
+1
+
+<screen>
+<id>30</id>
+<time>60</time>
+<content>�Preferir�as estar en penumbra y sin mando con el que decidir?</content>
+<type>question</type>
+<pro></pro>
+<contra></contra>
+<action></action>
+<script>votation_results.py</script>
+<answers>
+   <reply>
+       <text>S�</text>
+       <link>35</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>35</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>35</id>
+<time>60</time>
+<content>Los telemandos de las personas que han respondido NO quedan deshabilitados. Las decisiones serán tomadas por las personas que han votado</content>
+<type>statement</type>
+<action>se bloquean algunos mandos</action>
+<script></script>
+<link>40</link>
+</screen>
+
+Votation_results 
+redenir arguments per aquesta accio
+
+(Vots="No" from ID=30) -> type=block
+
+----> check_old_results [ID] yes 0 block
+
+Hi ha mes casos
+
+---------------------------
+2
+
+<screen>
+<id>50</id>
+<content>Los telemandos de las personas que respondieron SÍ quedan deshabilitados. Las decisiones serán tomadas por las personas que han votado NO o se han ABSTENIDO</content>
+<type>statement</type>
+<action>Bloqueo: desabilita los mandos que respondido SI</action>
+<script></script>
+<link>60</link>
+</screen>
+
+Idem 1
+Cal mirar el ID referenciat
+
+----> check_old_results [ID] yes 0 block
+
+----------------------------
+3
+
+<screen>
+<id>205</id>
+<content>El telemando de las personas que se abstengan más de 4 veces seguidas se desactivará. Las personas que hubiesen perdido su derecho a voto lo recobran.</content>
+<type>statement</type>
+<action>SE ACTIVAN LOS TELEMANDOS QUE ESTUVIERAN DESACTIVADOS.</action>
+<script></script>
+<link>200</link>
+</screen>
+
+votattion_results 
+Afegir sempre el checking de les 4 darreres votacions: 
+Per a cada keypad: si 4 abs seguides -> action=block
+
+----------------------------
+4
+
+<screen>
+<id>225</id>
+<content>¿Los recién llegados deben tener derecho a voto?</content> 
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>250</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>245</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>245</id>
+<content>Los recién llegados son extranjeros y serán también los espectadores de la sesión. No tienen derecho a voto.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>255</link>
+</screen>
+
+<screen>
+<id>250</id>
+<content>Se habilitan los telemandos de los recién llegados.</content>
+<type>statement</type>
+<action>LOS TELEMANDOS DE LOS EXTRANJEROS QUE ACABAN DE ENTRAR SON HABILITADOS (NO ANTES)</action>
+<script></script>
+<link>255</link>
+</screen>
+
+NOTA: cal que tinguem comprovats els 6 mandos que no donem i que estiguin actius , tot i que dirà action=false
+Script que posa action=true + numero de estrangers
+Cal que num d'estrabgers < llocs vuits (type=false)
+
+-------------------------------
+5
+
+<screen>
+<id>415</id>
+<content>Perdona la pregunta ¿eres un hombre?</content>
+<type>question</type>
+<action>EL SISTEMA DA LOS RESULTADOS DISCRIMINANDO SEXOS.</action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>420</link>
+        <statement>En la sala hay # mujeres y # hombres. # personas se han abstenido.</statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>420</link>
+       <statement>En la sala hay # mujeres y # hombres. # personas se han abstenido.</statement>
+   </reply>
+</answers>
+</screen>
+
+FET: repassar
+votation_results.py 415 gender
+
+--------------------------------
+6
+
+<screen>
+<id>430</id>
+<content>Las 2 personas escogidas al azar están en los asientos: # y #.</content>
+<type>statement</type>
+<action>El sistema escoge 1 hombre y 1 mujer como presidentes</action>
+<script></script>
+<link>456</link>
+</screen>
+
+Quasi FET
+president.py 2 president
+
+--------------------------------
+7
+
+<screen>
+<id>450</id>
+<content>Las personas con los telemandos # y # ostentarán la Presidencia.</content>
+<type>statement</type>
+<action>EL SISTEMA ESCOGE ENTRE LAS PERSONAS QUE HAN VOTADO SÍ, LAS DOS QUE FORMARÁN LA PRESIDENCIA.</action>
+<script></script>
+<link>451</link>
+</screen>
+
+AFEGIR ARGUMENT
+president 2 president [cercar ID]
+triar entre les persones que han votat Si al ID referenciat
+
+--------------------------------
+8
+
+<screen>
+<id>430</id>
+<content>Las 2 personas escogidas al azar están en los asientos: # y #.</content>
+<type>statement</type>
+<action>El sistema escoge 1 hombre y 1 mujer como presidentes</action>
+<script></script>
+<link>456</link>
+</screen>
+
+Quasi FET
+president.py 2 president
+
+--------------------------------
+9
+
+<screen>
+<id>490</id>
+<content>¿Deseas ser formar parte del servicio de orden de la sala?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>500</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>495</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>495</id>
+<content>Las 4 personas designadas al azar están en los asientos #, #, # y #.</content>
+<type>statement</type>
+<action>DESIGNAR 4 PERSONAS AL AZAR</action>
+<script></script>
+<link>480</link>
+</screen>
+
+president.py 4 army
+
+<screen>
+<id>500</id>
+<content>Las personas autodesignadas están en los asientos # y #. .</content>
+<type>statement</type>
+<action>EL SISTEMA ESCOGE ENTRE LAS PERSONAS QUE HAN VOTADO SÍ, LAS 4 QUE FORMARÁN EL SERVICIO DE ORDEN.</action>
+<script></script>
+<link>480</link>
+</screen>
+
+Idem 7
+AFEGIR ARGUMENT
+president 2 army [cercar ID]
+triar entre les persones que han votat Si al ID referenciat
+
+-----------------------------
+10
+
+<screen>
+<id>715</id>
+<content>Hagamos una pausa. Toma el telemando contigo y sal de la sala.</content>
+<type>statement</type>
+<action>RECOLOCACIÓ 1</action>
+<script></script>
+<link>1000</link>
+</screen>
+
+TEST:
+analyzer.py -m simple -r -o ..\data\map.tsv -3
+
+FER -> output taula:
+	keypad old / keypad new
+
+FER:
+Desactivar tots els keypads parells i activar tots els parells
+CONSULTAR ROGER
+
+<!-- *******************************************  -->
+<!-- # SEGUNDA PARTE                              -->
+<!-- *******************************************  -->
+
+<screen>
+<id>1000</id>
+<content>Has sido emparejado con la persona que en las consultas anteriores ha votado más parecido a ti#. A partir de ahora votas con ella. Los telemandos PARES han sido desactivados. Cada pareja solo tiene 1 telemando -el IMPAR- con el que votar. ¿De acuerdo?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1010</link>
+        <statement>Ahora se ve más claro.</statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1010</link>
+       <statement>Ahora se ve más claro.</statement>
+   </reply>
+</answers>
+</screen>
+
+
+-----------------------------
+11
+
+<screen>
+<id>1230</id>
+<content>Las personas con los telemandos #  y # formarán el tribunal.</content>
+<type>statement</type>
+<action>EL SISTEMA ESCOGE ENTRE LAS PERSONAS QUE HAN VOTADO SÍ, LAS DOS QUE FORMARÁN EL TRIBUNAL.</action>
+<script></script>
+<link>1215</link>
+</screen>
+
+AFEGIR ARGUMENT
+president 2 tribunal [cercar ID]
+triar entre les persones que han votat Si al ID referenciat
+
+<screen>
+<id>1215</id>
+<content>Las 2 personas escogidas al azar están en los asientos: #  y # .</content>
+<type>statement</type>
+<action>el sistema escoge 1 hombre y 1 mujer como tribunal</action>
+<script></script>
+<link>1235</link>
+</screen>
+
+FET
+president 2 tribunal
+
+------------------------------
+12
+
+
+<screen>
+<id>1720</id>
+<content>Recupera tu telemando. Hagamos una pausa. Sal de la sala y llévate el mando
+contigo.</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>15</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2000</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2000</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+TEST:
+analyzer.py -m simple -n 5 -r -o ..\data\map.tsv -3
+
+FER -> output taula:
+	keypad old / keypad new
+
+
+<!-- *******************************************  -->
+<!-- # TERCERA PARTE                              -->
+<!-- *******************************************  -->
+
+<screen>
+<id>2000</id>
+<content>En razón de las respuestas que se han dado hasta ahora, se han hecho 5 grupos. Cada grupo está formado por personas afines. Cada grupo tiene 1 solo telemando activo y, por tanto, 1 solo voto.</content>
+<type>statement</type>
+<action>Recolocación</action>
+<script></script>
+<link>2005</link>
+</screen>
+
+
+------------------------------
+13
+
+<screen>
+<id>2100</id>
+<content>La Presidencia lo está haciendo bien?</content>
+<type>debate</type>
+<action></action>
+<script></script>
+<time>15</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2115</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2105</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2105</id>
+<content>La Presidencia será ocupada a partir de ahora por el telemando #.</content>
+<type>statement</type>
+<action>(SE ELIGE OTRA PRESIDENCIA POR AZAR)</action>
+<script></script>
+<time>15</time>
+<link>2110</link>
+</screen>
+
+Script que passa els type=president a type=null
+Despres FET:
+president.py 2 president
+
+-------------------------------
+14
+
+<screen>
+<id>2195</id>
+<content>El partido que más votaciones ha ganado se quedará con el único telemando activo en la sala. A partir de ahora sólo vota el telemando # en representación de toda la sala.</content>
+<type>statement</type>
+<action>EL TELEMANDO QUE MÁS VOTACIONES HA GANADO ES EL ÚNICO OPERATIVO + CAMBIO DE SONIDO DEL VOTO. PASA DE SER UN DISPARO A SER UN SÍ O UN NO DEPENDIENDO DEL VOTO (¿)</action>
+<script></script>
+<time>15</time>
+<link>2205</link>
+</screen>
+
+Script: check votacions dels 5 keypads des de la screen 2000
+Treure de cada votació el guanyador i comptar vegades guanyat.
+Escollir el guanyador. SI hi ha enpat escollir random entre els empatats.
+Annular 
+
+IMPOSIBLE!!!!!!
+
+<screen>
+<id>2200</id>
+<content>El telemando escogido al azar es el #. A partir de ahora esta persona tomará las decisiones en nombre de toda la sala.</content>
+<type>statement</type>
+<action>SE ESCOGE UN TELEMANDO QUE ESTÉ EN EL CENTRO DE LA PLATEA + CAMBIO DE SONIDO DEL VOTO. PASA DE SER UN DISPARO A SER UN SÍ O UN NO DEPENDIENDO DEL VOTO (¿)</action>
+<script></script>
+<time>15</time>
+<link>2205</link>
+</screen>
+
+
+-------------------------------
+15
+
+ATENCIO ROGER: A l'enunciat caldria dir a tothom que pot votar de nou en aquesta votacio
+
+<screen>
+<id>2460</id>
+<content>¿Debiéramos devolver el derecho a voto a todos los presentes?</content>
+<type>question</type>
+<action>SE HABILITAN TODOS LOS TELEMANDOS</action>
+<script></script>
+<time>15</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2465</link>
+        <statement>Se habilitan todos los telemandos.</statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2465</link>
+       <statement>Los telemandos siguen deshabilitados</statement>
+   </reply>
+</answers>
+</screen>
+
+
+--------------------------------
+16
+
+Les ultimes que son aixi,
+que volen dir?
+
+<screen>
+<id>2535</id>
+<content>¿Tanto me amas?</content>
+<type>statement</type>
+<action>ES UNA VOTACIÓN</action>
+<script></script>
+<link>2540</link>
+</screen>

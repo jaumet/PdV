@@ -68,7 +68,7 @@ def chooser(number, voters):
 		elif len(voters) < 1:
 			print "No eligible voters available!"
 		else:
-			print "The method is too big"
+			print "The number "+str(len(voters))+" is too big"
 			chosen = ["none"]
 	elif number == "manual":
 		print "random: "+number

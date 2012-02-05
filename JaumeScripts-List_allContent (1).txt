@@ -40,7 +40,7 @@ redenir arguments per aquesta accio
 
 (Vots="No" from ID=30) -> type=block
 
-----> check_old_results [ID] yes 0 block
+----> check_old_results 30 no 0 - block
 
 Hi ha mes casos
 
@@ -59,7 +59,7 @@ Hi ha mes casos
 Idem 1
 Cal mirar el ID referenciat
 
-----> check_old_results [ID] yes 0 block
+----> check_old_results 45 yes 0 - block
 
 ----------------------------
 3
@@ -73,9 +73,13 @@ Cal mirar el ID referenciat
 <link>200</link>
 </screen>
 
+FET: 
 votattion_results 
 Afegir sempre el checking de les 4 darreres votacions: 
 Per a cada keypad: si 4 abs seguides -> action=block
+
+----> check_old_results - block 0 - true
+
 
 ----------------------------
 4
@@ -119,8 +123,12 @@ Per a cada keypad: si 4 abs seguides -> action=block
 </screen>
 
 NOTA: cal que tinguem comprovats els 6 mandos que no donem i que estiguin actius , tot i que dirà action=false
-Script que posa action=true + numero de estrangers
+Script que posa action=true + numero de estrangers en leypads que eren type=flase
 Cal que num d'estrabgers < llocs vuits (type=false)
+
+----> check_old_results - false 0 - true
+NOTA: aqui cal saber quants estrangers es volen activar. Maxim 6 si tenim 180 d'audiencia i 186 dseients
+
 
 -------------------------------
 5
@@ -146,7 +154,7 @@ Cal que num d'estrabgers < llocs vuits (type=false)
 </screen>
 
 FET: repassar
-votation_results.py 415 gender
+--> votation_results.py 415 gender
 
 --------------------------------
 6
@@ -160,8 +168,8 @@ votation_results.py 415 gender
 <link>456</link>
 </screen>
 
-Quasi FET
-president.py 2 president
+----> president 2 president wm
+
 
 --------------------------------
 7
@@ -178,6 +186,8 @@ president.py 2 president
 AFEGIR ARGUMENT
 president 2 president [cercar ID]
 triar entre les persones que han votat Si al ID referenciat
+
+----> check_old_results 440 yes 2 president -
 
 --------------------------------
 8
@@ -226,7 +236,8 @@ president.py 2 president
 <link>480</link>
 </screen>
 
-president.py 4 army
+---> president.py 4 army
+
 
 <screen>
 <id>500</id>
@@ -242,6 +253,9 @@ AFEGIR ARGUMENT
 president 2 army [cercar ID]
 triar entre les persones que han votat Si al ID referenciat
 
+----> check_old_results 490 yes 4 army block
+
+
 -----------------------------
 10
 
@@ -255,14 +269,16 @@ triar entre les persones que han votat Si al ID referenciat
 </screen>
 
 TEST:
-analyzer.py -m simple -r -o ..\data\map.tsv -3
 
-FER -> output taula:
-	keypad old / keypad new
+---> analyzer.py -m simple1 -r -o C:\PdV\data\maptest.tsv -c 3
 
-FER:
+FET:
 Desactivar tots els keypads parells i activar tots els parells
 CONSULTAR ROGER
+
+FET
+ -> output taula: C:\PdV\data-tmp\recolocation1.tsv
+	keypad old  keypad new
 
 <!-- *******************************************  -->
 <!-- # SEGUNDA PARTE                              -->
@@ -305,6 +321,9 @@ AFEGIR ARGUMENT
 president 2 tribunal [cercar ID]
 triar entre les persones que han votat Si al ID referenciat
 
+----> check_old_results 1220 yes 2 tribunal block
+
+
 <screen>
 <id>1215</id>
 <content>Las 2 personas escogidas al azar están en los asientos: #  y # .</content>
@@ -315,7 +334,8 @@ triar entre les persones que han votat Si al ID referenciat
 </screen>
 
 FET
-president 2 tribunal
+
+----> president 2 tribunal wm
 
 ------------------------------
 12
@@ -344,11 +364,13 @@ contigo.</content>
 </screen>
 
 TEST:
-analyzer.py -m simple -n 5 -r -o ..\data\map.tsv -3
+---> analyzer.py -m results -n 5 -r -o ..\data\map.tsv -c 3
 
-FER -> output taula:
-	keypad old / keypad new
+FET 
+ -> output taula: C:\PdV\data-tmp\recolocation1.tsv	
+keypad old / keypad nou
 
+FALTA: bloquejar tots de cada grup, meny 1
 
 <!-- *******************************************  -->
 <!-- # TERCERA PARTE                              -->
@@ -398,9 +420,9 @@ FER -> output taula:
 <link>2110</link>
 </screen>
 
-Script que passa els type=president a type=null
-Despres FET:
-president.py 2 president
+FET:
+--> president.py 2 president gender
+
 
 -------------------------------
 14

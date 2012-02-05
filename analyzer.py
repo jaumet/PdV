@@ -40,6 +40,8 @@ class Analyzer(object):
         # Read the votes tsv file
         f = open(fn)
         self.data = [i.strip().split() for i in f.readlines()]
+        if self.data[0][0] == "seatid":
+            del self.data[0]
 
         # Read map.tsv and build internal representations
         f = open("C:\\PdV\\data\\map.tsv")
@@ -100,7 +102,7 @@ class Analyzer(object):
             self.map_xy[(x_new, y_new)]
 
             # Combine info into map_new
-            map_new.append([seat_id, keypad_id, x, y, x_px, y_px, section, group, type, active, gender, group_new])
+            map_new.append([seat_id, keypad_id, x, y, x_px, y_px, section, group_new, type, active, gender])
 
         return map_new
 
@@ -131,23 +133,22 @@ class Analyzer(object):
         votation_ids = []
         for l in self.data[1:]:
             #print l
-            if l[1] != "Sign":
-                # Build the list of votation ids
-                if l[0] not in votation_ids:
-                    votation_ids.append(l[0])
-                # Add vote of this voter. If not yet exists, create empty
-                if l[3] not in voters:
-                    voters[l[3]] = {}
+            # Build the list of votation ids
+            if l[0] not in votation_ids:
+                votation_ids.append(l[0])
+            # Add vote of this voter. If not yet exists, create empty
+            if l[3] not in voters:
+                voters[l[3]] = {}
 
-                # Save the respective column of the tsv file into our data structure
-                value = l[mode]
+            # Save the respective column of the tsv file into our data structure
+            value = l[mode]
 
-                # If analizing by voting speed, we convert to float
-                if mode == MODE_VOTE_SPEED:
-                    value = float(value) if value else 0
+            # If analizing by voting speed, we convert to float
+            if mode == MODE_VOTE_SPEED:
+                value = float(value) if value else 0
 
-                # Store the value we want to analyze
-                voters[l[3]][l[0]] = value
+            # Store the value we want to analyze
+            voters[l[3]][l[0]] = value
 
         # Fill up absent votes and build list
         for v in voters.keys():
@@ -250,7 +251,7 @@ def analyze(mode, reorder, num_groups, abstention_id=None):
                         analyzer.map_keypad[keypad_id]
 
                 # Combine info into map_new
-                map_new.append([seat_id, keypad_id, x, y, x_px, y_px, section, group, type, active, gender, group_id])
+                map_new.append([seat_id, keypad_id, x, y, x_px, y_px, section, group_id, type, active, gender])
 
     print
     print "Updated Map " + \
@@ -265,7 +266,7 @@ def analyze_simple(abstention_id=None):
     Analyzes the votes, groups them with k-means and optionally reorders the seats.
     """
     # Load data from tsv
-    analyzer = Analyzer("C:\\PdV\\data-tmp\\key.tsv", abstention_id)
+    analyzer = Analyzer("C:\\PdV\\data-tmp\\allkey.tsv", abstention_id)
     voters, voters_simple = analyzer.read_votes_tsv(MODE_VOTE_RESULT)
     data = analyzer.voting_correlatation_sums(voters_simple)
 
@@ -300,6 +301,44 @@ def is_number(s):
     except ValueError:
         return False
 
+def output(map_new):
+    # TODO JAUME adding active = block for every second keypad
+    data2 = open("C:\\PdV\\data\\map.tsv")
+    map_orig = [i.strip().split() for i in data2.readlines()]
+    oldfalse_kp = []
+    for i in map_orig:
+        if is_number(i[0]):
+            if i[9] == "false":
+                oldfalse_kp.append(i[1])
+    print "oldfalse:"
+    print oldfalse_kp
+    for line in map_new:
+        if is_number(line[1]):
+            if not int(line[1]) % 2:
+                line[9] = "block"
+            else:
+                line[9] = "true"
+                # Put action0false to the empty seats in ols map.
+            if line[1] in oldfalse_kp:
+                line[9] = "false"
+                #print "------"
+                #print line[1]
+
+    recolocationmap = dict()
+    for i in map_orig:
+        if is_number(i[1]):
+            myindex = i[0]
+            recolocationmap[myindex] = i[1]
+    pprint.pprint(recolocationmap)
+
+    recolocation = []
+    for m in map_new:
+        print recolocationmap[str(m[0])]
+        if recolocationmap[str(m[0])] and is_number(m[1]):
+            a = [m[1], recolocationmap[str(m[0])]]
+            recolocation.append(a)
+            #pprint.pprint(recolocation)
+    return recolocation
 
 if __name__ == '__main__':
     usage = """usage: %prog [-m mode] [options]"""
@@ -321,12 +360,20 @@ if __name__ == '__main__':
     print
     #exit(0)
 
+    #noinspection PyUnreachableCode,PyUnreachableCode,PyUnreachableCode,PyUnreachableCode,PyUnreachableCode,PyUnreachableCode,PyUnreachableCode
     if not options.mode:
         parser.error("Please specify a mode")
 
     elif options.mode == "results":
         map_new = analyze(mode=MODE_VOTE_RESULT, reorder=options.reorder,
                 num_groups=options.num_groups, abstention_id=options.vote_id)
+        recolocation = output(map_new)
+        print recolocation
+        # Write the new map to this tsv file
+        f1 = open('C:\\PdV\\data-tmp\\recolocation2.tsv', "w")
+        for entry in recolocation:
+            f1.write("%s\n" % "\t".join([str(x) for x in entry]))
+        f1.close()
 
     elif options.mode == "speed":
         map_new = analyze(mode=MODE_VOTE_SPEED, reorder=options.reorder,
@@ -335,28 +382,13 @@ if __name__ == '__main__':
     elif options.mode == "simple1":
         # Every keypad votes; we regroup simply based on the order of correlating-votes-sums
         map_new = analyze_simple(abstention_id=options.vote_id)
-        # TODO JAUME adding active = block for every second keypad
-        for line in map_new:
-            if line[9] != "block" and line[9] != "false" and int(line[1])%2 == 0:
-                #print "canviar a block- KP = "+line[1]+" | action = "+line[9]
-                line[9] = "block"
-
-        data2 = open("C:\\PdV\\data\\map.tsv")
-        map_orig = [i.strip().split() for i in data2.readlines()]
-
-        mymap = dict()
-        for i in map_orig:
-            if is_number(i[0]):
-                myindex = int(i[0])
-                mymap[myindex] = i
-        #print mymap
-        for m in map_new:
-            if m[0] in mymap:
-                mymap[m[0]] = m
-        pprint.pprint(mymap)
-
-
-
+        recolocation = output(map_new)
+        print recolocation
+        # Write the new map to this tsv file
+        f1 = open('C:\\PdV\\data-tmp\\recolocation1.tsv', "w")
+        for entry in recolocation:
+            f1.write("%s\n" % "\t".join([str(x) for x in entry]))
+        f1.close()
 
     if options.out_fn:
         # Log the old map in data-tmp/log/
@@ -366,6 +398,10 @@ if __name__ == '__main__':
         # Write the new map to this tsv file
         f = open(options.out_fn, "w")
         for entry in map_new:
-            f.write("%s\n" % "\t".join([str(x) for x in entry]))
+            if "keypad" not in entry:
+                print "%s\n" % "\t".join([str(x) for x in entry])
+                f.write("%s\n" % "\t".join([str(x) for x in entry]))
         f.close()
+        print "+++++++++++++++++++++++++++++++++++++"
+        #print map_new
 

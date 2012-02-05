@@ -80,6 +80,7 @@ def chooser(number, voters):
 
 def update_map(type, map, chosen):
 	mytsv = ""
+
 	for line in map:
 		if line[1] in chosen and line[8] == "null":
 			line[8] = type
@@ -91,7 +92,7 @@ def update_map(type, map, chosen):
 	mytsv = mytsv.strip()
 	#pprint.pprint(mytsv)
 	# Write the new map to this tsv file
-	fn = "data/map.tsv"
+	fn = "C:\\PdV\\data\\map.tsv"
 	f = open(fn, "w")
 	f.write(mytsv)
 	#pprint.pprint("%s\n" % "\t".join([str(x) for x in entry]))

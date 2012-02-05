@@ -37,7 +37,7 @@ class CheckResults(object):
                 self.mytsv = filename
         return self.mytsv
 
-    def chooser(self, mapold, vote, number, action):
+    def chooser(self, mapold, vote, number, type, action):
         """
         1) Getting the oldmap data. 2) choosing [number] random keypads (if needed). 3) writing action in current map.tsv
         """
@@ -69,7 +69,11 @@ class CheckResults(object):
         last = [i.strip().split() for i in f.readlines()]
         for line in last:
             if line[1] in negatives:
-                line[9] = action
+                if line[8] == "W-" or line[8] == "M-":
+                    line[8] = line[8]+type
+                else:
+                    line[8] = type
+
         mytsv = ""
         for line1 in last:
             for l in line1:
@@ -101,7 +105,8 @@ try:
     id = sys.argv[1]
     vote = sys.argv[2]
     number = sys.argv[3]
-    action = sys.argv[4]
+    type = sys.argv[4]
+    action = sys.argv[5]
 except:
     print usage
     sys.exit(1)
@@ -109,12 +114,12 @@ else:
     print "id= "+id+" | vote= "+vote
 
 check = CheckResults(id, vote, number, action)
-newmap = check.chooser(check.get_filename_from_ID(), vote, number, action)
+newmap = check.chooser(check.get_filename_from_ID(), vote, number, type, action)
 #print newmap
 print "We got the votation id="+str(id)
 print "We selected the votes="+vote
 if number>0:
-    print "Then we took "+str(number)+" random"
-print "Then edited the current map, with type="+action+" for selected voters"
+    print "Then we took "+str(number)+" random."
+print "Then edited the current map, with action="+action+" for selected voters and type="+type
 
 

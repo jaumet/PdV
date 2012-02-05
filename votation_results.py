@@ -126,11 +126,11 @@ def votes2map(map, votes_list, gender, abs):
                     if votes_list[line[1]] == "1":
                         line[9] = "yes"
                         if gender == "gender":
-                            line[8] = "M"
+                            line[10] = "M"
                     elif votes_list[line[1]] == "2":
                         line[9] = "no"
                         if gender == "gender":
-                            line[8] = "W"
+                            line[10] = "W"
                     elif votes_list[line[1]] == "3":
                         line[9] = "abs"
                 else:
@@ -141,7 +141,7 @@ def votes2map(map, votes_list, gender, abs):
             maphead = line
     new_map.insert(0, maphead)
     if gender == "gender":
-        print  "   (Added M/W for Men/Women in column type of map.tsv)"
+        print  "   (Added M/W for Men/Women in column gender of map.tsv)"
     return new_map
 
 def list2tsv(list):

@@ -65,7 +65,7 @@ def main():
         abs = []
 
     log_rewrite_map(questionID, votes2map(map, get_votations(votes), gender, abs))
-
+    #print abs
 ####################
 def check4abs():
     """
@@ -89,18 +89,17 @@ def check4abs():
         votes = [i.strip().split() for i in data.readlines()]
         c += 1
         # Check abstentions
+        print "map checking: "+map
         for vote in votes:
-            if vote[9] == "abs":
-                if c<2:
-                    abs.append(vote[1])
-            if vote[1] in abs and vote[9] != "abs":
+            if vote[9] == "abs" and c<2:
+                abs.append(vote[1])
+            if vote[9] != "abs" and vote[1] in abs:
                 try:
                     print "remove: "+str(vote[1])
                     abs.remove(vote[1])
                 except:
                     pass
-
-        print "map checking: "+map
+        print abs
     print abs
     print "---------------"
     return abs
@@ -134,9 +133,9 @@ def votes2map(map, votes_list, gender, abs):
                             line[8] = "W"
                     elif votes_list[line[1]] == "3":
                         line[9] = "abs"
-                elif line[1] != 0:
+                else:
                     #this are the voters who have not vote but could do it
-                    line[9] = "absXXX"
+                    line[9] = "abs"
             new_map.append(line)
         else:
             maphead = line

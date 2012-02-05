@@ -37,7 +37,7 @@ class CheckResults(object):
                 self.mytsv = filename
         return self.mytsv
 
-    def chooser(self, mapold, number, action):
+    def chooser(self, mapold, vote, number, action):
         """
         1) Getting the oldmap data. 2) choosing [number] random keypads (if needed). 3) writing action in current map.tsv
         """
@@ -46,21 +46,21 @@ class CheckResults(object):
         old = [i.strip().split() for i in file.readlines()]
         negatives = []
         for line in old:
-            if line[9] == "no":
+            if line[9] == vote:
                 negatives.append(line[1])
         print "list of negatives votes:"
         print negatives
 
         # 2)
         if number>0:
-            choosen = []
+            chosen = []
             c = 0
             for x in range(int(number)):
-                choosen.append(random.choice(negatives))
-                negatives.remove(choosen[c])
+                chosen.append(random.choice(negatives))
+                negatives.remove(chosen[c])
                 c += 1
-            print "Choosen keypads:"
-            print choosen
+            print "Chosen keypads:"
+            print chosen
             print "numer:"
             print number
 
@@ -90,7 +90,9 @@ class CheckResults(object):
 # Getting arguments:
 usage = """
 	Usage:
-		python check_old_results.py [screenID] [vote=yes/no] [random number|0] [action=block]
+		python check_old_results.py [screenID] [vote=yes/no/abs/block/false] [random number|0] [action=block]
+		This does: take the map-205.tsv, get the keypads who have action = [vote]. form them takes X random ones. FInally
+		writes [action] in the current map
 		"""
 
 
@@ -107,7 +109,7 @@ else:
     print "id= "+id+" | vote= "+vote
 
 check = CheckResults(id, vote, number, action)
-newmap = check.chooser(check.get_filename_from_ID(), number, action)
+newmap = check.chooser(check.get_filename_from_ID(), vote, number, action)
 #print newmap
 print "We got the votation id="+str(id)
 print "We selected the votes="+vote

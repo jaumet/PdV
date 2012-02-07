@@ -40,7 +40,7 @@ redenir arguments per aquesta accio
 
 (Vots="No" from ID=30) -> type=block
 
-----> check_old_results 30 no 0 - block
+----> check_old_results.py 30 no 0 - block
 
 Hi ha mes casos
 
@@ -59,7 +59,7 @@ Hi ha mes casos
 Idem 1
 Cal mirar el ID referenciat
 
-----> check_old_results 45 yes 0 - block
+----> check_old_results.py 45 yes 0 - block
 
 ----------------------------
 3
@@ -78,7 +78,7 @@ votattion_results
 Afegir sempre el checking de les 4 darreres votacions: 
 Per a cada keypad: si 4 abs seguides -> action=block
 
-----> check_old_results - block 0 - true
+----> check_old_results.py - block 0 - true
 
 
 ----------------------------
@@ -126,7 +126,7 @@ NOTA: cal que tinguem comprovats els 6 mandos que no donem i que estiguin actius
 Script que posa action=true + numero de estrangers en leypads que eren type=flase
 Cal que num d'estrabgers < llocs vuits (type=false)
 
-----> check_old_results - false 0 - true
+----> check_old_results.py - false 0 - true
 NOTA: aqui cal saber quants estrangers es volen activar. Maxim 6 si tenim 180 d'audiencia i 186 dseients
 
 
@@ -168,15 +168,15 @@ FET: repassar
 <link>456</link>
 </screen>
 
-----> president 2 president wm
+----> president.py 2 president wm
 
 
---------------------------------
+--------------------------------# 
 7
 
 <screen>
 <id>450</id>
-<content>Las personas con los telemandos # y # ostentarán la Presidencia.</content>
+<content>Las personas con los telemandos # y ostentarán la Presidencia.</content>
 <type>statement</type>
 <action>EL SISTEMA ESCOGE ENTRE LAS PERSONAS QUE HAN VOTADO SÍ, LAS DOS QUE FORMARÁN LA PRESIDENCIA.</action>
 <script></script>
@@ -187,7 +187,7 @@ AFEGIR ARGUMENT
 president 2 president [cercar ID]
 triar entre les persones que han votat Si al ID referenciat
 
-----> check_old_results 440 yes 2 president -
+----> check_old_results.py 440 yes 2 president -
 
 --------------------------------
 8
@@ -201,7 +201,6 @@ triar entre les persones que han votat Si al ID referenciat
 <link>456</link>
 </screen>
 
-Quasi FET
 president.py 2 president
 
 --------------------------------
@@ -270,7 +269,7 @@ triar entre les persones que han votat Si al ID referenciat
 
 TEST:
 
----> analyzer.py -m simple1 -r -o C:\PdV\data\maptest.tsv -c 3
+---> analyzer.py -m simple1 -r -o C:\PdV\data\map.tsv -c 3
 
 FET:
 Desactivar tots els keypads parells i activar tots els parells
@@ -279,6 +278,7 @@ CONSULTAR ROGER
 FET
  -> output taula: C:\PdV\data-tmp\recolocation1.tsv
 	keypad old  keypad new
+ENviar a imprimir quan la gent ha sortit-> manualment des del windows cap a una imprsora preparada.
 
 <!-- *******************************************  -->
 <!-- # SEGUNDA PARTE                              -->
@@ -440,7 +440,7 @@ FET:
 Script: check votacions dels 5 keypads des de la screen 2000
 Treure de cada votació el guanyador i comptar vegades guanyat.
 Escollir el guanyador. SI hi ha enpat escollir random entre els empatats.
-Annular 
+
 
 IMPOSIBLE!!!!!!
 
@@ -454,6 +454,8 @@ IMPOSIBLE!!!!!!
 <link>2205</link>
 </screen>
 
+FALTA:
+Passar de 5 keypads a 1 keypad
 
 -------------------------------
 15
@@ -481,6 +483,7 @@ ATENCIO ROGER: A l'enunciat caldria dir a tothom que pot votar de nou en aquesta
 </answers>
 </screen>
 
+--> check_old_results.py - block 0 - true
 
 --------------------------------
 16

@@ -318,26 +318,32 @@ def output(map_new):
                 line[9] = "block"
             else:
                 line[9] = "true"
-                # Put action0false to the empty seats in ols map.
+                # Put action=false to the empty seats in old map.
             if line[1] in oldfalse_kp:
                 line[9] = "false"
                 #print "------"
-                #print line[1]
+                print line
 
     recolocationmap = dict()
     for i in map_orig:
         if is_number(i[1]):
             myindex = i[0]
             recolocationmap[myindex] = i[1]
-    pprint.pprint(recolocationmap)
+    #pprint.pprint(recolocationmap)
 
     recolocation = []
     for m in map_new:
-        print recolocationmap[str(m[0])]
-        if recolocationmap[str(m[0])] and is_number(m[1]):
-            a = [m[1], recolocationmap[str(m[0])]]
-            recolocation.append(a)
-            #pprint.pprint(recolocation)
+        try:
+            recolocationmap[str(m[0])]
+        except :
+            pass
+        else:
+            if recolocationmap[str(m[0])] and is_number(m[1]):
+                a = [recolocationmap[str(m[0])], m[0]]
+                recolocation.append(a)
+    #pprint.pprint(recolocation)
+    print "Number of recolocations:"
+    print len(recolocation)
     return recolocation
 
 if __name__ == '__main__':
@@ -367,10 +373,15 @@ if __name__ == '__main__':
     elif options.mode == "results":
         map_new = analyze(mode=MODE_VOTE_RESULT, reorder=options.reorder,
                 num_groups=options.num_groups, abstention_id=options.vote_id)
+        # Block all the keypads except one, for every group.
+
         recolocation = output(map_new)
-        print recolocation
+        #print recolocation
+
+
         # Write the new map to this tsv file
         f1 = open('C:\\PdV\\data-tmp\\recolocation2.tsv', "w")
+        f1.write("%s\n" % "seat old -> seat new")
         for entry in recolocation:
             f1.write("%s\n" % "\t".join([str(x) for x in entry]))
         f1.close()
@@ -383,23 +394,25 @@ if __name__ == '__main__':
         # Every keypad votes; we regroup simply based on the order of correlating-votes-sums
         map_new = analyze_simple(abstention_id=options.vote_id)
         recolocation = output(map_new)
-        print recolocation
+        #print recolocation
         # Write the new map to this tsv file
         f1 = open('C:\\PdV\\data-tmp\\recolocation1.tsv', "w")
+        f1.write("%s\n" % "seat old -> seat new")
         for entry in recolocation:
             f1.write("%s\n" % "\t".join([str(x) for x in entry]))
         f1.close()
+
 
     if options.out_fn:
         # Log the old map in data-tmp/log/
             # Check if the file exist
         fn = "C:\\PdV\\data-tmp\\map.tsv" if os.path.exists("C:\\PdV\\data-tmp\\map.tsv") else "C:\\PdV\\data\\map.tsv"
         shutil.copyfile(fn, "C:\\PdV\\data-tmp\\log\\map-%s.tsv" % int(time.time()))
-        # Write the new map to this tsv file
+        # Write the new map to thr map.tsv file
         f = open(options.out_fn, "w")
         for entry in map_new:
             if "keypad" not in entry:
-                print "%s\n" % "\t".join([str(x) for x in entry])
+                #print "%s\n" % "\t".join([str(x) for x in entry])
                 f.write("%s\n" % "\t".join([str(x) for x in entry]))
         f.close()
         print "+++++++++++++++++++++++++++++++++++++"

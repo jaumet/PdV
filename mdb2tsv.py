@@ -22,6 +22,7 @@ print fn
 
 #### Check whether the *.ars file is empty
 if os.path.getsize(fn) > 0:
+    print os.path.getsize(fn)
     pass
 else:
     print "-----------> ARS file is empty!!"
@@ -33,29 +34,38 @@ else:
 #### he MS Access file looks like is blocked during votations
 fn2 = u'C:\\PdV\\data-tmp\\00.ars'
 shutil.copyfile(fn, fn2)
-print "- Size of 00.ars:"
+print "- Size of "+fn
 print os.path.getsize(fn)
 
 #########################################
 #### pyodbc: getting the votes
-print fn2
-MDB = fn2
+print fn
+MDB = fn
 DRV = '{Microsoft Access Driver (*.mdb, *.accdb)}'
 
 conn = pyodbc.connect('DRIVER=%s;DBQ=%s;' % (DRV,MDB))
 curs = conn.cursor()
 
+# Get the votes:
 #SQL = 'SELECT R_KeypadID, R_Result, R_Speed FROM ARS_Response;' # insert your query here
 SQL = 'SELECT * FROM ARS_Response;' # insert your query here
 curs.execute(SQL)
 rows = curs.fetchall()
+
+# Clean the votes
+SQL = 'DELETE * FROM ARS_Response;' # insert your query here
+curs.execute(SQL)
+conn.commit()
+
+print "- Size after clean it:"
+print os.path.getsize(fn)
 
 curs.close()
 conn.close()
 
 output = []
 for row in rows:
-    print row
+    #print row
     output.append("%s" % "\t".join([str(x) for x in row]))
 
 def main():
@@ -65,7 +75,7 @@ def write_votes(key):
     # Write the new votes to key.tsv file
     f = open("C:\PdV\data-tmp\key.tsv", "w")
     f.write(key)
-    pprint.pprint(key)
+    #pprint.pprint(key)
     f.close()
     print " -> a new key.tsv writen in data-tmp/key.tsv"
     return
@@ -79,8 +89,8 @@ def list2tsvx(list):
         mytsv += "%s\t" % line
         mytsv += "\n"
     mytsv = mytsv.strip()
-    #print "mytsv:"
-    #print mytsv
+    print "mytsv:"
+    print mytsv
     return mytsv
 
 ##################

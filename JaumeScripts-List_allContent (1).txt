@@ -363,14 +363,15 @@ contigo.</content>
 </answers>
 </screen>
 
-TEST:
 ---> analyzer.py -m results -n 5 -r -o ..\data\map.tsv -c 3
 
 FET 
  -> output taula: C:\PdV\data-tmp\recolocation1.tsv	
-keypad old / keypad nou
+seat old / seat nou
 
 FALTA: bloquejar tots de cada grup, meny 1
+
+--> only5_bygroup.py
 
 <!-- *******************************************  -->
 <!-- # TERCERA PARTE                              -->

@@ -64,7 +64,7 @@ def main():
     else:
         abs = []
 
-    log_rewrite_map(questionID, votes2map(map, get_votations(votes), gender, abs))
+    log_rewrite_map(questionID, votes2map(map, get_votations(votes), gender, abs, questionID))
     #print abs
 ####################
 def check4abs():
@@ -105,19 +105,20 @@ def check4abs():
     return abs
 
 def get_votations(votes):
-    #pprint.pprint(votes)
-    #sys.exit()
     votes_list = dict()
     for vote in votes:
         if is_number(vote[4]):
             votes_list[vote[3]] = vote[4]
-    #pprint.pprint(votes_list)
     return votes_list
 
-def votes2map(map, votes_list, gender, abs):
+def votes2map(map, votes_list, gender, abs, questionID):
     new_map = []
     maphead = ""
+    count = dict()
     for line in map:
+        if questionID > 2000:
+            if line[9] == "yes" or line[9] == "no" or line[9] == "abs" or line[9] == "true":
+                count[line[1]] = line[9]
         if len(abs) > 0 and line[1] in abs:
             line[9] = "block"
         if is_number(line[0]):
@@ -142,6 +143,17 @@ def votes2map(map, votes_list, gender, abs):
     new_map.insert(0, maphead)
     if gender == "gender":
         print  "   (Added M/W for Men/Women in column gender of map.tsv)"
+    if questionID > 2000:
+        # Write the new map to this tsv file
+        f = open("C:\\PdV\\data-tmp\\count5.tsv", "a")
+        for entry in count:
+            f.write("%s\t%s\n" % (entry, count[entry]))
+            #pprint.pprint("%s\n" % "\t".join([str(x) for x in entry]))
+            pprint.pprint("%s\t%s\n" % (entry, count[entry]))
+        f.write("--\t--\n")
+        f.close()
+        print "Counter: "
+        print count
     return new_map
 
 def list2tsv(list):
@@ -153,7 +165,7 @@ def list2tsv(list):
     mytsv = mytsv.strip()
     return mytsv
 
-def log_rewrite_map(questionID, map_new1):
+def log_rewrite_map(questionID, map_new):
     """
     Log the old map in data-tmp/log/
     Check if the file exist
@@ -163,7 +175,7 @@ def log_rewrite_map(questionID, map_new1):
     print ' -> map.tsv log in C:\\PdV\\data-tmp\\log\\'
     # Write the new map to this tsv file
     f = open(fn, "w")
-    for entry in map_new1:
+    for entry in map_new:
         f.write("%s\n" % "\t".join([str(x) for x in entry]))
         #pprint.pprint("%s\n" % "\t".join([str(x) for x in entry]))
     f.close()

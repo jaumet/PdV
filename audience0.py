@@ -6,10 +6,10 @@ import shutil
 import pprint
 
 #### Getting the data
-data1 = open("data-tmp/key.tsv")
+data1 = open("C:\\PdV\\data-tmp\\key.tsv")
 votes = [i.strip().split() for i in data1.readlines()]
 
-map0 = open("data/map.tsv")
+map0 = open("C:\\PdV\\data\\map.tsv")
 map = [i.strip().split() for i in map0.readlines()]
 
 #pprint.pprint (map)
@@ -54,7 +54,7 @@ def list2tsv(list):
     """
     list to string (in tsv format)
     """
-    mytsv = ""
+    mytsv = "seatid	keypadid	Xcolumn	Yrow	Xpx	Ypx	section	group	type	active	gender\n"
     for line in list:
         for l in line:
             mytsv += "%s\t" % l
@@ -67,9 +67,9 @@ def log_rewrite_map(map_new1):
     Log the old map in data-tmp/log/
     Check if the file exist
     """
-    fn = "data/map.tsv"
-    shutil.copyfile(fn, "data-tmp/log/map0.tsv")
-    print ' -> First map log in data-tmp/log/map0.tsv'
+    fn = "C:\\PdV\\data\\map.tsv"
+    shutil.copyfile(fn, "C:\\PdV\\data-tmp\\log\\map0.tsv")
+    print ' -> First map log in data-tmp\log\map0.tsv'
     # Write the new map to this tsv file
     f = open(fn, "w")
     f.write(map_new1)

@@ -410,6 +410,7 @@ if __name__ == '__main__':
         shutil.copyfile(fn, "C:\\PdV\\data-tmp\\log\\map-%s.tsv" % int(time.time()))
         # Write the new map to thr map.tsv file
         f = open(options.out_fn, "w")
+        f.write("seatid keypadid	Xcolumn	Yrow	Xpx	Ypx	section	group	type	active	gender\n")
         for entry in map_new:
             if "keypad" not in entry:
                 #print "%s\n" % "\t".join([str(x) for x in entry])

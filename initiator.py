@@ -3,8 +3,9 @@ initiator.oy
 
 This script is checking and preparing the Pdv file system for a new show.
 What it does?
-1) Asks to make a copy of the [PdV directory] in [log directory]
-2)
+#ToDo
+1) Asks to make a copy of the [PdV\data\] and [PdV\data-tmp\] in [PdVlogs]
+2) Put the default data for the theater in the main PdV directory. P.e.: PdV\PdVdefault\madrid\ -> [PdV\data\] and [PdV\data-tmp\]
 """
 from cgi import logfile
 import sys
@@ -23,7 +24,7 @@ class Initiator:
         self.pdvdefault = "C:\\PdV\\PdVdefault\\"
         self.backup = ""
 
-    def make_backup(self, pdvdatadir, pdvlog, pdvdatatmpdir):
+    def make_backup(self, pdvdatadir, pdvlog, pdvdatatmpdir, pdvdir):
         """
         make a PdV back up moving the directory
         """
@@ -37,20 +38,26 @@ class Initiator:
         print
         return
 
-    def put_default_code(self, pdvdatadir, pdvdatatmpdir, pdvdefault):
+    def put_default_code(self, pdvdatadir, pdvdatatmpdir, pdvdefault, pdvdir):
         theater = raw_input(" -> Which theater (madrid)?")
-        if theater == "madrid":
-            #shutil.copytree(pdvdefault+theater+"\\data-tmp", pdvdatadir)
+        if theater == "madrid" or theater == "":
             try:
-                #shutil.move(pdvdir+"\\data-tmp", pdvdir+"\\data-tmpLALALA")
-                shutil.copytree(pdvdefault+theater+"\\data", pdvdatadir)
-                shutil.copytree(pdvdefault+theater+"\\data-tmp", pdvdatatmpdir)
+                shutil.rmtree(pdvdatadir)
+                shutil.copytree(pdvdefault+theater+"\\data", pdvdir)
             except:
-                print "The path "+pdvdefault+theater+"\\data-tmp doesn't exist or is not accessible."
-                print "Create it run again this script"
+                print
+                print "Copy "+pdvdefault+theater+"\\data to "+pdvdir+" doesn't work."
                 print "bye!"
                 sys.exit(2)
-            print " ... restarting PdV code from the directory "+pdvdefault+theater+" to the default directory ..."
+            try:
+                shutil.rmtree(pdvdatatmpdir)
+                shutil.copytree(pdvdefault+theater+"\\data-tmp", pdvdir)
+            except:
+                print
+                print "Copy "+pdvdefault+theater+"\\data-tmp to "+pdvdir+" doesn't work."
+                print "bye!"
+                sys.exit(2)
+            print " ... restarting PdV data from the directory "+pdvdefault+theater+" to the default directory ..."
             print "... Done"
         else:
             print "I cannot find "+pdvdefault+theater+"\\data-tmp. Default data not copyed (!)"
@@ -63,9 +70,9 @@ def main():
     pdvdefault = X.pdvdefault
     pdvdatadir = X.pdvdatadir
     pdvdatatmpdir = X.pdvdatatmpdir
-    backup = raw_input(" -> Step 1/4 :do you want to make a backup copy of "+pdvdir+" and move it to the directory "+pdvlog+"?")
+    backup = raw_input(" -> Step 1/4 :do you want to make a backup copy of "+pdvdir+" and move it to the directory "+pdvlog+"? (y/n)")
     if backup == "y":
-        X.make_backup(pdvdatadir, pdvlog, pdvdatatmpdir)
+        X.make_backup(pdvdatadir, pdvlog, pdvdatatmpdir, pdvdir)
         print " ... Done"
     else:
         print pdvdir+" directory has not been changed at all."
@@ -75,7 +82,7 @@ def main():
     print "No? Then you need to edit "+pdvdir+"\\data\\map.tsv, the 2ond column, keypadID and fill it up"
     put_default = raw_input(" -> Step 3/4: Add the default PdV data-tmp to "+pdvdir+" ? (y/n)")
     if put_default == "y":
-        X.put_default_code(pdvdatadir, pdvdatatmpdir, pdvdefault)
+        X.put_default_code(pdvdatadir, pdvdatatmpdir, pdvdefault, pdvdir)
         l = "... Done"
     return
 ########################

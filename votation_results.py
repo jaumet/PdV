@@ -56,18 +56,14 @@ map = [i.strip().split() for i in data2.readlines()]
 
 ####################################
 def main():
-    #print list2tsv(votes2map(map, get_votations(votes)))
-    #pprint.pprint(votes2map(map, get_votations(votes)))
-
     if questionID >= 205:
         abs = check4abs()
     else:
         abs = []
 
     log_rewrite_map(questionID, votes2map(map, get_votations(votes), gender, abs, questionID))
-    #print abs
     debug()
-####################
+
 def check4abs():
     """
     Check if a voter , has voted 4 abs for the last 4 votations. It true, then type=block them

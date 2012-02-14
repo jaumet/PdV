@@ -2,8 +2,6 @@
 to the "active" column in map.tsv for each keypadid. When keypadid is not present, then adds "false"
 Finally it rewrites map.tsv"""
 
-#TODO manca reescriure map.tsv despres de list2tsv
-
 import shutil
 import pprint
 

@@ -66,6 +66,7 @@ def main():
 
     log_rewrite_map(questionID, votes2map(map, get_votations(votes), gender, abs, questionID))
     #print abs
+    debug()
 ####################
 def check4abs():
     """
@@ -188,6 +189,13 @@ def is_number(s):
         return True
     except ValueError:
         return False
+
+def debug():
+    data = "C:\\PdV\\data\\debug.txt"
+    f = open(data, "w")
+    f.write("votations call\n")
+    f.close()
+
 
 ###################
 main()

@@ -42,7 +42,7 @@ def votes2map(map, votes_list):
     for line in map:
         if is_number(line[0]):
             if line[1] in votes_list:
-                line[9] = "true"
+                line[9] = "yes"
             else:
                 line[9] = "false"
             new_map.append(line)
@@ -54,10 +54,11 @@ def list2tsv(list):
     """
     list to string (in tsv format)
     """
-    mytsv = "seatid	keypadid	Xcolumn	Yrow	Xpx	Ypx	section	group	type	active	gender\n"
+    mytsv = "seatid\tkeypadid\tXcolumn\tYrow\tXpx\tYpx\tsection\tgroup\ttype\tactive\tgender\n"
     for line in list:
         for l in line:
             mytsv += "%s\t" % l
+        mytsv = mytsv.strip()
         mytsv += "\n"
     mytsv = mytsv.strip()
     return mytsv

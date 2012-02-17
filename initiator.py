@@ -18,8 +18,8 @@ class Initiator:
         init def
         """
         self.pdvdir = "C:\\PdV\\"
-        self.pdvdatadir = "C:\\PdV\\data\\"
-        self.pdvdatatmpdir = "C:\\PdV\\data-tmp\\"
+        self.pdvdatadir = "C:\\PdV\\data"
+        self.pdvdatatmpdir = "C:\\PdV\\data-tmp"
         self.pdvlog = "C:\\PdV\\PdVlogs\\"
         self.pdvdefault = "C:\\PdV\\PdVdefault\\"
         self.backup = ""
@@ -41,20 +41,22 @@ class Initiator:
     def put_default_code(self, pdvdatadir, pdvdatatmpdir, pdvdefault, pdvdir):
         theater = raw_input(" -> Which theater (madrid)?")
         if theater == "madrid" or theater == "":
+            theater = "madrid"
             try:
                 shutil.rmtree(pdvdatadir)
-                shutil.copytree(pdvdefault+theater+"\\data", pdvdir)
+                print "Remove done...."
+                shutil.copytree(pdvdefault+theater+"\\data", pdvdatadir)
             except:
                 print
-                print "Copy "+pdvdefault+theater+"\\data to "+pdvdir+" doesn't work."
+                print "ERROR: Copy "+pdvdefault+theater+"\data to "+pdvdatadir+" doesn't work."
                 print "bye!"
                 sys.exit(2)
             try:
                 shutil.rmtree(pdvdatatmpdir)
-                shutil.copytree(pdvdefault+theater+"\\data-tmp", pdvdir)
+                shutil.copytree(pdvdefault+theater+"\data-tmp", pdvdatatmpdir)
             except:
                 print
-                print "Copy "+pdvdefault+theater+"\\data-tmp to "+pdvdir+" doesn't work."
+                print "ERROR: Copy "+pdvdefault+theater+"\data-tmp to "+pdvdatatmpdir+" doesn't work."
                 print "bye!"
                 sys.exit(2)
             print " ... restarting PdV data from the directory "+pdvdefault+theater+" to the default directory ..."
@@ -77,9 +79,11 @@ def main():
     else:
         print pdvdir+" directory has not been changed at all."
         print
+    print
     print " -> Step 2/4 : KeypadIDs-SeatsIDs synchronization."
     print "Is this done? You need to open Sunvote software and check one by one the keypads and stick on their number"
     print "No? Then you need to edit "+pdvdir+"\\data\\map.tsv, the 2ond column, keypadID and fill it up"
+    print
     put_default = raw_input(" -> Step 3/4: Add the default PdV data-tmp to "+pdvdir+" ? (y/n)")
     if put_default == "y":
         X.put_default_code(pdvdatadir, pdvdatatmpdir, pdvdefault, pdvdir)

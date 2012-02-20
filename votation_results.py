@@ -56,13 +56,13 @@ map = [i.strip().split() for i in data2.readlines()]
 
 ####################################
 def main():
-    if questionID >= 205:
+    if int(questionID) >= 205:
         abs = check4abs()
     else:
         abs = []
 
     log_rewrite_map(questionID, votes2map(map, get_votations(votes), gender, abs, questionID))
-    debug()
+    #debug()
 
 def check4abs():
     """
@@ -113,7 +113,7 @@ def votes2map(map, votes_list, gender, abs, questionID):
     maphead = ""
     count = dict()
     for line in map:
-        if questionID > 2000:
+        if int(questionID) > 2000:
             if line[9] == "yes" or line[9] == "no" or line[9] == "abs" or line[9] == "true":
                 count[line[1]] = line[9]
         if len(abs) > 0 and line[1] in abs:
@@ -121,11 +121,11 @@ def votes2map(map, votes_list, gender, abs, questionID):
         if is_number(line[0]):
             if line[9] != "false" and line[9] != "block":
                 if line[1] in votes_list :
-                    if votes_list[line[1]] == "1":
+                    if votes_list[line[1]] == "2":
                         line[9] = "yes"
                         if gender == "gender":
                             line[10] = "M"
-                    elif votes_list[line[1]] == "2":
+                    elif votes_list[line[1]] == "1":
                         line[9] = "no"
                         if gender == "gender":
                             line[10] = "W"
@@ -133,14 +133,17 @@ def votes2map(map, votes_list, gender, abs, questionID):
                         line[9] = "abs"
                 else:
                     #this are the voters who have not vote but could do it
-                    line[9] = "abs"
+                    if int(questionID) == 1:
+                        line[9] = "false"
+                    else:
+                        line[9] = "abs"
             new_map.append(line)
         else:
             maphead = line
     new_map.insert(0, maphead)
     if gender == "gender":
         print  "   (Added M/W for Men/Women in column gender of map.tsv)"
-    if questionID > 2000:
+    if int(questionID) > 2000:
         # Write the new map to this tsv file
         f = open("C:\\PdV\\data-tmp\\count5.tsv", "a")
         for entry in count:

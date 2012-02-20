@@ -90,6 +90,7 @@ class CheckResults(object):
         for line1 in last:
             for l in line1:
                 mytsv += "%s\t" % l
+            mytsv = mytsv.strip()
             mytsv += "\n"
         mytsv = mytsv.strip()
         f = open(self.srcmap, "w")

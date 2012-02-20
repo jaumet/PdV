@@ -70,6 +70,7 @@ class mdb2tsv:
         # delete all existing rows
         self.clean_odbc(self.curs)
         self.conn.commit()
+        print "clean data done"
 
     def getAndCleanDatabase(self):
         self.getMBC_cursor()
@@ -92,7 +93,7 @@ class mdb2tsv:
         for row in rows:
             #print row
             self.output.append("%s" % "\t".join([str(x) for x in row]))
-        print "clean data done"
+
 
 
     def main(self):

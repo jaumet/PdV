@@ -32,38 +32,44 @@ class Initiator:
         logfile = pdvlog+"\\pdv_log-%s" % int(time.time())
         print
         print " ... moving "+pdvdatatmpdir+" to "+logfile+" ..."
-        shutil.copytree(pdvdatatmpdir, logfile+"\\data-tmp")
+
+        shutil.copytree(pdvdatatmpdir, logfile+"\\data-tmp", ignore=self.ignored_files)
+
+        #shutil.copytree(pdvdatatmpdir, logfile+"\\data-tmp")
         print " ... moving "+pdvdatadir+" to "+logfile+" ..."
-        shutil.copytree(pdvdatadir, logfile+"\\data")
+        shutil.copytree(pdvdatadir, logfile+"\\data", ignore=self.ignored_files)
+        #shutil.copytree(pdvdatadir, logfile+"\\data")
         print "... Done"
         print
         return
 
+    def ignored_files(self,adir,filenames):
+        return [filename for filename in filenames if filename.endswith('svn')]
+
     def put_default_code(self, pdvdatadir, pdvdatatmpdir, pdvdefault, pdvdir):
-        #theater = raw_input(" -> Which theater (madrid)?")
-        #if theater == "madrid" or theater == "":
         theater = "madrid"
         try:
             shutil.rmtree(pdvdatadir)
-            print "Remove done...."
-            shutil.copytree(pdvdefault+theater+"\\data", pdvdatadir)
-        except:
+            print "Remove "+pdvdatadir+" done...."
+            shutil.copytree(pdvdefault+theater+"\\data", pdvdatadir , ignore=self.ignored_files)
+            #shutil.copytree(pdvdefault+theater+"\\data", pdvdatadir)
+        except OSError:
             print
-            print "ERROR: Copy "+pdvdefault+theater+"\data to "+pdvdatadir+" doesn't work."
-            print "bye!"
+            print "ERROR1: Copy "+pdvdefault+theater+"\data to "+pdvdatadir+" doesn't work."
+            print "!!!!!!"
             sys.exit(2)
         try:
             shutil.rmtree(pdvdatatmpdir)
-            shutil.copytree(pdvdefault+theater+"\\data-tmp", pdvdatatmpdir)
+            print "Remove "+pdvdatatmpdir+" done...."
+            shutil.copytree(pdvdefault+theater+"\\data-tmp", pdvdatatmpdir, ignore=self.ignored_files)
         except:
             print
-            print "ERROR: Copy "+pdvdefault+theater+"\data-tmp to "+pdvdatatmpdir+" doesn't work."
-            print "bye!"
+            print "ERROR2: Copy "+pdvdefault+theater+"\data-tmp to "+pdvdatatmpdir+" doesn't work."
+            print "!!!!!!"
             sys.exit(2)
+        print
         print " ... restarting PdV data from the directory "+pdvdefault+theater+" to the default directory ..."
         print "... Done"
-        #else:
-        #    print "I cannot find "+pdvdefault+theater+"\\data-tmp. Default data not copyed (!)"
         return
 
 def main():
@@ -77,22 +83,13 @@ def main():
     pdvdefault = X.pdvdefault
     pdvdatadir = X.pdvdatadir
     pdvdatatmpdir = X.pdvdatatmpdir
-    #backup = raw_input(" -> Step 1/4 :do you want to make a backup copy of "+pdvdir+" and move it to the directory "+pdvlog+"? (y/n)")
-    #if backup == "y":
+
     X.make_backup(pdvdatadir, pdvlog, pdvdatatmpdir, pdvdir)
-    print " ... Done"
-    #else:
-    #    print pdvdir+" directory has not been changed at all."
-    #    print
+
     print
-    print " -> Step 2/4 : KeypadIDs-SeatsIDs synchronization."
-    print "Is this done? You need to open Sunvote software and check one by one the keypads and stick on their number"
-    print "No? Then you need to edit "+pdvdir+"\\data\\map.tsv, the 2ond column, keypadID and fill it up"
-    print
-    #put_default = raw_input(" -> Step 3/4: Add the default PdV data-tmp to "+pdvdir+" ? (y/n)")
-    #if put_default == "y":
     X.put_default_code(pdvdatadir, pdvdatatmpdir, pdvdefault, pdvdir)
-    print "... Done"
+    print
+    print "All done. Bye!"
     return
 ########################
 main()

@@ -121,11 +121,11 @@ def votes2map(map, votes_list, gender, abs, questionID):
         if is_number(line[0]):
             if line[9] != "false" and line[9] != "block":
                 if line[1] in votes_list :
-                    if votes_list[line[1]] == "2":
+                    if votes_list[line[1]] == "1":
                         line[9] = "yes"
                         if gender == "gender":
                             line[10] = "M"
-                    elif votes_list[line[1]] == "1":
+                    elif votes_list[line[1]] == "2":
                         line[9] = "no"
                         if gender == "gender":
                             line[10] = "W"

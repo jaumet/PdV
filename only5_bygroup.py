@@ -13,7 +13,7 @@ import sys
 class CheckResults(object):
     def __init__(self):
         """
-        Class to access to the log map files snd count votes="No" or "Si"
+        Class to access to the log map files and count votes="no" or "yes"
         """
         # variables
         self.pathlog = "C:\\PdV\\data-tmp\\log\\"
@@ -23,9 +23,9 @@ class CheckResults(object):
 
     def chooser(self):
         """
-        1) Get the vots of the last map
+        1) Get the votes of the last map
         2) make lists of voters per group.
-        3) Chose one per group
+        3) Choose one per group
         4) Block all voters except the chosen ones
         """
         # 1)
@@ -33,6 +33,7 @@ class CheckResults(object):
         old = [i.strip().split() for i in file.readlines()]
         # 2)
         groups = [0,0,0,0,0,0]
+        groups[0] = []
         groups[1] = []
         groups[2] = []
         groups[3] = []
@@ -42,6 +43,8 @@ class CheckResults(object):
             #print line
             # We chose from voter that are there, that are not false and has type = null
             if line[7] != "0" and line[9] != "false" and line[8] == "null":
+                if line[7] == "0":
+                    groups[0].append(line[1])
                 if line[7] == "1":
                     groups[1].append(line[1])
                 elif line[7] == "2":
@@ -51,15 +54,21 @@ class CheckResults(object):
                 elif line[7] == "4":
                     groups[4].append(line[1])
                 elif line[7] == "5":
+                    print "555555555555555"
                     groups[5].append(line[1])
-        pprint.pprint(groups)
+
 
         # 3) Chose one per group
         chosen = []
-        del groups[0]
-        for i in xrange(0,5):
+        #del groups[5]
+        for g in groups:
+            pprint.pprint(g)
+            print
+        for i in xrange(0,6):
             print i
-            chosen.append(choice(groups[i]))
+            if len(groups[i])>0:
+                print "-- "+str(i)
+                chosen.append(choice(groups[i]))
         print "-> 5 chosen keypads:"
         pprint.pprint(chosen)
 

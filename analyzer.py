@@ -69,7 +69,8 @@ class Analyzer(object):
         # calculate kmeans with simplified data
         data = []
         for voter in sums.keys():
-            data.append([voter, sums[voter][-1]])
+            if "keypad" not in voter:
+                data.append([voter, sums[voter][-1]])
         return kmeans.kmeans(data, num_clusters)
 
     def grid_reorder(self, clusters, gridsize="31x6"):
@@ -106,8 +107,11 @@ class Analyzer(object):
             x_new, y_new, group_new = seats_info[keypad_id]
 
             # Extract info from original map
-            seat_id, keypad_id_old, x, y, x_px, y_px, section, group, type, active, gender =\
-            self.map_xy[(x_new, y_new)]
+            try: # JAUME
+                seat_id, keypad_id_old, x, y, x_px, y_px, section, group, type, active, gender =\
+                self.map_xy[(x_new, y_new)]
+            except:
+                pass
 
             # Combine info into map_new
             map_new.append([seat_id, keypad_id, x, y, x_px, y_px, section, group_new, type, active, gender])
@@ -230,6 +234,8 @@ def analyze(mode, reorder, num_groups, abstention_id=None):
     print
     print "Number of people in each cluster: "
     print [len(clusters[key]) for key in clusters]
+    print len([clusters[key] for key in clusters])
+    pprint.pprint([clusters[key] for key in clusters])
     print
 
     for group_id in clusters:
@@ -313,7 +319,7 @@ def analyze_simpleMar(abstention_id=None):
     cnt = 1
     for seat_id, keypad_id_old, x, y, x_px, y_px, section, group, type, active, gender in map_new_tmp:
         # Combine info into map_new
-        map_new.append([cnt,s[cnt][0] , x, y, x_px, y_px, section, group, type, active, gender])
+        map_new.append([cnt, s[cnt][0], map_orig[cnt][2], map_orig[cnt][3], map_orig[cnt][4], map_orig[cnt][5], map_orig[cnt][6], group, type, active, gender])
         cnt += 1
         if cnt >= len(s):
             break
@@ -334,6 +340,11 @@ def analyze_simpleMar(abstention_id=None):
             if i[9] == "false":
                 #i[0] = int(i[0])
                 i[0] = int(cnt)
+                i[2] = map_orig[cnt][2]
+                i[3] = map_orig[cnt][3]
+                i[4] = map_orig[cnt][4]
+                i[5] = map_orig[cnt][5]
+                i[6] = map_orig[cnt][6]
                 map_new.append(i)
                 cnt += 1
     			
@@ -343,21 +354,21 @@ def analyze_simpleMar(abstention_id=None):
 
 	#print oldfalse_kp
     for line in map_new:
-        if is_number(line[0]):
+        if is_number(line[0]) and not line[9] == "false":
             if not int(line[0]) % 2:
                 line[9] = "block"
             else:
                 line[9] = "true"
 				
     # Mar: write false if was before
-	
+    '''
     for line in map_new:
         if is_number(line[0]):
             if str(line[1])  in oldfalse_kp:
                 # Put action=false to the empty seats in old map.
                 line[9] = "false"
-
-    pprint.pprint(map_new)
+    '''
+    #pprint.pprint(map_new)
     #print "maaaaaaaaaaaaaaap"
     #sys.exit()
     return map_new
@@ -486,16 +497,12 @@ if __name__ == '__main__':
                 num_groups=options.num_groups, abstention_id=options.vote_id)
         # Block all the keypads except one, for every group.
 
-        recolocation = output(map_new)
-        #print recolocation
-
-
-        # Write the new map to this tsv file
-        f1 = open('C:\\PdV\\data-tmp\\recolocation2.tsv', "w")
-        f1.write("%s\n" % "seat old -> seat new")
-        for entry in recolocation:
-            f1.write("%s\n" % "\t".join([str(x) for x in entry]))
-        f1.close()
+        # JAUME Write the new map to this tsv file
+        #f1 = open('C:\\PdV\\data-tmp\\recolocation2.tsv', "w")
+        #f1.write("%s\n" % "seat old -> seat new")
+        #for entry in output(map_new):
+        #    f1.write("%s\n" % "\t".join([str(x) for x in entry]))
+        #f1.close()
 
     elif options.mode == "speed":
         map_new = analyze(mode=MODE_VOTE_SPEED, reorder=options.reorder,

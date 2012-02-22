@@ -282,7 +282,7 @@ def build_groups(groups):
     symbols = [u"-", u"O", u"+", u"*", u"X", u"x", u"/", u"#", u"@", u"0"]
     if not len(groups):
         # If no command-line specified group sizes, use default ones
-        groups = [3, 8, 91, 2, 10]
+        groups = [3, 8, 150, 2, 10]
     # Build the groups and return them in a list
     return [Group(symbols[i], int(groups[i])) for i in xrange(len(groups))]
 

@@ -13,6 +13,7 @@ Authors:
 
 __version__ = "0.1"
 
+from operator import itemgetter
 import sys
 import os
 import pprint
@@ -49,6 +50,8 @@ class Analyzer(object):
         self.map_keypad = {}
         for i in f.readlines():
             seat_id, keypad_id, x, y, x_px, y_px, section, group, type, active, gender = i.strip().split()
+            #print seat_id
+            #print "vvvvvvvvvvvvvvvvvvv"
             if keypad_id == "keypadid":
                 continue
             seat_id = int(seat_id)
@@ -56,7 +59,10 @@ class Analyzer(object):
             y = int(y)
             self.map_xy[(x, y)] = [seat_id, keypad_id, x, y, x_px, y_px, section, group, type, active, gender]
             self.map_keypad[keypad_id] = [seat_id, keypad_id, x, y, x_px, y_px, section, group, type, active, gender]
-
+        #### TODO
+        #print "--------------"
+        #print self.map_keypad
+        #sys.exit()
         #pprint.pprint(self.map_dict)
 
     def kmeans(self, sums, num_clusters=3):
@@ -90,6 +96,8 @@ class Analyzer(object):
         """
         Map the regrouped voters back to the original map.tsv (theater seats mapping)
         """
+        #print "fffff"
+        #print seats_info
         # Build new map: replace keypad_id and group in original map based
         # on the x/y coordinates.
         map_new = []
@@ -179,7 +187,7 @@ class Analyzer(object):
             votecounts.append(c)
 
         print "Summary: vote count per votation"
-        pprint.pprint(votecounts)
+        #pprint.pprint(votecounts)
         print
 
         # Replace votes with sum of people with same vote
@@ -254,12 +262,105 @@ def analyze(mode, reorder, num_groups, abstention_id=None):
                 map_new.append([seat_id, keypad_id, x, y, x_px, y_px, section, group_id, type, active, gender])
 
     print
-    print "Updated Map " + \
+    print "Updated Map 1" + \
           "(seat-id, new-keypad-id, x, y, x_px, y_px, active, theater-group, vote-group)"
-    map_new.sort()
-    #pprint.pprint(map_new)
     return map_new
 
+def analyze_simpleMar(abstention_id=None):
+    """
+    Analyzes the votes, groups them with k-means and optionally reorders the seats.
+    """
+    # Load map
+    data2 = open("C:\\PdV\\data\\map.tsv")
+    map_orig = [i.strip().split() for i in data2.readlines()]
+    oldfalse_kp = []
+    for i in map_orig:
+        if is_number(i[0]):
+            if i[9] == "false":
+                oldfalse_kp.append(str(i[1]))
+		
+    # Load data from tsv
+    analyzer = Analyzer("C:\\PdV\\data-tmp\\allkey.tsv", abstention_id)
+    voters, voters_simple = analyzer.read_votes_tsv(MODE_VOTE_RESULT)
+    data = analyzer.voting_correlatation_sums(voters_simple)
+
+    # Sort votes/keypads by sum of correlations
+    s = sorted(data.items(), key=lambda (k, v): v[-1])
+    print "abans:"
+    print len(s)
+    #Clean false votes
+    sTemp =[] 
+    for i in range(0, len(s)):
+        if not str(s[i][0]) in oldfalse_kp:
+            sTemp.append(s[i])
+    s = sTemp
+    print "despres:"
+    print len(s)
+    
+	
+    # Extract a simple version of map
+    map_new_tmp = []
+    for keypad_id in analyzer.map_keypad:
+        if not str(keypad_id) in oldfalse_kp:
+            map_new_tmp.append(analyzer.map_keypad[keypad_id])
+            map_new_tmp.sort()
+    print "----------------"
+
+	
+	# mar: maybe not need or wrong
+    # Just update the original map with the calculated group for each keypad.
+    map_new = []
+    cnt = 1
+    for seat_id, keypad_id_old, x, y, x_px, y_px, section, group, type, active, gender in map_new_tmp:
+        # Combine info into map_new
+        map_new.append([cnt,s[cnt][0] , x, y, x_px, y_px, section, group, type, active, gender])
+        cnt += 1
+        if cnt >= len(s):
+            break
+    #print len(analyzer.map_keypad)
+    
+    print "Updated Map (simple1)" +\
+          "(seat-id, new-keypad-id, x, y, x_px, y_px, section, group, type, active, gender)"
+    #map_new.sort()
+	
+    # Fill it up de map:
+	# adding active = block for every second keypad
+   
+    
+    # Mar: Add append to false in map with no votes
+    
+    for i in map_orig:
+        if is_number(i[0]):
+            if i[9] == "false":
+                #i[0] = int(i[0])
+                i[0] = int(cnt)
+                map_new.append(i)
+                cnt += 1
+    			
+    map_new.sort(key=itemgetter(0))
+    #pprint.pprint(map_new)
+    
+
+	#print oldfalse_kp
+    for line in map_new:
+        if is_number(line[0]):
+            if not int(line[0]) % 2:
+                line[9] = "block"
+            else:
+                line[9] = "true"
+				
+    # Mar: write false if was before
+	
+    for line in map_new:
+        if is_number(line[0]):
+            if str(line[1])  in oldfalse_kp:
+                # Put action=false to the empty seats in old map.
+                line[9] = "false"
+
+    pprint.pprint(map_new)
+    #print "maaaaaaaaaaaaaaap"
+    #sys.exit()
+    return map_new
 
 def analyze_simple(abstention_id=None):
     """
@@ -277,7 +378,11 @@ def analyze_simple(abstention_id=None):
     map_new_tmp = []
     for keypad_id in analyzer.map_keypad:
         map_new_tmp.append(analyzer.map_keypad[keypad_id])
-    map_new_tmp.sort()
+    # TODO map_new_tmp.sort()
+    #print "----------------"
+    #pprint.pprint(map_new_tmp)
+    #print len(analyzer.map_keypad)
+    #sys.exit()
 
     # Just update the original map with the calculated group for each keypad.
     map_new = []
@@ -289,9 +394,24 @@ def analyze_simple(abstention_id=None):
         if cnt >= len(s):
             break
 
-    print "Updated Map " +\
+    print "Updated Map (simple1)" +\
           "(seat-id, new-keypad-id, x, y, x_px, y_px, section, group, type, active, gender)"
+    # TODO map_new.sort()
+    # Fill it up de map:
+    data2 = open("C:\\PdV\\data\\map-default-MadridCDN.tsv")
+    mymap = [i.strip().split() for i in data2.readlines()]
+    # TODO
+    for myline in mymap:
+        found = False
+        for line_new in map_new:
+            if myline[1] == line_new[1]:
+                found = True
+        if not found and is_number(myline[1]):
+            myline[9] = "false"
+            #map_new.append(myline)
+
     #pprint.pprint(map_new)
+    #sys.exit()
     return map_new
 
 def is_number(s):
@@ -302,34 +422,19 @@ def is_number(s):
         return False
 
 def output(map_new):
-    # TODO JAUME adding active = block for every second keypad
+
     data2 = open("C:\\PdV\\data\\map.tsv")
     map_orig = [i.strip().split() for i in data2.readlines()]
-    oldfalse_kp = []
-    for i in map_orig:
-        if is_number(i[0]):
-            if i[9] == "false":
-                oldfalse_kp.append(i[1])
-    print "oldfalse:"
-    print oldfalse_kp
-    for line in map_new:
-        if is_number(line[1]):
-            if not int(line[1]) % 2:
-                line[9] = "block"
-            else:
-                line[9] = "true"
-                # Put action=false to the empty seats in old map.
-            if line[1] in oldfalse_kp:
-                line[9] = "false"
-                #print "------"
-                print line
-
+    
+	# **********************************************
+	# export file recolocation1
     recolocationmap = dict()
     for i in map_orig:
         if is_number(i[1]):
-            myindex = i[0]
-            recolocationmap[myindex] = i[1]
+            myseat = i[0]
+            recolocationmap[myseat] = i[1]
     #pprint.pprint(recolocationmap)
+    #sys.exit()
 
     recolocation = []
     for m in map_new:
@@ -344,7 +449,12 @@ def output(map_new):
     #pprint.pprint(recolocation)
     print "Number of recolocations:"
     print len(recolocation)
-    return recolocation
+    # WRITE FILE
+    f1 = open('C:\\PdV\\data-tmp\\recolocation1.tsv', "w")
+    f1.write("%s\n" % "seat old -> seat new")
+    for entry in recolocation:
+        f1.write("%s\n" % "\t".join([str(x) for x in entry]))
+    f1.close()
 
 if __name__ == '__main__':
     usage = """usage: %prog [-m mode] [options]"""
@@ -360,7 +470,8 @@ if __name__ == '__main__':
         dest="out_fn", help="Output filename for new map.tsv (optional)")
     parser.add_option("-c", "--count_abstention_as", nargs=1, default=None,
         dest="vote_id", help="Count abstention to a specific vote")
-
+    #parser.add_option("-id", "--screen_id", nargs=1, default=715, type="int",
+    #    dest="questionID", help="Add the screen ID (mandatory)")
     (options, args) = parser.parse_args()
     print options
     print
@@ -392,22 +503,18 @@ if __name__ == '__main__':
 
     elif options.mode == "simple1":
         # Every keypad votes; we regroup simply based on the order of correlating-votes-sums
-        map_new = analyze_simple(abstention_id=options.vote_id)
-        recolocation = output(map_new)
+        map_new = analyze_simpleMar(abstention_id=options.vote_id)
+        output(map_new)
         #print recolocation
         # Write the new map to this tsv file
-        f1 = open('C:\\PdV\\data-tmp\\recolocation1.tsv', "w")
-        f1.write("%s\n" % "seat old -> seat new")
-        for entry in recolocation:
-            f1.write("%s\n" % "\t".join([str(x) for x in entry]))
-        f1.close()
+        
 
 
     if options.out_fn:
         # Log the old map in data-tmp/log/
             # Check if the file exist
-        fn = "C:\\PdV\\data-tmp\\map.tsv" if os.path.exists("C:\\PdV\\data-tmp\\map.tsv") else "C:\\PdV\\data\\map.tsv"
-        shutil.copyfile(fn, "C:\\PdV\\data-tmp\\log\\map-%s.tsv" % int(time.time()))
+        fn = "C:\\PdV\\data\\map.tsv"
+        shutil.copyfile(fn, "C:\\PdV\\data-tmp\\log\\map-%s-%s.tsv" % (715, int(time.time())))
         # Write the new map to thr map.tsv file
         f = open(options.out_fn, "w")
         f.write("seatid\tkeypadid\tXcolumn\tYrow\tXpx\tYpx\tsection\tgroup\ttype\tactive\tgender\n")
@@ -416,9 +523,10 @@ if __name__ == '__main__':
             if "keypad" not in entry:
                 #print "%s\n" % "\t".join([str(x) for x in entry])
                 myoutput += "%s\n" % "\t".join([str(x) for x in entry])
-                myoutput.strip()
-                f.write(myoutput)
+        myoutput = myoutput.strip()
+        f.write(myoutput)
         f.close()
         print "+++++++++++++++++++++++++++++++++++++"
-        #print map_new
+        #print myoutput
+        #print len(map_new)
 

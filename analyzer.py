@@ -284,7 +284,7 @@ def analyze_simpleMar(abstention_id=None):
         if is_number(i[0]):
             if i[9] == "false":
                 oldfalse_kp.append(str(i[1]))
-		
+
     # Load data from tsv
     analyzer = Analyzer("C:\\PdV\\data-tmp\\allkey.tsv", abstention_id)
     voters, voters_simple = analyzer.read_votes_tsv(MODE_VOTE_RESULT)
@@ -302,8 +302,8 @@ def analyze_simpleMar(abstention_id=None):
     s = sTemp
     print "despres:"
     print len(s)
-    
-	
+
+
     # Extract a simple version of map
     map_new_tmp = []
     for keypad_id in analyzer.map_keypad:
@@ -312,8 +312,8 @@ def analyze_simpleMar(abstention_id=None):
             map_new_tmp.sort()
     print "----------------"
 
-	
-	# mar: maybe not need or wrong
+
+    # mar: maybe not need or wrong
     # Just update the original map with the calculated group for each keypad.
     map_new = []
     cnt = 1
@@ -324,17 +324,17 @@ def analyze_simpleMar(abstention_id=None):
         if cnt >= len(s):
             break
     #print len(analyzer.map_keypad)
-    
+
     print "Updated Map (simple1)" +\
           "(seat-id, new-keypad-id, x, y, x_px, y_px, section, group, type, active, gender)"
     #map_new.sort()
-	
+
     # Fill it up de map:
-	# adding active = block for every second keypad
-   
-    
+    # adding active = block for every second keypad
+
+
     # Mar: Add append to false in map with no votes
-    
+
     for i in map_orig:
         if is_number(i[0]):
             if i[9] == "false":
@@ -347,19 +347,19 @@ def analyze_simpleMar(abstention_id=None):
                 i[6] = map_orig[cnt][6]
                 map_new.append(i)
                 cnt += 1
-    			
+
     map_new.sort(key=itemgetter(0))
     #pprint.pprint(map_new)
-    
 
-	#print oldfalse_kp
+
+    #print oldfalse_kp
     for line in map_new:
         if is_number(line[0]) and not line[9] == "false":
             if not int(line[0]) % 2:
                 line[9] = "block"
             else:
                 line[9] = "true"
-				
+
     # Mar: write false if was before
     '''
     for line in map_new:
@@ -432,13 +432,13 @@ def is_number(s):
     except ValueError:
         return False
 
-def output(map_new):
+def output(map_new, number):
 
     data2 = open("C:\\PdV\\data\\map.tsv")
     map_orig = [i.strip().split() for i in data2.readlines()]
-    
-	# **********************************************
-	# export file recolocation1
+
+    # **********************************************
+    # export file recolocation1
     recolocationmap = dict()
     for i in map_orig:
         if is_number(i[1]):
@@ -454,14 +454,21 @@ def output(map_new):
         except :
             pass
         else:
-            if recolocationmap[str(m[0])] and is_number(m[1]):
-                a = [recolocationmap[str(m[0])], m[0]]
+            if is_number(m[1]):
+                a = [int(recolocationmap[str(m[0])]), m[0]]
                 recolocation.append(a)
+    recolocation = sorted(recolocation)
+
+    #print list(sorted(recolocation))
     #pprint.pprint(recolocation)
     print "Number of recolocations:"
     print len(recolocation)
     # WRITE FILE
-    f1 = open('C:\\PdV\\data-tmp\\recolocation1.tsv', "w")
+    if number == 1:
+        f1 = open('C:\\PdV\\data-tmp\\recolocation1.tsv', "w")
+    elif number == 2:
+        f1 = open('C:\\PdV\\data-tmp\\recolocation2.tsv', "w")
+
     f1.write("%s\n" % "seat old -> seat new")
     for entry in recolocation:
         f1.write("%s\n" % "\t".join([str(x) for x in entry]))
@@ -495,14 +502,7 @@ if __name__ == '__main__':
     elif options.mode == "results":
         map_new = analyze(mode=MODE_VOTE_RESULT, reorder=options.reorder,
                 num_groups=options.num_groups, abstention_id=options.vote_id)
-        # Block all the keypads except one, for every group.
-
-        # JAUME Write the new map to this tsv file
-        #f1 = open('C:\\PdV\\data-tmp\\recolocation2.tsv', "w")
-        #f1.write("%s\n" % "seat old -> seat new")
-        #for entry in output(map_new):
-        #    f1.write("%s\n" % "\t".join([str(x) for x in entry]))
-        #f1.close()
+        output(map_new, 2)
 
     elif options.mode == "speed":
         map_new = analyze(mode=MODE_VOTE_SPEED, reorder=options.reorder,
@@ -511,11 +511,8 @@ if __name__ == '__main__':
     elif options.mode == "simple1":
         # Every keypad votes; we regroup simply based on the order of correlating-votes-sums
         map_new = analyze_simpleMar(abstention_id=options.vote_id)
-        output(map_new)
-        #print recolocation
+        output(map_new, 1)
         # Write the new map to this tsv file
-        
-
 
     if options.out_fn:
         # Log the old map in data-tmp/log/
@@ -535,5 +532,6 @@ if __name__ == '__main__':
         f.close()
         print "+++++++++++++++++++++++++++++++++++++"
         #print myoutput
-        #print len(map_new)
+        print "map ipdated. Number of lines:"
+        print len(map_new)
 

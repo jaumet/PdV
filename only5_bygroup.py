@@ -65,9 +65,9 @@ class CheckResults(object):
             pprint.pprint(g)
             print
         for i in xrange(0,6):
-            print i
+            #print i
             if len(groups[i])>0:
-                print "-- "+str(i)
+                #print "-- "+str(i)
                 chosen.append(choice(groups[i]))
         print "-> 5 chosen keypads:"
         pprint.pprint(chosen)
@@ -87,7 +87,7 @@ class CheckResults(object):
         mytsv = mytsv.strip()
         f = open(self.srcmap, "w")
         #print mytsv
-        print "escriu a "+self.srcmap
+        print "updated "+self.srcmap
         f.write(mytsv)
         f.close()
         return mytsv

@@ -124,11 +124,11 @@ def votes2map(map, votes_list, gender, abs, questionID):
                     if votes_list[line[1]] == "1":
                         line[9] = "yes"
                         if gender == "gender":
-                            line[10] = "M"
+                            line[10] = "m"
                     elif votes_list[line[1]] == "2":
                         line[9] = "no"
                         if gender == "gender":
-                            line[10] = "W"
+                            line[10] = "m"
                     elif votes_list[line[1]] == "3":
                         line[9] = "abs"
                 else:
@@ -142,7 +142,7 @@ def votes2map(map, votes_list, gender, abs, questionID):
             maphead = line
     new_map.insert(0, maphead)
     if gender == "gender":
-        print  "   (Added M/W for Men/Women in column gender of map.tsv)"
+        print  "   (Added m/w for Men/Women in column gender of map.tsv)"
     if int(questionID) > 2000:
         # Write the new map to this tsv file
         f = open("C:\\PdV\\data-tmp\\count5.tsv", "a")

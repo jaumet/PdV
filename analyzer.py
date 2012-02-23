@@ -205,12 +205,17 @@ class Analyzer(object):
 
         return voters_sums
 
+def getDataFromKeyPadId( keypadId,map_orig):
+    map_new = []
+    for s in map_orig:
+        if s[1]==keypadId:
+            return s
 
 def analyze(mode, reorder, num_groups, abstention_id=None):
     """
     Analyzes the votes, groups them with k-means and optionally reorders the seats.
     """
-    # Load data from tsvº
+    # Load data from tsv
     analyzer = Analyzer("C:\\PdV\\data-tmp\\allkey.tsv", abstention_id)
     voters, voters_simple = analyzer.read_votes_tsv(mode)
 
@@ -247,6 +252,29 @@ def analyze(mode, reorder, num_groups, abstention_id=None):
 
     # Update the original map with the calculated group, and if reordering with
     # the new keypad-id.
+    # new mar
+    map_new = []
+    data2 = open("C:\\PdV\\data\\map.tsv")
+    map_orig = [i.strip().split() for i in data2.readlines()]
+    cnt = 1
+    cntGroup = 1
+    print "hhhhhhhhhhhhhhhhhhhh"
+    print "num groups:"
+    print len(clusters)
+    for group_id in clusters:
+        for keypad_id in clusters[group_id]:
+            # Combine info into map_new
+            #print(keypad_id[0] )
+            s = getDataFromKeyPadId(keypad_id[0], map_orig)
+            type = s[8]
+            active = s[9]
+            gender = s[10]
+            map_new.append([cnt, keypad_id[0], map_orig[cnt][2], map_orig[cnt][3], map_orig[cnt][4], map_orig[cnt][5], map_orig[cnt][6], cntGroup, type, active, gender])
+            cnt += 1
+        cntGroup +=1
+
+    # end new mar
+    '''
     map_new = None
     if reorder:
         # Regroup and remap
@@ -266,7 +294,7 @@ def analyze(mode, reorder, num_groups, abstention_id=None):
 
                 # Combine info into map_new
                 map_new.append([seat_id, keypad_id, x, y, x_px, y_px, section, group_id, type, active, gender])
-
+    '''
     print
     print "Updated Map 1" + \
           "(seat-id, new-keypad-id, x, y, x_px, y_px, active, theater-group, vote-group)"

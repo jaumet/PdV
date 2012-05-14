@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/tornadoes_pdv/!svn/ver/130/pdv/bin/data
+END
+settings.xml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/tornadoes_pdv/!svn/ver/130/pdv/bin/data/settings.xml
+END
+controlPanelSettings.xml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/tornadoes_pdv/!svn/ver/1/pdv/bin/data/controlPanelSettings.xml
+END
+votacio.xml
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/tornadoes_pdv/!svn/ver/1/pdv/bin/data/votacio.xml
+END
+TDN-Madrid.png
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/tornadoes_pdv/!svn/ver/1/pdv/bin/data/TDN-Madrid.png
+END
+tsv2xml.py
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/tornadoes_pdv/!svn/ver/1/pdv/bin/data/tsv2xml.py
+END
+theaterInfo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/tornadoes_pdv/!svn/ver/103/pdv/bin/data/theaterInfo.xml
+END
+tsv2mytsv.py
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/tornadoes_pdv/!svn/ver/1/pdv/bin/data/tsv2mytsv.py
+END
+map_last.tsv
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/tornadoes_pdv/!svn/ver/1/pdv/bin/data/map_last.tsv
+END
+map-default-MadridTND.tsv
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/tornadoes_pdv/!svn/ver/1/pdv/bin/data/map-default-MadridTND.tsv
+END

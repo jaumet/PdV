@@ -1,0 +1,33 @@
+<settings>
+    <language-selected>fr</language-selected>
+    <!-- es,fr,en -->
+    <id-screen-start>1</id-screen-start>
+    <x-sunvote-start-button>601</x-sunvote-start-button>
+    <y-sunvote-start-button>749</y-sunvote-start-button>
+    <comPortName>COM4</comPortName>
+    <secondsResultTimer>12</secondsResultTimer>
+    <totalSeats>90</totalSeats>
+    <screenPositionX>614</screenPositionX>
+    <last-votation-id>10</last-votation-id>
+    <data-path>C:\PdV\data\</data-path>
+    <sound-pass-screen>audio\notification.wav</sound-pass-screen>
+    <type-id-screen-display>1</type-id-screen-display>
+    <!-- 1: id-screen| 2:id-votation -->
+    <midikey-next-key>33</midikey-next-key>
+    <midikey-next-value>127</midikey-next-value>
+    <midikey-pause-key>34</midikey-pause-key>
+    <midikey-pause-value>127</midikey-pause-value>
+    <midikey-start-key>40</midikey-start-key>
+    <midikey-start-value>127</midikey-start-value>
+    <debug>yes</debug>
+    <!-- yes/no (important set to "no" for performance ) -->
+    <!-- python vars: -->
+    <!-- This tag needs a directory created with the same name in PdV/PdVdefault/[name] -->
+    <theater>madrid</theater>
+    <!-- number members per group -->
+    <!-- comma separated (only comma) of the number of member per each group -->
+    <!-- For ejemple: 3 groups of 50, 100 and 36 elements: -->
+    <!-- 50,100,36 -->
+    <!-- NOTE: is necessary that the total number of seats = sum(group_number_members), in the ejemple: total seats = 50+100+36= 186 -->
+    <group_number_members>27,18,18,27</group_number_members>
+</settings>

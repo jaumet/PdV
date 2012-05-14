@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/tornadoes_pdv/!svn/ver/15/pdv/bin/data/automatizations
+END
+startVotation.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/tornadoes_pdv/!svn/ver/15/pdv/bin/data/automatizations/startVotation.xml
+END
+testMouseAndKeys.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/tornadoes_pdv/!svn/ver/1/pdv/bin/data/automatizations/testMouseAndKeys.xml
+END
+endVotation.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/tornadoes_pdv/!svn/ver/15/pdv/bin/data/automatizations/endVotation.xml
+END
+exportarVoting.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/tornadoes_pdv/!svn/ver/1/pdv/bin/data/automatizations/exportarVoting.xml
+END
+testKeys.xml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/tornadoes_pdv/!svn/ver/1/pdv/bin/data/automatizations/testKeys.xml
+END

@@ -1,0 +1,347 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/tornadoes_pdv/!svn/ver/125/pdv/src
+END
+actionsManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/actionsManager.h
+END
+votesManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/tornadoes_pdv/!svn/ver/116/pdv/src/votesManager.h
+END
+screenInfo.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/tornadoes_pdv/!svn/ver/85/pdv/src/screenInfo.h
+END
+ofxKeyAndMouseLogger.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/tornadoes_pdv/!svn/ver/28/pdv/src/ofxKeyAndMouseLogger.cpp
+END
+screensManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/tornadoes_pdv/!svn/ver/95/pdv/src/screensManager.h
+END
+screen0.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/tornadoes_pdv/!svn/ver/116/pdv/src/screen0.h
+END
+screen1.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/tornadoes_pdv/!svn/ver/116/pdv/src/screen1.h
+END
+screen2.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/tornadoes_pdv/!svn/ver/116/pdv/src/screen2.h
+END
+fontManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/tornadoes_pdv/!svn/ver/28/pdv/src/fontManager.h
+END
+screen3.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/tornadoes_pdv/!svn/ver/122/pdv/src/screen3.h
+END
+ofxManagerWindows.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/tornadoes_pdv/!svn/ver/25/pdv/src/ofxManagerWindows.h
+END
+screen4.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/tornadoes_pdv/!svn/ver/3/pdv/src/screen4.h
+END
+screen5.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/tornadoes_pdv/!svn/ver/3/pdv/src/screen5.h
+END
+screen6.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/tornadoes_pdv/!svn/ver/3/pdv/src/screen6.h
+END
+exportPDF.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/tornadoes_pdv/!svn/ver/40/pdv/src/exportPDF.cpp
+END
+ofxVirtualMouse.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/tornadoes_pdv/!svn/ver/10/pdv/src/ofxVirtualMouse.cpp
+END
+ofxTextBox.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/tornadoes_pdv/!svn/ver/40/pdv/src/ofxTextBox.h
+END
+guiManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/guiManager.cpp
+END
+screen.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/tornadoes_pdv/!svn/ver/116/pdv/src/screen.h
+END
+ofxVirtualKeyboard.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/tornadoes_pdv/!svn/ver/25/pdv/src/ofxVirtualKeyboard.cpp
+END
+OSCManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/tornadoes_pdv/!svn/ver/40/pdv/src/OSCManager.h
+END
+main.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/tornadoes_pdv/!svn/ver/40/pdv/src/main.cpp
+END
+testApp.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/tornadoes_pdv/!svn/ver/116/pdv/src/testApp.h
+END
+statementDisplayList.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/tornadoes_pdv/!svn/ver/47/pdv/src/statementDisplayList.cpp
+END
+seatManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/tornadoes_pdv/!svn/ver/131/pdv/src/seatManager.cpp
+END
+translateManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/tornadoes_pdv/!svn/ver/133/pdv/src/translateManager.cpp
+END
+callPythonScripts.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/tornadoes_pdv/!svn/ver/40/pdv/src/callPythonScripts.h
+END
+actionsManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/tornadoes_pdv/!svn/ver/10/pdv/src/actionsManager.cpp
+END
+votesManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/tornadoes_pdv/!svn/ver/116/pdv/src/votesManager.cpp
+END
+screenInfo.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/tornadoes_pdv/!svn/ver/116/pdv/src/screenInfo.cpp
+END
+screensManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/tornadoes_pdv/!svn/ver/125/pdv/src/screensManager.cpp
+END
+screen0.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/tornadoes_pdv/!svn/ver/131/pdv/src/screen0.cpp
+END
+screen1.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/tornadoes_pdv/!svn/ver/116/pdv/src/screen1.cpp
+END
+settingsManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/tornadoes_pdv/!svn/ver/119/pdv/src/settingsManager.h
+END
+screen2.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/tornadoes_pdv/!svn/ver/116/pdv/src/screen2.cpp
+END
+fontManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/tornadoes_pdv/!svn/ver/28/pdv/src/fontManager.cpp
+END
+screen3.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/tornadoes_pdv/!svn/ver/131/pdv/src/screen3.cpp
+END
+ofxManagerWindows.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/tornadoes_pdv/!svn/ver/25/pdv/src/ofxManagerWindows.cpp
+END
+colorPalette.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/tornadoes_pdv/!svn/ver/46/pdv/src/colorPalette.h
+END
+screen4.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/tornadoes_pdv/!svn/ver/6/pdv/src/screen4.cpp
+END
+screen5.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/tornadoes_pdv/!svn/ver/3/pdv/src/screen5.cpp
+END
+screen6.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/tornadoes_pdv/!svn/ver/96/pdv/src/screen6.cpp
+END
+ofxKeyAndMouseLogger.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/tornadoes_pdv/!svn/ver/28/pdv/src/ofxKeyAndMouseLogger.h
+END
+ofxTextBox.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/tornadoes_pdv/!svn/ver/69/pdv/src/ofxTextBox.cpp
+END
+OSCManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/tornadoes_pdv/!svn/ver/40/pdv/src/OSCManager.cpp
+END
+exportPDF.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/tornadoes_pdv/!svn/ver/40/pdv/src/exportPDF.h
+END
+testApp.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/tornadoes_pdv/!svn/ver/125/pdv/src/testApp.cpp
+END
+ofxVirtualMouse.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxVirtualMouse.h
+END
+ofxTwitter.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTwitter.h
+END
+guiManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/guiManager.h
+END
+callPythonScripts.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/tornadoes_pdv/!svn/ver/49/pdv/src/callPythonScripts.cpp
+END
+ofxVirtualKeyboard.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxVirtualKeyboard.h
+END
+statementDisplayList.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/tornadoes_pdv/!svn/ver/46/pdv/src/statementDisplayList.h
+END
+settingsManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/tornadoes_pdv/!svn/ver/119/pdv/src/settingsManager.cpp
+END
+seatManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/tornadoes_pdv/!svn/ver/131/pdv/src/seatManager.h
+END
+colorPalette.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/tornadoes_pdv/!svn/ver/98/pdv/src/colorPalette.cpp
+END
+translateManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/tornadoes_pdv/!svn/ver/133/pdv/src/translateManager.h
+END

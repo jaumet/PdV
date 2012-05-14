@@ -1,0 +1,207 @@
+"""
+Recolocation2
+"""
+
+import random
+import pprint
+import os
+import sys
+
+#####################################################
+# CONFIGURATION:
+# Number of seats
+seats = 186
+
+# Set voters per each group: 
+'''
+	1) right side: 32 -> 1-32
+	
+	central total: 122 
+	2) central: 41 -> 33-73
+	3) central: 40 -> 74-113
+	4) central: 41 -> 114-154
+	
+	5) left side: 32 -> 155-186
+'''
+# set here the desired number of members for each group:
+group_number_members = [37, 37, 37, 37, 38]
+
+# set here the first seatod for each group
+group_start_seatid = [1, 37, 74, 111, 149]
+
+# Get the map.tsv
+file = "C:\\PdV\\data\\map.tsv"
+#f = open(file)
+f = open(file)
+map = [i.strip().split() for i in f.readlines()]
+
+
+#####################################################
+#####################################################
+#####################################################
+# functions
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
+
+def p(x):
+	pprint.pprint(x)
+
+# Put keypads-data (keypadid, group, type, active, gender) falses & active lists and block all active ones
+actives = []
+falses = []
+for line in map:
+	if is_number(line[0]):
+		if line[9] != "false":
+			line[9] = "block"
+			actives.append([line[1], line[7], line[8], line[9], line[10]])
+			#actives.append(line)
+		else:	
+			falses.append([line[1], line[7], line[8], line[9], line[10]])
+			#falses.append(line)
+			
+# Active/false stats:
+print "Actives: "
+print "- len activess = "+str(len(actives))
+print "- Actives per group = "+str(len(actives)/5.00)
+print "- Actives per group = "+str(int(len(actives)/5))
+print "Sobren = "+str(len(actives) -(len(actives)/5)*5)
+print
+print "Falses: "
+print "- len falses = "+str(len(falses))
+print "- Falses per group = "+str(len(falses)/5.00)
+print "- Falses per group = "+str(int(len(falses)/5))
+print "Sobren = "+str(len(falses) -(len(falses)/5)*5)
+print
+
+# Define groups lists 
+g1 = []
+g2 = []
+g3 = []
+g4 = []
+g5 = []
+G = [g1, g2, g3, g4, g5]							
+
+print "debugggggg 1 "
+# Distributing falses in each empty group
+lastLoop = 0
+totalLoop = len(falses)*2
+while len(falses)>0 and lastLoop<totalLoop:
+	c = 0
+	for i in G:
+		#print  str(c)+":"+str(group_number_members[c])+":"+str(len(i))
+		
+		if len(i) < group_number_members[c]:
+			print "before falses"
+			print c
+			if len(falses) > 0:
+				print "append"
+				i.append(falses[0])
+				falses.pop(0)
+		c += 1
+	lastLoop+=1
+#p(G)
+#for i in G:
+#	print len(i)
+
+		#break
+print "end false"
+# Distributing actives in each group
+activesGroups = [[],[],[],[],[]]
+c = 0
+#for i in G:
+for i in activesGroups:
+	
+	while len(G[c]) < group_number_members[c] and len(actives) > 0:
+		print "while" 
+		if group_number_members[c]>(len(G[c])+len(i)):
+			i.append(actives[0])
+			actives.pop(0)
+		else:
+			print str(group_number_members[c])+" "+str((len(G[c])+len(i)))
+			break
+		#print "actives remaining:"
+		#print len(actives)
+	random.shuffle(i)
+	print "len(group_list) -> "+str(len(i))
+	#G[c] = i.extend(G[c])
+	c += 1
+
+c = 0
+for i in G:
+	i.extend(activesGroups[c])
+	i.reverse()
+	c += 1
+p(G)
+# Choose 5 voters (one per group)
+chosen = []
+chosen_tmp = []
+for group in G:
+	print "len group"+str(len(group))
+	chosen_tmp = []
+	while len(chosen_tmp) < 1:
+		chosen_tmp = random.choice(group)
+		if chosen_tmp[2] == "null" and chosen_tmp[3] != "false":
+			print chosen_tmp
+			chosen.append(chosen_tmp)
+		else:
+			chosen_tmp = []
+
+p(chosen)
+
+# Activate chosen voters. And shuffle & join groups
+
+for group in G:
+	for g in group:
+		if g in chosen:
+			print "cho!!"
+			print g
+			g[3] = "true"
+			print g
+
+map_kp = []
+for group in G:
+	#random.shuffle(group)
+	map_kp.extend(group)
+
+
+# Combine original map with the new keypads data
+l = 0
+for line in map:
+	if is_number(line[0]):
+		#print line
+		line[1], line[7], line[8], line[9], line[10] = map_kp[l]
+		#print line
+		l += 1
+		#print "----"
+
+
+# Adding group number
+for line in map:
+	if is_number(line[0]):
+			if group_start_seatid[0] <= int(line[0]) < group_start_seatid[1]:
+				line[7] = "1"
+			elif group_start_seatid[1] <= int(line[0]) < group_start_seatid[2]:
+				line[7] = "2"
+			elif group_start_seatid[2] <= int(line[0]) < group_start_seatid[3]:
+				line[7] = "3"
+			elif group_start_seatid[3] <= int(line[0]) < group_start_seatid[4]:
+				line[7] = "4"
+				#print line
+			elif group_start_seatid[4] <= int(line[0]) <= seats:
+				line[7] = "5"
+
+# Write back map.tsv
+map_new = ""
+for line in map:
+    for l in line:
+        map_new += "%s\t" % l
+    map_new = map_new.strip()
+    map_new += "\n"
+map_new = map_new.strip()
+f = open(file, "w")
+f.write(map_new)
+f.close()

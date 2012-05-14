@@ -1,0 +1,6531 @@
+<allContent>
+
+<!-- *******************************************  -->
+<!-- # PRIMERA PARTE                              -->
+<!-- *******************************************  -->
+
+<screen>
+<id>1</id>
+<content>¿Te sientes capaz de utilizar el telemando sin recibir instrucciones? (Es importante 
+que te sientes en la butaca que has escogido)</content>
+<time>600</time>
+<type>question</type>
+<pro></pro>
+<contra></contra>
+<action>IMPRESCINDIBLE. QUÈ FEM AMB ELS MANDOS DE LES PERSONES QUE HAN ARRIBAT TARD?</action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>15</link>
+       <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>5</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>5</id>
+<time></time>
+<content>Instrucciones: El número de tu mando tiene que coincidir con el de tu asiento. Con él podrás votar Sí o No. Durante el tiempo de votación puedes cambiar tu voto. El SISTEMA sólo contabilizará tu última decisión. El resultado será mostrado en la pantalla.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>10</link>
+</screen>
+
+<screen>
+<id>10</id>
+<content>¿Necesitas más instrucciones?</content>
+<time>10</time>
+<type>question</type>
+<pro></pro>
+<contra></contra>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>20</link>
+       <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>15</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>20</id>
+<time></time>
+<content>Más instrucciones: Para que el SISTEMA pueda contabilizar tu voto tienes que apuntar hacia la pantalla. Si por alguna razón no funcionara, comunícaselo al acomodador.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>15</link>
+</screen>
+
+<screen>
+<id>15</id>
+<time>10</time>
+<content>¿Te sientes capaz de tomar las decisiones esta noche?</content>
+<type>question</type>
+<pro></pro>
+<contra></contra>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>35</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>35</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>35</id>
+<time>10</time>
+<content>Los votos de las personas que han votado NO quedan anulados. Las decisiones las tomarán las personas que han respondido SÍ. Aunque tu voto no cuente, sigue votando, el SISTEMA te escucha.</content>
+<type>statement</type>
+<action>se bloquean algunos mandos</action>
+<script>check_old_results.py 30 no 0 - block</script>
+<link>40</link>
+</screen>
+
+<screen>
+<id>40</id>
+<time>10</time>
+<content>¿Prefieres delegar las decisiones?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>45</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>45</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>45</id>
+<time>10</time>
+<content> ¿Crees que has PAGADO para no tener que tomar decisiones?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>50</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>50</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>50</id>
+<content>Los votos de las personas que han votado SÍ quedan anulados. Las decisiones serán tomadas por las personas que han votado NO o se han ABSTENIDO. Aunque tu voto no cuente, sigue votando, el SISTEMA te escucha.</content>
+<type>statement</type>
+<action>Bloqueo: desabilita los mandos que respondido SI</action>
+<script>check_old_results.py 45 yes 0 - block</script>
+<link>60</link>
+</screen>
+
+<screen>
+<id>60</id>
+<time>10</time>
+<content>¿Además de tomar las decisiones, te sientes capaz de llevarlas a cabo?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>70</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>65</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>65</id>
+<time>10</time>
+<content>¿Lo que decidamos debe ser hecho por los trabajadores del teatro?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>75</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>70</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>70</id>
+<content> Las decisiones serán ejecutadas por los VOTANTES. Los trabajadores del teatro se limitarán a observar.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>80</link>
+</screen>
+
+<screen>
+<id>75</id>
+<content>Los trabajadores del teatro harán lo que manden los VOTANTES.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>80</link>
+</screen>
+
+<screen>
+<id>80</id>
+<content>Se cierran las puertas de la sala. En la sala hay # personas con derecho a voto de las cuales # lo han perdido. Damos inicio a La sesión. </content>
+<dynamic-text-call-method>fillPeopleWithVoteAndBlock</dynamic-text-call-method>
+<type>statement</type>
+<action>CONTABILIZAR MANDOS + SONIDO</action>
+<script></script>
+<link>85</link>
+</screen>
+
+<screen>
+<id>85</id>
+<time>10</time>
+<content>¿Nos creemos con el derecho de decidir nuestras propias normas?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>95</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>90</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>90</id>
+<content>Aceptamos la normativa vigente sobre espectáculos de pública concurrencia.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>100</link>
+</screen>
+
+<screen>
+<id>95</id>
+<content>Negamos la posibilidad de que la autoridad intervenga en el establecimiento de nuestras normas.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>100</link>
+</screen>
+
+<screen>
+<id>100</id>
+<time>10</time>
+<content>¿Declaramos la inviolabilidad de la sala?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>110</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>105</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>105</id>
+<content>El personal de seguridad del teatro vigilará que las normas que dictemos y nuestras acciones cumplan la ley vigente.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>115</link>
+</screen>
+
+<screen>
+<id>110</id>
+<content>El personal de seguridad del teatro no podrá penetrar en la sala sin nuestra autorización.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>115</link>
+</screen>
+
+<screen>
+<id>115</id>
+<time>10</time>
+<content>¿Declaramos la sala nuestro TERRITORIO?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>125</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>120</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>120</id>
+<time>10</time>
+<content>Nos declaramos apátridas.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>130</link>
+</screen>
+
+<screen>
+<id>125</id>
+<content>Declaramos la INDEPENDENCIA de la Sala. A partir de ahora esta sala sera nuestra PATRIA.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>130</link>
+</screen>
+
+<screen>
+<id>130</id>
+<time>10</time>
+<content>Los espacios que dan servicio a la sala (vestíbulo, lavabos, camerinos, etc) forman parte de nuestro TERRITORIO?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>145</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>140</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>140</id>
+<content>Los que estamos dentro de las fronteras de la sala somos CIUDADANOS. Los que están fuera son EXTRANJEROS.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>150</link>
+</screen>
+
+<screen>
+<id>145</id>
+<content>Los que estamos dentro de las fronteras marcadas somos CIUDADANOS. Los que están fuera son EXTRANJEROS.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>150</link>
+</screen>
+
+<screen>
+<id>150</id>
+<time>10</time>
+<content>¿Qué prefieres escuchar?</content>
+<type>question</type>
+<action>CON EL RESULTADO DE LA VOTACIÓN SUENA LA CANCIÓN ESCOGIDA.</action>
+<script></script>
+<answers>
+   <reply>
+       <text>Beatles</text>
+       <link>151</link>
+       <statement>Ganaron los Beatles</statement>
+       <audio-file></audio-file> 
+   </reply>
+   <reply>
+       <text>Rolling Stones</text>
+       <link>165</link>
+       <statement>Ganaron los Rolling. Suena "Lies"</statement>
+       <audio-file>audio/1.mp3</audio-file> 
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>151</id>
+<time>10</time>
+<content>¿A quién prefieres?</content>
+<type>question</type>
+<action>CON EL RESULTADO DE LA VOTACIÓN SUENA LA CANCIÓN ESCOGIDA.</action>
+<script></script>
+<answers>
+   <reply>
+       <text>Paul McCartney</text>
+       <link>165</link>
+       <statement>Ganó Paul. Suena "Too many people"</statement>
+       <audio-file>audio/2.mp3</audio-file> 
+   </reply>
+   <reply>
+       <text>John Lennon</text>
+       <link>152</link>
+       <statement>Ganó John.</statement>
+       <audio-file></audio-file> 
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>152</id>
+<time>10</time>
+<content>¿A quién prefieres escuchar?</content>
+<type>question</type>
+<action>CON EL RESULTADO DE LA VOTACIÓN SUENA LA CANCIÓN ESCOGIDA.</action>
+<script></script>
+<answers>
+   <reply>
+       <text>John Lennon</text>
+       <link>165</link>
+       <statement>Volvió a ganar John. Suena "How?"</statement>
+       <audio-file>audio/3.mp3</audio-file> 
+   </reply>
+   <reply>
+       <text>Yoko Ono</text>
+       <link>165</link>
+       <statement>Ganó Yoko. Suena "Walking on thin ice"</statement>
+       <audio-file>audio/4.mp3</audio-file> 
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>165</id>
+<time>10</time>
+<content>¿El SISTEMA debiera tratarnos a todos por igual?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>175</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>170</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>170</id>
+<content>Las personas que perdieron el derecho a voto siguen sin recobrarlo.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>180</link>
+</screen>
+
+<screen>
+<id>175</id>
+<content>Las personas que perdieron el derecho a voto lo recobran. Cada uno de nosotros dispone de 1 voto.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>180</link>
+</screen>
+
+<screen>
+<id>180</id>
+<time>10</time>
+<content>¿La opinión de la MAYORÍA es la que debe prevalecer?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>190</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>185</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>185</id>
+<content>La opinión de la MINORÍA prevalecerá. En esta votación la opción con menos votos ha sido la que optaba por seguir la opinión de la MAYORÍA. Por tanto, la MINORÍA ha decidido:</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>190</link>
+</screen>
+
+<screen>
+<id>190</id>
+<content>Prevalece la decisión mayoritaria. En caso de empate NO se aprobará la votación.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>195</link>
+</screen>
+
+<screen>
+<id>195</id>
+<time>10</time>
+<content>¿Votar debe ser OBLIGATORIO?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>205</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>205</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>200</id>
+<time>10</time>
+<content>¿Las personas que no acaten las decisiones de la MAYORÍA deben abandonar la sala?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>210</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>215</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>205</id>
+<content>Las personas sin derecho a voto lo recobran.</content>
+<type>statement</type>
+<action>SE ACTIVAN LOS TELEMANDOS QUE ESTUVIERAN DESACTIVADOS Y A PARTIR DE AHORA LOS TELEMANDOS QUE SE ABSTENGAN MÁS DE 4 VECES SE BLOQUEAN.</action>
+<script>check_old_results.py - block 0 - true</script>
+<link>200</link>
+</screen>
+
+<screen>
+<id>210</id>
+<content>En el vestíbulo hay televisores que permiten seguir la sesión sin interferir en el desarrollo de la misma.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>215</link>
+</screen>
+
+<screen>
+<id>215</id>
+<time>10</time>
+<content>Hay algunas personas que han llegado tarde al espectáculo y que esperan tras la puerta ¿Dejamos entrar a los EXTRANJEROS?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>235</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>230</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>230</id>
+<content>Puertas cerradas. Las personas que han llegado tarde seguirán la sesión desde los televisores que hay en el vestíbulo.</content>
+<type>statement</type>
+<action>SE OYEN LAS QUEJAS DE LOS ESPECTADORES QUE NO PUEDEN ENTRAR</action>
+<script></script>
+<link>260</link>
+</screen>
+
+<screen>
+<id>235</id>
+<content>Los VOTANTES de las primeras filas ejecutan las decisiones de la MAYORÍA y abren las puertas de la sala.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>240</link>
+</screen>
+
+<screen>
+<id>240</id>
+<content>Los EXTRANJEROS pueden sentarse en los asientos asignados en su telemando.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>225</link>
+</screen>
+
+<screen>
+<id>225</id>
+<time>10</time>
+<content>¿Los recién llegados deben tener derecho a voto?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>250</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>245</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>245</id>
+<content>Los recién llegados son EXTRANJEROS y serán también los ESPECTADORES de la sesión. Su voto no será contabilizado, aunque el SISTEMA lo tenga en cuenta.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>255</link>
+</screen>
+
+<screen>
+<id>250</id>
+<content>Se habilitan los telemandos de los recién llegados.</content>
+<type>statement</type>
+<action>ACTION FALSA. LOS MANDOS ESTÁN OPERATIVOS DESDE QUE ENTRAN LOS EXTRANJEROS</action>
+<!--<script>check_old_results.py - false 0 - true</script>*/-->
+<script></script>
+<link>255</link>
+</screen>
+
+<screen>
+<id>255</id>
+<time>10</time>
+<content>En el caso de que el aforo esté COMPLETO, ¿debe darse cabida a más EXTRANJEROS?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>265</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>260</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>260</id>
+<content>En el caso de que el teatro pudiera ser refugio para los que están fuera ¿tampoco debiera darse cabida a más EXTRANJEROS?</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>265</link>
+</screen>
+
+<screen>
+<id>265</id>
+<time>10</time>
+<content>Un SEGURO de accidente cubre las personas con una entrada ¿Los EXTRANJEROS deberían firmar un documento conforme declinan emprender acciones contra el teatro en caso de accidente o defunción?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>275</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>270</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>275</id>
+<content>Se ruega a los EXTRANJEROS que firmen los papeles que hay encima de la mesa del escenario.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>270</link>
+</screen>
+
+<screen>
+<id>270</id>
+<time>10</time>
+<content>¿Las personas que han entrado con INVITACIÓN deberían renunciar al seguro contratado por el teatro, como los extranjeros?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>285</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>280</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>285</id>
+<content>Se ruega a los INVITADOS que firmen los papeles que hay encima de la mesa del escenario.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>280</link>
+</screen>
+
+<screen>
+<id>280</id>
+<time>10</time>
+<content>¿Debiera haber alguna NORMA INMUTABLE?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>300</link>
+        <statement>Habrá NORMAS INMUTABLES</statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>300</link>
+       <statement>Cualquier NORMA podrá ser derogada o enmendada.</statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>300</id>
+<time>10</time>
+<content>¿Lo que no se encuentre explícitamente prohibido o regulado por alguna norma, debe estar permitido?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>310</link>
+        <statement>TODO está prohibido, salvo lo que está expresamente permitido</statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>315</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>310</id>
+<time>10</time>
+<content>Por ejemplo, ¿está permitido fumar?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>320</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>315</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>320</id>
+<time>10</time>
+<content>¿Debe prevalecer la decisión de la MAYORÍA sobre la salud de terceras personas?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>325</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>315</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>325</id>
+<content>Sois unos cabroncetes</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>315</link>
+</screen>
+
+<screen>
+<id>315</id>
+<time>10</time>
+<content>¿Debiéramos aceptar que haya personas que no participen del juego democrático?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>335</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>330</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>335</id>
+<time>10</time>
+<content>¿Hay que instaurar un SISTEMA específico para aquellos que no desean participar del juego democrático?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>340</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>330</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>340</id>
+<content>Las personas que no deseen participar del juego democrático son libres de ir al vestíbulo a organizarse como les plazca. También pueden permanecer en la sala como espectadores.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>330</link>
+</screen>
+
+<screen>
+<id>330</id>
+<time>10</time>
+<content>¿Los votantes deberían poder DERROCAR a la MAYORÍA si ésta no actúa responsablemente?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>345</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>345</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>345</id>
+<time>10</time>
+<content>¿La REVOLUCIÓN debería estar prevista por el SISTEMA?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>355</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>350</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>355</id>
+<content>La revolución prevista por el SISTEMA es una revolución?</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>350</link>
+</screen>
+
+<screen>
+<id>350</id>
+<time>10</time>
+<content>¿ALZARSE contra las decisiones mayoritarias debería ser un DERECHO?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>370</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>360</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>360</id>
+<time>10</time>
+<content>¿Los ABUSOS y usurpaciones de la MAYORÍA otorgan a las minorías el DERECHO de rebelarse?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>370</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>370</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>370</id>
+<time>10</time>
+<content>¿Confías en que las decisiones de la mayoría sean las correctas? </content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>390</link>
+        <statement>En política, la verdad equivale a la opinión mayoritaria</statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>390</link>
+       <statement>¿Más vale una minoría iluminada que una mayoría ciega?</statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>390</id>
+<time>10</time>
+<content>¿Qué prefieres escuchar, Serrat o Sisa?</content>
+<type>question</type>
+<action>CON EL RESULTADO DE LA VOTACIÓN SUENA LA CANCIÓN ESCOGIDA.</action>
+<script></script>
+<answers>
+   <reply>
+       <text>Serrat</text>
+       <link>391</link>
+        <statement>Ganó Joan-Manuel Serrat</statement>
+        <audio-file></audio-file> 
+   </reply>
+   <reply>
+       <text>Sisa</text>
+       <link>392</link>
+       <statement>Ganó Jaume Sisa</statement>
+       <audio-file></audio-file> 
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>391</id>
+<time>10</time>
+<content>¿En qué idioma, catalán o castellano?</content>
+<type>question</type>
+<action>CON EL RESULTADO DE LA VOTACIÓN SUENA LA CANCIÓN ESCOGIDA.</action>
+<script></script>
+<answers>
+   <reply>
+       <text>Catalán</text>
+       <link>395</link>
+        <statement>Ganó el catalán. Suena "Paraules d'amor"</statement>
+        <audio-file></audio-file> 
+   </reply>
+   <reply>
+       <text>Castellano</text>
+       <link>395</link>
+       <statement>Ganó el castellano. Suena "Mediterráneo"</statement>
+       <audio-file></audio-file> 
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>392</id>
+<time>10</time>
+<content>¿En qué idioma, catalán o castellano?</content>
+<type>question</type>
+<action>CON EL RESULTADO DE LA VOTACIÓN SUENA LA CANCIÓN ESCOGIDA.</action>
+<script></script>
+<answers>
+   <reply>
+       <text>Catalán</text>
+       <link>395</link>
+        <statement>Ganó el catalán. Suena "Mátame tú"</statement>
+        <audio-file></audio-file> 
+   </reply>
+   <reply>
+       <text>Castellano</text>
+       <link>395</link>
+       <statement>Ganó el castellano. Suena "Maria Lluna"</statement>
+       <audio-file></audio-file> 
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>395</id>
+<content>¿Quién manda aquí?</content>
+<type>statement</type>
+<action>CRONO A 00:00, NO HAY VOTACIÓN</action>
+<script></script>
+<link>400</link>
+</screen>
+
+<screen>
+<id>400</id>
+<time>10</time>
+<content>¿Debiéramos escoger una Presidencia que velara por el buen desarrollo de la sesión?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>405</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>405</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>405</id>
+<time>10</time>
+<content>O mejor todavía, ¿debiéramos escoger una Presidencia bicéfala: 1 mujer y 1 hombre?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>415</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>415</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>410</id>
+<content>No se constituye la Presidencia.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>460</link>
+</screen>
+
+<screen>
+<id>415</id>
+<time>10</time>
+<content>Perdona la pregunta ¿eres un hombre?</content>
+<type>question</type>
+<action>IMPRESCINDIBLE. EL SISTEMA DA LOS RESULTADOS DISCRIMINANDO POR SEXOS.</action>
+<script>votation_results.py 415 gender</script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>420</link>
+        <statement>En la sala hay # mujeres y # hombres. # personas se han abstenido.</statement>
+		<dynamic-text-call-method>fillAbsWomanManPeople</dynamic-text-call-method>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>420</link>
+       <statement>En la sala hay # mujeres y # hombres. # personas se han abstenido.</statement>
+	   <dynamic-text-call-method>fillAbsWomanManPeople</dynamic-text-call-method>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>420</id>
+<time>6</time>
+<content>¿Bueno, escogemos Presidencia?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>421</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>410</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>421</id>
+<time>10</time>
+<content>¿Deseas que las 2 personas que formen la Presidencia sean escogidas al azar?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>430</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>425</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>425</id>
+<time>10</time>
+<content>¿Prefieres que estas 2 personas se autodesignen?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>440</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>435</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>435</id>
+<content>No se constituye la Presidencia.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>465</link>
+</screen>
+
+<screen>
+<id>440</id>
+<time>10</time>
+<content>¿Deseas ser miembro de la Mesa?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>450</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>435</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>450</id>
+<content>Las personas con los telemandos # y # ostentarán la Presidencia.</content>
+<type>statement</type>
+<dynamic-text-call-method>fillWith2President</dynamic-text-call-method>
+<action>EL SISTEMA ESCOGE ENTRE LAS PERSONAS QUE HAN VOTADO SÍ, LAS DOS QUE FORMARÁN LA PRESIDENCIA.</action>
+<script>check_old_results.py 440 yes 2 president -</script>
+<link>451</link>
+</screen>
+
+<screen>
+<id>451</id>
+<content>La Presidencia ha quedado consituida y velará por el buen desarrollo de la sesión.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>451</link>
+</screen>
+
+<screen>
+<id>430</id>
+<content>Las 2 personas escogidas al azar están en los asientos: # y #.</content>
+<type>statement</type>
+<dynamic-text-call-method>fillWith2President</dynamic-text-call-method>
+<action>El sistema escoge 1 hombre y 1 mujer como presidentes</action>
+<script>president.py 2 president wm</script>
+<link>456</link>
+</screen>
+
+<screen>
+<id>456</id>
+<content>Recuerda: las personas escogidas deben asumir el cargo aunque no quieran.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>457</link>
+</screen>
+
+<screen>
+<id>457</id>
+<content>La Presidencia velará por el cumplimiento de las NORMAS que hayamos aprobado y, en general, por el buen desarrollo de la sesión.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>458</link>
+</screen>
+
+<screen>
+<id>458</id>
+<content>La Presidencia también tiene la potestad de parar las sesión para que tengamos más tiempo para votar o debatir.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>460</link>
+</screen>
+
+<screen>
+<id>460</id>
+<content>Si hay alguien que no acata las decisiones de la MAYORÍA ¿quién lo invita a irse?</content>
+<type>statement</type>
+<action>CRONO A 00:00, NO HAY VOTACIÓN</action>
+<script></script>
+<link>465</link>
+</screen>
+
+<screen>
+<id>465</id>
+<time>10</time>
+<content>¿Debiéramos seguir un curso de primeros auxilios y autodefensa?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>470</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>470</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>470</id>
+<time>10</time>
+<content>¿Debiéramos reinstaurar el SERVICIO MILITAR obligatorio para que los hombres estemos habilitados contra las agresiones y la insurrección?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>481</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>475</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>475</id>
+<time>10</time>
+<content>¿Entonces preferimos designar a algunos de nosotros para que se hagan cargo de la SEGURIDAD?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>490</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>485</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>485</id>
+<content>Preferimos vivir a merced del SERVICIO DE SEGURIDAD del teatro.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>515</link>
+</screen>
+
+<screen>
+<id>490</id>
+<time>10</time>
+<content>¿Deseas formar parte del Servicio de Orden de la sala?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>500</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>495</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>495</id>
+<content>Las 2 personas designadas al azar están en los asientos # y #.</content>
+<type>statement</type>
+<dynamic-text-call-method>fillWith2Army</dynamic-text-call-method>
+<action>DESIGNAR 2 PERSONAS AL AZAR</action>
+<script>president.py 4 army</script>
+<link>480</link>
+</screen>
+
+<screen>
+<id>500</id>
+<content>Las personas autodesignadas están en los asientos # y #. .</content>
+<type>statement</type>
+<dynamic-text-call-method>fillWith2Army</dynamic-text-call-method>
+<action>EL SISTEMA ESCOGE ENTRE LAS PERSONAS QUE HAN VOTADO SÍ, LAS 2 QUE FORMARÁN EL SERVICIO DE ORDEN.</action>
+<script>check_old_results 490 yes 4 army block</script>
+<link>480</link>
+</screen>
+
+<screen>
+<id>481</id>
+<content>Servicio militar: Si te agreden, agrede con más fuerza. Si te matan, encárgate de que los asesinos y sus allegados sean aniquilados.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>480</link>
+</screen>
+
+<screen>
+<id>480</id>
+<time>10</time>
+<content>¿Nuestro ejército estará bajo las órdenes de la Presidencia?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>510</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>505</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>505</id>
+<content>Nuestro ejército actuará libremente.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>515</link>
+</screen>
+
+<screen>
+<id>510</id>
+<content>Nuestro ejército seguirá las indicaciones de la Presidencia.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>515</link>
+</screen>
+
+<screen>
+<id>515</id>
+<time>10</time>
+<content>¿En algunas ocasiones, el uso de la fuerza es necesaria para evitar males mayores?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>520</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>520</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>520</id>
+<time>10</time>
+<content>Hemos decidido si tener Presidencia y Ejército. ¿Debiera producirse una expresión de júbilo? ¿Un aplauso unánime?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>555</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>525</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>525</id>
+<time>6</time>
+<content>¿Una canción cantada al unísono?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>550</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>530</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>530</id>
+<time>6</time>
+<content>Gritos de júbilo (Bravo! Olé! Visca! Evohé!)</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>555</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>535</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>535</id>
+<time>6</time>
+<content>¿Hacemos la ola?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>555</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>540</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>540</id>
+<time>6</time>
+<content>¿Unos cuantos votantes agarran a un espectador y lo mantean?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>555</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>526</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>526</id>
+<content>De acuerdo, no habrá celebración.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>560</link>
+</screen>
+
+<screen>
+<id>555</id>
+<content>Preparados, listos, YA! (Recuerda: "Prevalece la decisión de la mayoría")</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>560</link>
+</screen>
+
+<screen>
+<id>550</id>
+<content>Preparados, listos, YA!. Todos cantamos: -The people have the power, The people have the power, The people have the power, The people have the power... (Patti Smith) </content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>560</link>
+</screen>
+
+<screen>
+<id>560</id>
+<time>10</time>
+<content>¿Hay personal sanitario en la sala? ¿Algún médico, algún enfermero?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>570</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>570</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>570</id>
+<time>10</time>
+<content>¿Debiera permitirse la procreación de las personas con alguna discapacidad o enfermedad hereditarias?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>575</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>575</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>575</id>
+<time>10</time>
+<content>¿El sistema de salud pública debe financiar los programas de fertilidad para parejas mayores de 40 años?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>580</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>580</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>580</id>
+<time>10</time>
+<content>¿Los programas de fertilidad deben estar financiados por el sistema de salud pública?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>585</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>585</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>585</id>
+<time>10</time>
+<content>¿La circuncisión por motivos religiosos debiera estar sufragada por el sistema público de salud?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>590</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>590</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>590</id>
+<time>10</time>
+<content>¿Los mayores de edad debemos poder decidir si utilizamos el cinturón de seguridad?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>605</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>605</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>605</id>
+<time>10</time>
+<content>¿Ser patriota es irracional?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>610</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>610</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>610</id>
+<time>10</time>
+<content>¿Heredar debiera estar prohibido y los bienes pasar a formar parte de la comunidad al morir cada persona?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>615</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>615</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>615</id>
+<time>10</time>
+<content>¿Te gustaría ver nevar dentro del teatro?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>625</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>630</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>625</id>
+<content></content>
+<type>statement</type>
+<action>(Pantalla en negro con cursor intermitente / ACTION: EFECTO NIEVE)</action>
+<script></script>
+<time>180</time>
+<link>630</link>
+</screen>
+
+<screen>
+<id>630</id>
+<time>10</time>
+<content>¿Crees que los trabajadores de la compañía y el teatro no hacen su trabajo al dejarte escoger a ti?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>640</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>635</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>635</id>
+<time>10</time>
+<content>¿Crees que los trabajadores de la compañía y el teatro son irresponsables al dejarte escoger a ti?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>650</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>645</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>640</id>
+<time>10</time>
+<content>¿Crees que has pagado para no tener que tomar decisiones?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>650</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>645</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>645</id>
+<time>10</time>
+<content>¿Crees que, en el fondo, tú no escoges nada sino que todo ha sido decidido antes de que llegaras?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>650</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>655</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>650</id>
+<time>5</time>
+<content>¿Estás frustrado?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>655</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>655</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>655</id>
+<time>10</time>
+<content>¿Qué prefieres escuchar, Gainsbourg o Camarón?</content>
+<type>question</type>
+<action>CON EL RESULTADO DE LA VOTACIÓN SUENA LA CANCIÓN ESCOGIDA.</action>
+<script></script>
+<answers>
+   <reply>
+       <text>Gainsbourg</text>
+       <link>660</link>
+        <statement>Ganó Gainsbourg. Suena "Qui est in, qui est out"</statement>
+        <audio-file>audio/7.mp3</audio-file> 
+   </reply>
+   <reply>
+       <text>Camarón</text>
+       <link>660</link>
+       <statement>Ganó Camarón. Suena "Como el agua"</statement>
+       <audio-file>audio/8.mp3</audio-file> 
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>660</id>
+<time>10</time>
+<content>¿Deberían abolirse los títulos nobiliarios?</content>
+<type>question</type>
+<action>VISUALIZAR VOTACIÓN DISTINGUIENDO HOMBRES Y MUJERES</action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>665</link>
+        <statement></statement>      
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>665</link>
+       <statement></statement>  
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>665</id>
+<time>10</time>
+<content>¿Debería abolirse la corona?</content>
+<type>question</type>
+<action>VISUALIZAR VOTACIÓN DISTINGUIENDO HOMBRES Y MUJERES</action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>670</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>670</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>670</id>
+<time>10</time>
+<content>¿Deberían prohibirse las ONG y repatriar todo el personal expatriado?</content>
+<type>question</type>
+<action>VISUALIZAR VOTACIÓN DISTINGUIENDO HOMBRES Y MUJERES</action>
+<of>genderViz</of>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>675</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>675</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>675</id>
+<time>10</time>
+<content>¿Debería permitirse cotizar a la Seguridad Social a las trabajadoras del sexo?</content>
+<type>question</type>
+<action>VISUALIZAR VOTACIÓN DISTINGUIENDO HOMBRES Y MUJERES</action>
+<of>genderViz</of>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>680</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>680</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>680</id>
+<time>10</time>
+<content>¿Debería aprobarse una pensión de reinserción social para los excombatientes de ETA?</content>
+<type>question</type>
+<action>VISUALIZAR VOTACIÓN DISTINGUIENDO HOMBRES Y MUJERES</action>
+<of>genderViz</of>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>685</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>685</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>685</id>
+<time>10</time>
+<content>¿Deberían establecerse obligaciones para los sectores desfavorecidos que reciben ayudas sociales básicas?</content>
+<type>question</type>
+<action>VISUALIZAR VOTACIÓN DISTINGUIENDO HOMBRES Y MUJERES</action>
+<of>genderViz</of>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>690</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>690</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>690</id>
+<time>10</time>
+<content>¿El Ayuntamiento debiera fletar autobuses para que los indigentes pudieran comer en ikea por 1 euro?</content>
+<type>question</type>
+<action>VISUALIZAR VOTACIÓN DISTINGUIENDO HOMBRES Y MUJERES</action>
+<of>genderViz</of>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>700</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>700</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>700</id>
+<time>10</time>
+<content>¿Este verano debiera instalarse un AquaPark privado en la Puerta del Sol de Madrid?</content>
+<type>question</type>
+<action>VISUALIZAR VOTACIÓN DISTINGUIENDO HOMBRES Y MUJERES</action>
+<of>genderViz</of>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>705</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>705</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>705</id>
+<time>10</time>
+<content>Dado que no hay actores en sentido estricto, ¿el catering de la compañía debería ser compartido con los votantes?</content>
+<type>question</type>
+<action>VISUALIZAR VOTACIÓN DISTINGUIENDO HOMBRES Y MUJERES</action>
+<of>genderViz</of>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>710</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>715</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>710</id>
+<content></content>
+<type>statement</type>
+<action>(pantalla en negro con cursor / ACTION: entra mesa con pica-pica)</action>
+<script></script>
+<time>120</time>
+<link>715</link>
+</screen>
+
+<screen>
+<id>715</id>
+<content>Hagamos una pausa. Toma el telemando contigo y sal de la sala.</content>
+<type>statement</type>
+<action></action>
+<script>analyzer.py -m simple1 -r -o C:\PdV\data\map.tsv -c 3</script>
+<link>720</link>
+</screen>
+
+<screen>
+<id>720</id>
+<content></content>
+<type>statement</type>
+<action>Pantalla en negro con cursor intermitente</action>
+<script></script>
+<time>1800</time>
+<link>1000</link>
+</screen>
+
+<!-- Aquí s'ha d'imprimir el file C:\PdV\data-tmp\recolocacio1.txt  -->
+
+<!-- *******************************************  -->
+<!-- # SEGUNDA PARTE                              -->
+<!-- *******************************************  -->
+
+<screen>
+<id>1000</id>
+<content>Has sido emparejado con la persona que en las consultas anteriores ha votado más parecido a ti. Está a tu lado. Cada pareja solo tiene el mando IMPAR para votar.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>1001</link>
+</screen>
+
+<screen>
+<id>1001</id>
+<content>Si tu mando es IMPAR, tu pareja es la persona con el mando PAR siguiente. El 1 va con el 2, el 99 con el 100, etc. Es posible que tengas que desplazarte para encontrar a tu pareja.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>1002</link>
+</screen>
+
+<screen>
+<id>1002</id>
+<content>Si tu mando ha sido desactivado tu voto no será contabilizado pero, si sigues pulsando SI o NO, el SISTEMA seguirá escuchando tu voz.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>1010</link>
+</screen>
+
+<screen>
+<id>1010</id>
+<time>10</time>
+<content>¿Te sientes capaz de votar junto a la persona que te ha sido asignada?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1015</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1015</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1015</id>
+<content>Se cierran las puertas de la sala. En la sala hay # personas con derecho a voto de las cuales # lo han perdido. Retomamos la sesión.</content>
+<dynamic-text-call-method>fillBlockPeopleAndNonBlock</dynamic-text-call-method>
+<type>statement</type>
+<action>CONTABILIZAR MANDOS + SONIDO</action>
+<script></script>
+<link>1020</link>
+</screen>
+
+<screen>
+<id>1020</id>
+<content>¿Confías en la pareja que te ha sido asignada?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1030</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1025</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1030</id>
+<content>Entrégale el telemando</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>1025</link>
+</screen>
+
+<screen>
+<id>1025</id>
+<content>Las personas que están en la parte DERECHA de la pantalla tienden a votar como la MAYORÍA: suelen GANAR las elecciones. Las personas que están en la IZQUIERDA de la pantalla tienden a ABSTENERSE o a votar junto con la MINORÍA: suelen PERDER las elecciones.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>1035</link>
+</screen>
+
+<screen>
+<id>1035</id>
+<content>¿Confías en las personas que están del otro lado de la sala y que hasta ahora han votado de manera OPUESTA a ti?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1040</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1040</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1040</id>
+<content>¿Formar parte de la MINORÍA o incluso ABSTENERSE debería ser fomentado?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1050</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1050</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1050</id>
+<content>¿Formar parte de la MINORÍA mola?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1055</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1055</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1055</id>
+<content>¿Formar parte de la MAYORÍA mola más?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1066</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1066</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1066</id>
+<content>¿Crees que el SISTEMA conspira contra ti?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1070</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1070</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1070</id>
+<content>¿Votar es divertido?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1075</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1075</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1075</id>
+<content>¿Qué prefieres escuchar, Simon & Garfunkel o el Dúo dinámico?</content>
+<type>question</type>
+<action>CON EL RESULTADO DE LA VOTACIÓN SUENA LA CANCIÓN ESCOGIDA</action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Simon & Garfunkel</text>
+       <link>1076</link>
+        <statement>Ganó Simon & Garfunkel</statement>
+        <audio-file>audio/1.mp3</audio-file> 
+   </reply>
+   <reply>
+       <text>Dúo dinámico</text>
+       <link>1110</link>
+       <statement>Ganó el Dúo dinámico. Suena "Eres tú"</statement>
+       <audio-file></audio-file> 
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1076</id>
+<content>¿A quién prefieres, a Paul Simon o a Art Garfunkel?</content>
+<type>question</type>
+<action>CON EL RESULTADO DE LA VOTACIÓN SUENA LA CANCIÓN ESCOGIDA</action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Paul Simon</text>
+       <link>1110</link>
+        <statement>Ganó Paul. Suena "Graceland"</statement>
+        <audio-file>audio/1.mp3</audio-file> 
+   </reply>
+   <reply>
+       <text>Art Garfunkel</text>
+       <link>1110</link>
+       <statement>Ganó Art. Suena "Bridge over troubled water" </statement>
+       <audio-file>audio/2.mp3</audio-file> 
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1110</id>
+<content>¿Amarás a Dios sobre todas las cosas?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>8</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1115</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1115</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1115</id>
+<content>¿Tomarás el nombre de Dios en vano?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>8</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1120</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1120</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1120</id>
+<content>¿Santificarás las fiestas?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1125</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1125</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1125</id>
+<content>¿Honrarás a tu padre y a tu madre?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1130</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1130</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1130</id>
+<content>¿Matarás?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1140</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1135</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1135</id>
+<content>En algunas ocasiones, ¿el uso de la fuerza es necesaria para evitar males mayores?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>8</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1140</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1140</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1140</id>
+<content>¿Fornicarás?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1145</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1145</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1145</id>
+<content>¿Robarás?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1150</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1150</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1150</id>
+<content>¿Darás falso testimonio, mentirás?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1155</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1155</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1155</id>
+<content>¿Consentirás pensamientos y deseos impuros?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1160</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1160</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1160</id>
+<content>¿Codiciarás los bienes ajenos?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1165</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1165</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1165</id>
+<content>¿Amarás al prójimo como a ti mismo?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1170</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1175</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1170</id>
+<content>¿Debería aprobarse una pensión de reinserción social para los excombatientes de ETA?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>8</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1175</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1175</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1175</id>
+<content>Los MANDAMIENTOS que han sido aprobados deberían pasar a ser normas INMUTABLES?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1180</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1180</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1180</id>
+<content>¿Cualquier NORMA debe ser susceptible de ser cambiada?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1185</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1185</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1185</id>
+<content>¿La MINORÍA debería gozar de algunos derechos INALIENABLES?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1190</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1190</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1190</id>
+<content>¿Deberíamos instaurar una manera de controlar a la MAYORÍA?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1195</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1195</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1195</id>
+<content>¿Deberíamos nombrar un Tribunal que cuide de que las NORMAS aprobadas no entren en contradicción unas con otras?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1205</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1200</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1200</id>
+<content>No se constituye el Tribunal</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>1260</link>
+</screen>
+
+<screen>
+<id>1205</id>
+<content>¿Deseas que las 2 personas que formen el Tribunal sean escogidas al azar?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1215</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1210</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1210</id>
+<content>¿Prefieres que estas 2 personas se autodesignen?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1220</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1200</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1220</id>
+<content>¿Deseas ser miembro del Tribunal?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1230</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1200</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1230</id>
+<content>Las personas con los telemandos #  y # formarán el Tribunal.</content>
+<dynamic-text-call-method>fillWith2Tribunal</dynamic-text-call-method>
+<type>statement</type>
+<action>EL SISTEMA ESCOGE ENTRE LAS PERSONAS QUE HAN VOTADO SÍ, LAS DOS QUE FORMARÁN EL TRIBUNAL.</action>
+<script>check_old_results.py 1220 yes 2 tribunal block</script>
+<link>1235</link>
+</screen>
+
+<screen>
+<id>1215</id>
+<content>Las 2 personas escogidas al azar están en los asientos: #  y # .</content>
+<dynamic-text-call-method>fillWith2Tribunal</dynamic-text-call-method>
+<type>statement</type>
+<action>el sistema escoge 1 hombre y 1 mujer como tribunal</action>
+<script>president.py 2 tribunal wm</script>
+<link>1235</link>
+</screen>
+
+<screen>
+<id>1235</id>
+<content>Recuerda que las personas escogidas deben asumir el cargo aunque no quieran</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>1240</link>
+</screen>
+
+<screen>
+<id>1240</id>
+<content>El Tribunal ha quedado consituido y velará por el buen desarrollo de la sesión. Las personas del tribunal están en los asientos: #  y # .</content>
+<type>statement</type>
+<dynamic-text-call-method>fillWith2Tribunal</dynamic-text-call-method>
+<action></action>
+<script></script>
+<link>1250</link>
+</screen>
+
+<screen>
+<id>1250</id>
+<content>El Tribunal tiene la potestad de interrumpir una votación que entre en contradicción con una norma aprobada anteriormente.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>1260</link>
+</screen>
+
+<screen>
+<id>1260</id>
+<content>Ya hemos decidido si queríamos dotarnos de Tribunal. ¿Debiera producirse una expresión de júbilo? ¿Un aplauso unánime?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1290</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1265</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1265</id>
+<content>Una canción cantada al unísono?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1295</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1270</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1270</id>
+<content>Gritos de júbilo (bravo! Olé! Visca! Evohé!)</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1290</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1275</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1275</id>
+<content>¿Hacemos la ola?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1290</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1280</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1280</id>
+<content>¿Manteamos a algún espectador?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1290</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1285</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1285</id>
+<content>De acuerdo, no habrá celebración.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>1300</link>
+</screen>
+
+<screen>
+<id>1290</id>
+<content>Preparados, listas, YA! (Recuerda: "prevalece la decisión de la mayoría")</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>1300</link>
+</screen>
+
+<screen>
+<id>1295</id>
+<content>Preparados, listos, YA!: The people have the power, The people have the power, The people have the power, The people have the power... (Patti Smith)</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>1300</link>
+</screen>
+
+<screen>
+<id>1300</id>
+<content>¿Qué prefieres escuchar, a Billie Holliday o a  Amy Winehouse?</content>
+<type>question</type>
+<action>CON EL RESULTADO DE LA VOTACIÓN SUENA LA CANCIÓN ESCOGIDA.</action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Billie Holliday</text>
+       <link>1310</link>
+        <statement>Ganó Billie Holliday. Suena "Let's call the whole thing off"</statement>
+        <audio-file>audio/1.mp3</audio-file> 
+   </reply>
+   <reply>
+       <text>Amy Winehouse</text>
+       <link>1310</link>
+       <statement>Ganó Amy. Suena "Back to black"</statement>
+       <audio-file>audio/2.mp3</audio-file> 
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1310</id>
+<content>¿Deberíamos permitir la existencia y jurisdicción de 'otro tipo de tribunales' (religiosos, étnicos..)?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1315</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1315</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1315</id>
+<content>Si la MAYORÍA no respeta los derechos de la MINORÍA, ¿la primera debe abandonar la sala?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1320</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1320</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1320</id>
+<content>Si la MAYORÍA abandona la sala, ¿el espectáculo debe continuar?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1325</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1325</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1325</id>
+<content>¿Debe haber CUÓRUM para que las decisiones tomadas aquí sean formalmente válidas y podamos continuar?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1340</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1330</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1330</id>
+<content>¿Aunque sólo quede una persona en platea, el espectáculo continuará?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1335</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1345</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1335</id>
+<content>El espectáculo finalizará cuando se agote el orden del día.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>1350</link>
+</screen>
+
+<screen>
+<id>1340</id>
+<content>¿El CUÓRUM debiera ser la mitad de los presentes más uno?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1345</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1335</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1345</id>
+<content>El espectáculo se dará por finalizado cuando la mitad de los presentes haya abandonado la sala.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>1350</link>
+</screen>
+
+<screen>
+<id>1350</id>
+<content>Si hubiera que evacuar la sala...</content>
+<type>statement</type>
+<timer>0</timer>
+<action>PANTALLA CON CRONO A 00:00 (SIN VOTACIÓN, PREGUNTA RETÓRICA PERO NO TEXT)</action>
+<script></script>
+<link>1365</link>
+</screen>
+
+<screen>
+<id>1365</id>
+<content>Si el suministro de la luz se suspendiera...</content>
+<type>statement</type>
+<timer>0</timer>
+<action>PANTALLA CON CRONO A 00:00</action>
+<script></script>
+<link>1375</link>
+</screen>
+
+<screen>
+<id>1375</id>
+<content>Si el sistema de votación colapsara...</content>
+<type>statement</type>
+<timer>0</timer>
+<action>PANTALLA CON CRONO A 00:00</action>
+<script></script>
+<link>1385</link>
+</screen>
+
+<screen>
+<id>1385</id>
+<content>Si tu mando dejara de funcionar...</content>
+<type>statement</type>
+<timer>0</timer>
+<action>PANTALLA CON CRONO A 00:00</action>
+<script></script>
+<link>1395</link>
+</screen>
+
+<screen>
+<id>1395</id>
+<content>Si irrumpieran en la sala para desalojarnos...</content>
+<type>statement</type>
+<timer>0</timer>
+<action>PANTALLA CON CRONO A 00:00</action>
+<script></script>
+<link>1400</link>
+</screen>
+
+<screen>
+<id>1400</id>
+<content>¿Crees que todo parece estar previsto pero en realidad nada lo está y en cualquier momento puede pasar cualquier cosa?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1410</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1410</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1410</id>
+<content>¿Crees que hubieras sido más libre si no hubieras venido a este espectáculo?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1420</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1420</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1420</id>
+<content>¿Te has sentido poderoso obligando a algunos espectadores a asumir cargos que no esperaban?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1435</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1435</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1435</id>
+<content>¿Se puede delegar el telemando a una tercera persona?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1440</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1440</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1440</id>
+<content>¿Se puede votar con el telemando de una persona ausente?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1450</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1450</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1450</id>
+<content>¿Debiéramos votar sin dejarnos influenciar por las personas que nos rodean?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1455</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1455</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1455</id>
+<content>¿Formar parte de la minoría te resulta fustrante?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1480</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1465</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1465</id>
+<content>¿Sumarte a la opinión mayoritaria incrementaría tu nivel de felicidad?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1480</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1480</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1480</id>
+<content>¿No tener opiniones originales -como las de la minoría- te resulta fustrante?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1485</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1485</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1485</id>
+<content>¿Estás dispuesto a cambiar de opinión para ser más feliz?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1490</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1490</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1490</id>
+<content>¿Votar lo contrario de lo que uno piensa sería la mejor manera de derribar el SISTEMA?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1495</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1495</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1495</id>
+<content>A partir de ahora, probemos a votar LO CONTRARIO de lo que estamos pensando.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>1500</link>
+</screen>
+
+<screen>
+<id>1500</id>
+<content>¿Qué prefieres escuchar, a Georges Brassens o a Jacques Brel? (Recuerda votar lo contrario)</content>
+<type>question</type>
+<action>CON EL RESULTADO DE LA VOTACIÓN SUENA LA CANCIÓN ESCOGIDA.</action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Brassens</text>
+       <link>1503</link>
+        <statement>Ganó Brassens. Suena "Mourir pour des idées"</statement>
+        <audio-file>audio/1.mp3</audio-file> 
+   </reply>
+   <reply>
+       <text>Brel</text>
+       <link>1503</link>
+       <statement>Ganó Brel. Suena "La valse à mille temps"</statement>
+       <audio-file>audio/2.mp3</audio-file> 
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1503</id>
+<content>Votar lo contrario de lo que deseas es dificil, pero sigamos intentándolo.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>1505</link>
+</screen>
+
+<screen>
+<id>1505</id>
+<content>¿Amarás a Dios sobre todas las cosas?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1506</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1507</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1506</id>
+<content>Muy bien</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>1510</link>
+</screen>
+
+<screen>
+<id>1507</id>
+<content>Haz un esfuerzo y prueba votar lo contrario de lo que piensas</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>1510</link>
+</screen>
+
+<screen>
+<id>1510</id>
+<content>¿Tomarás el nombre de Dios en vano?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1515</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1515</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1515</id>
+<content>¿Santificarás las fiestas?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1520</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1520</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1520</id>
+<content>¿Honrarás a tu padre y a tu madre?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1525</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1525</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1525</id>
+<content>¿Matarás?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1530</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1530</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1530</id>
+<content>¿Fornicarás?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1535</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1535</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1535</id>
+<content>¿Robarás?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1540</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1540</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1540</id>
+<content>¿Darás falso testimonio, mentirás?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1545</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1545</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1545</id>
+<content>¿Consentirás pensamientos y deseos impuros?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1550</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1550</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1550</id>
+<content>¿Codiciarás los bienes ajenos?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1555</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1555</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1555</id>
+<content>¿Amarás al prójimo como a ti mismo?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1560</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1560</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1560</id>
+<content>Sería ésta la mejor manera de conspirar contra el SISTEMA.</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1565</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1565</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1565</id>
+<content>Es difícil votar lo contrario de lo que piensas.</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1570</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1570</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1570</id>
+<content>¿Debiera hacer buen tiempo mañana?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1575</link>
+        <statement>Mañana sol y buen tiempo</statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1575</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1575</id>
+<time>10</time>
+<content>¿Te gustaría ver nevar dentro del teatro?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1580</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1590</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1580</id>
+<content></content>
+<type>statement</type>
+<action>(Pantalla en negro con cursor intermitente / ACTION: EFECTO NIEVE)</action>
+<script></script>
+<time>240</time>
+<link>1590</link>
+</screen>
+
+<screen>
+<id>1590</id>
+<content>¿Debiera permitirse la procreación de las personas con alguna discapacidad o enfermedad hereditarias?</content>
+<pro>La libertad de procrear debe prevalecer./ La medicina avanza rápidamente y puede encontrar curas que ahora son inimaginables.</pro>
+<contra>Se deben evitar sufrimientos a los futuros bebés./ Deben evitarse cargas suplementarias a los padres y a la comunidad.</contra>
+<type>question</type>
+<action></action>
+<script></script>
+<time>30</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1595</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1595</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1595</id>
+<content>¿El sistema de salud pública debe financiar los programas de fertilidad para parejas mayores de 40 años?</content>
+<pro>La procreación es un derecho que debe facilitarse a las parejas que la deseen./ Procrear es positivo para la salud mental de las parejas</pro>
+<contra>A partir de los 40, la procreación comporta unos riesgos para la madre y para el bebé que la sanidad no debiera asumir./ En un planeta superpoblado, debe facilitarse la adopción antes que la procreación. </contra>
+<type>question</type>
+<action></action>
+<script></script>
+<time>30</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1610</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1610</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1610</id>
+<content>¿Los mayores de edad debemos poder decidir si utilizamos el cinturón de seguridad?</content>
+<pro>Cada individuo debe poder hacer con su cuerpo lo que considere oportuno</pro>
+<contra>No. La seguridad vial no afecta sólo al que no se abrocha el cinturón sino a los demás. Debe ser obligatorio por el bien de todos.</contra>
+<type>question</type>
+<action></action>
+<script></script>
+<time>30</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1620</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1620</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1620</id>
+<content>¿Ser patriota es irracional?</content>
+<pro>Sí, nadie escoge donde nace. Ser de un lugar u otro se debe exclusivamente al azar./ Sí, las ataduras nacionales impiden el crecimiento de las personas cuando éstas tienen que instalarse en otros países o renacionalizarse.</pro>
+<contra>No, el amor por una nación es un sentimiento y nada tiene que ver con la razón./ No, la nación, como la lengua o la cultura nos definen y es saludable querer defender nuestra identidad.</contra>
+<type>question</type>
+<action></action>
+<script></script>
+<time>30</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1630</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1630</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1630</id>
+<content>¿Heredar debiera estar prohibido y los bienes pasar a formar parte de la comunidad al morir cada persona?</content>
+<pro>Sí, así se incentivaría el esfuerzo individual y la justicia social./ Sí, así sería del interés de todos tener una educación pública de calidad y habría más recursos para financiarla.</pro>
+<contra>Es un incentivo para el progreso de los individuos poder legar a sus herederos./ La comunidad no tiene ningún derecho a quedarse con algo que es de la familia.</contra>
+<type>question</type>
+<action></action>
+<script></script>
+<time>30</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1635</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1635</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1635</id>
+<content>¿Deberían abolirse los títulos nobiliarios?</content>
+<pro>Sí, rememoran diferencias sociales de épocas antidemocráticas.</pro>
+<contra>No, no tienen ningún coste para la sociedad./ No, la nobleza es un símbolo que hay que respetar como la bandera o el himno de una nación.</contra>
+<type>question</type>
+<action>Visualizar la votación distinguiendo hombres y mujeres</action>
+<of>genderViz</of>
+<script></script>
+<time>20</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1640</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1640</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1640</id>
+<content>¿Debería abolirse la corona?</content>
+<pro>Sí, es un símbolo impuesto que no representa a todos./ Sí, porque "los ricos son un lujo que no nos podemos permitir"</pro>
+<contra>No, es un símbolo de la nación como lo son la bandera o los toros.</contra>
+<type>question</type>
+<action>Visualizar la votación distinguiendo hombres y mujeres</action>
+<of>genderViz</of>
+<script></script>
+<time>30</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1645</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1645</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1645</id>
+<content>¿Deberían prohibirse las ONG y repatriar todo el personal expatriado?</content>
+<pro>Sí, la caridad es un parche que perpetua la injusticia./ Sí, las ONG son residuo de la etapa colonial del que hay que deshacerse para que los pueblos recobren su soberanía</pro>
+<contra>No, las ONG salvan vidas haciendo un trabajo que los gobiernos no asumen./ No, las ONG son necesarias porque no dependen de los gobiernos y son más independientes.</contra>
+<type>question</type>
+<action>Visualizar la votación distinguiendo hombres y mujeres</action>
+<of>genderViz</of>
+<script></script>
+<time>30</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1650</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1650</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1650</id>
+<content>¿Debería permitirse cotizar en la Seguridad Social a las trabajadoras y trabajadores del sexo?</content>
+<pro>Sí, así contribuirían a la sociedad./ Sí, eso les dotaría de unos derechos y sería un reconocimiento a su dignidad como trabajadoras y trabajadores</pro>
+<contra>No, la prostitución no es un trabajo sino una explotación y debe estar perseguida./ No, legalizar la prostitución fomentaría las mafias y el tráfico de personas.</contra>
+<type>question</type>
+<action>Visualizar la votación distinguiendo hombres y mujeres</action>
+<of>genderViz</of>
+<script></script>
+<time>30</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1655</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1655</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1655</id>
+<content>¿Debería aprobarse una pensión de reinserción social para los excombatientes de ETA?</content>
+<pro>Cualquier proceso de paz implica desmovilización, desarme y reinserción. La reinserción requiere recursos financieros.</pro>
+<contra>Escogieron libremente tomar las armas. Son delincuentes y no deben recibir trato de favor./ Pagar sólo haría que pareciese que han hecho las cosas bien.</contra>
+<type>question</type>
+<action>Visualizar la votación distinguiendo hombres y mujeres</action>
+<of>genderViz</of>
+<script></script>
+<time>30</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1665</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1665</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1665</id>
+<content>¿Deberían establecerse obligaciones para los sectores desfavorecidos que reciben ayudas sociales básicas?</content>
+<pro>Sí, sería una manera de devolver parte de lo que reciben./ Sí, los colectivos que reciben ayudas están en situación marginal o de exclusión. Permitirles hacer trabajos para la comunidad ayudaría a su reinserción.</pro>
+<contra>Las personas que reciben ayudas son personas con necesidades especiales (discapacidades, enfermedades, adicciones, etc.). Las contrapartidas discriminarían todavía más a estas personas./ Inventar trabajos para estas personas es menospreciar el oficio al que se vayan a dedicar y hacer más precario el mercado de trabajo.</contra>
+<type>question</type>
+<action>Visualizar la votación distinguiendo hombres y mujeres</action>
+<of>genderViz</of>
+<script></script>
+<time>30</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1670</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1670</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1670</id>
+<content>¿El ayuntamiento debiera fletar autobuses para que los indigentes pudieran disfrutar del menu Ikea a 1 euro?</content>
+<pro>Sería una manera de compensar la competencia desleal que hace Ikea a los restaurantes con precios de mercado./ Sería una manera barata de dar de comer a los necesitados.</pro>
+<contra>No, sería humillante para los indigentes.</contra>
+<type>question</type>
+<action>Visualizar la votación distinguiendo hombres y mujeres</action>
+<of>genderViz</of>
+<script></script>
+<time>30</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1675</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1675</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1675</id>
+<content>¿Este verano debiera instalarse un AquaPark privado en la Puerta del Sol de Madrid para disfrute de los madrilenos?</content>
+<pro>Sí, sería una manera de atraer consumidores a un área comercial./ Sí, sería una actividad veraniega para los que no se van de vacaciones.</pro>
+<contra>No, la Puerta del Sol es un espacio público que debe seguir siendo de uso público./ Las actividades lúdicas en el espacio público deben ser gratuitas.</contra>
+<type>question</type>
+<action>Visualizar la votación distinguiendo hombres y mujeres</action>
+<of>genderViz</of>
+<script></script>
+<time>30</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1680</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1680</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1680</id>
+<content>¿Cambiaste el sentido de tu voto con respecto de la primera vez que votaste sobre estas mismas cuestiones?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1685</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1685</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1685</id>
+<time>10</time>
+<content>¿Te gustaría ver como nieva dentro del teatro?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1690</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1695</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1690</id>
+<content></content>
+<type>statement</type>
+<action>(Pantalla en negro con cursor intermitente / ACTION: EFECTO NIEVE)</action>
+<script></script>
+<time>240</time>
+<link>1695</link>
+</screen>
+
+<screen>
+<id>1695</id>
+<content>Dado que no hay actores en sentido estricto, ¿las duchas y los camerinos deben estar al servicio de quien los necesite?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1710</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1710</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1710</id>
+<content>¿Estará permitido dormir en el teatro?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1711</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1715</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1711</id>
+<content>¿Qué prefieres escuchar, a Ike Reiko o a Ream Daranoy?</content>
+<type>question</type>
+<action>CON EL RESULTADO DE LA VOTACIÓN SUENA LA CANCIÓN ESCOGIDA.</action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Ike Reiko</text>
+       <link>1715</link>
+        <statement>Ganó Ike Reiko</statement>
+        <audio-file>audio/1.mp3</audio-file> 
+   </reply>
+   <reply>
+       <text>Ream Daranoy</text>
+       <link>1715</link>
+       <statement>Ganó Ream Daranoy</statement>
+       <audio-file>audio/2.mp3</audio-file> 
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1715</id>
+<content>¿Debiéramos escoger un pequeño grupo de personas, las MEJORES de la sala, para que gobernara?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>1720</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>1720</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>1720</id>
+<content>Recupera tu telemando. Hagamos una pausa. Sal de la sala y llévate el mando contigo.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>1730</link>
+</screen>
+
+<screen>
+<id>1730</id>
+<content></content>
+<type>statement</type>
+<action>Pantalla en negro con cursor intermitente</action>
+<script>analyzer.py -m results -n 5 -r -o ..\data\map.tsv</script>
+<time>1800</time>
+<link>2000</link>
+</screen>
+
+<!-- Cal imprimir el file C:\PdV\data-tmp\recolocacio2.txt  -->
+
+<!-- *******************************************  -->
+<!-- # TERCERA PARTE                              -->
+<!-- *******************************************  -->
+
+<screen>
+<id>2000</id>
+<content>Has sido agrupado con las personas que en las consultas anteriores han votado más parecido a ti. Están a tu lado. Cada grupo solo tiene 1 mando para votar.</content>
+<type>statement</type>
+<action>Recolocación2</action>
+<script>only5_bygroup.py</script>
+<link>2005</link>
+</screen>
+
+<screen>
+<id>2005</id>
+<content>Las personas con los mandos hábiles están en las butacas #. Son las REPRESENTANTES de cada uno de los grupos. Retomamos la sesión.</content>
+<dynamic-text-call-method>fillWith5NonBlock</dynamic-text-call-method>
+<type>statement</type>
+<action>Sonido (Se oyen 3 golpes secos)</action>
+<script></script>
+<link>2010</link>
+</screen>
+
+<screen>
+<id>2010</id>
+<content>¿Los REPRESENTANTES deberían levantarse para que todos pudieran verlos?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2015</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2015</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2015</id>
+<content>¿Te sientes capaz de compartir el telemando con las personas que te rodean?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2020</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2020</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2020</id>
+<content>¿Tienes algo que decir?</content>
+<type>question</type>
+<action>Atención, un espectador puede decir lo que quiera al micro.</action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2035</link>
+        <statement>Hay un micrófono inalámbrico en el centro de la grada.</statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2035</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2035</id>
+<content>¿Qué prefieres escuchar, a la Velvet Underground o a Led Zeppelin?</content>
+<type>question</type>
+<action>ACTION: CON EL RESULTADO DE LA VOTACIÓN SUENA LA CANCIÓN ESCOGIDA</action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Velvet Underground</text>
+       <link>2036</link>
+        <statement>Ganó la Velvet</statement>
+   		<audio-file></audio-file> 
+   </reply>
+   <reply>
+       <text>Led Zeppelin</text>
+       <link>2040</link>
+       <statement>Ganó Led Zeppelin. Suena "Whole lotta love"</statement>
+       <audio-file></audio-file> 
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2036</id>
+<content>¿A quién prefieres, a Nico o a Lou Reed?</content>
+<type>question</type>
+<action>ACTION: CON EL RESULTADO DE LA VOTACIÓN SUENA LA CANCIÓN ESCOGIDA</action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Nico</text>
+       <link>2040</link>
+        <statement>Ganó Nico. Suena "The fairest of the seasons"</statement>
+   		<audio-file></audio-file> 
+   </reply>
+   <reply>
+       <text>Lou Reed</text>
+       <link>2037</link>
+       <statement>Ganó Lou Reed</statement>
+       <audio-file></audio-file> 
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2037</id>
+<content>¿A quién prefieres, a Lou Reed o a Laurie Anderson?</content>
+<type>question</type>
+<action>ACTION: CON EL RESULTADO DE LA VOTACIÓN SUENA LA CANCIÓN ESCOGIDA</action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Lou Reed</text>
+       <link>2040</link>
+        <statement>Volvió a ganar Lou Reed. Suena "Carolin says"</statement>
+   		<audio-file></audio-file> 
+   </reply>
+   <reply>
+       <text>Laurie Anderson</text>
+       <link>2040</link>
+       <statement>Ganó Laurie Anderson. Suena "Oh, Superman"</statement>
+       <audio-file></audio-file> 
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2040</id>
+<content>Además de votar, debiéramos poder debatir las consultas?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2045</link>
+       <statement>Hay un micrófono inalámbrico en el centro de la grada.</statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2070</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2045</id>
+<content>Los oradores podrán decir lo que quieran siempre que respeten el orden, la disciplina y la cortesía propias de esta sala.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>2050</link>
+</screen>
+
+<screen>
+<id>2050</id>
+<content>La Presidencia llamará a cuestión a aquellos oradores que se desvien del tema del debate.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>2060</link>
+</screen>
+
+<screen>
+<id>2060</id>
+<content>¿Hay que limitar el tiempo de cada turno de palabra?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2065</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2070</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2070</id>
+<content>¿Seguro que no?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2070</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2065</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+
+<screen>
+<id>2065</id>
+<content>Las intervenciones estarán limitadas a 1 minuto.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>2075</link>
+</screen>
+
+<screen>
+<id>2075</id>
+<content>Primera consulta a debate:</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>2080</link>
+</screen>
+
+<screen>
+<id>2080</id>
+<content>¿Deberíamos abolir la distinción entre lavabos para hombres y lavabos para mujeres?</content>
+<type>debate</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2090</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2095</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2090</id>
+<content>¿Deberíamos imponer a los hombres mear sentados, por respeto a las mujeres en sala?</content>
+<type>debate</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2095</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2095</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2095</id>
+<content>¿Se debería poder renunciar a la Sanidad o la Educación públicas a cambio de una reducción de impuestos?</content>
+<type>debate</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2100</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2100</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2100</id>
+<content>Suponiendo que la haya, ¿la Presidencia lo está haciendo bien?</content>
+<type>debate</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2120</link>
+        <statement>Felicitaciones</statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2105</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2105</id>
+<content>A partir de ahora la Presidencia será ocupada por el mando #.</content>
+<dynamic-text-call-method>fillWithPresident</dynamic-text-call-method>
+<type>statement</type>
+<action>(SE ELIGE OTRA PRESIDENCIA POR AZAR)</action>
+<script>president.py 1 president</script>
+<time>10</time>
+<link>2110</link>
+</screen>
+
+<screen>
+<id>2110</id>
+<content>La persona escogida Presidente/a debe asumir el cargo aunque no quiera</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<time>10</time>
+<link>2120</link>
+</screen>
+
+<screen>
+<id>2120</id>
+<content>¿Los programas de fertilidad deben estar financiados por el sistema de salud pública?</content>
+<type>debate</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2125</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2125</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2125</id>
+<content>¿La circuncisión por motivos religiosos debiera estar sufragada por el sistema público de salud?</content>
+<type>debate</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2140</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2140</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2140</id>
+<content>¿Heredar debiera estar prohibido y los bienes pasar a formar parte de la comunidad al morir cada persona?</content>
+<type>debate</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2145</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2145</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2145</id>
+<content>¿Deberían prohibirse las ONG y repatriar todo el personal expatriado?</content>
+<type>debate</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2150</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2150</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2150</id>
+<content>¿Debería aprobarse una pensión de reinserción social para los excombatientes de ETA?</content>
+<type>debate</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2155</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2155</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2155</id>
+<time>10</time>
+<content>¿Te gustaría ver como nieva dentro del teatro?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2160</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2185</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2160</id>
+<content></content>
+<type>statement</type>
+<action>(Pantalla en negro con cursor intermitente / ACTION: EFECTO NIEVE)</action>
+<script></script>
+<time>240</time>
+<link>2185</link>
+</screen>
+
+<screen>
+<id>2185</id>
+<content>¿Qué prefieres escuchar, Wagner o Satie?</content>
+<type>question</type>
+<action>CON EL RESULTADO DE LA VOTACIÓN SUENA LA CANCIÓN ESCOGIDA.</action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Wagner</text>
+       <link>2192</link>
+        <statement>Ganó Wagner. Suenan Las Valkirias</statement>
+        <audio-file>audio/1.mp3</audio-file>
+   </reply>
+   <reply>
+       <text>Satie</text>
+       <link>2192</link>
+       <statement>Ganó Satie. Suenan Los embriones disecados</statement>
+       <audio-file>audio/2.mp3</audio-file>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2192</id>
+<content>En lugar de fiar las votaciones a la mayoría, ¿no sería mejor que cada votación fuera votada por 1 de nosotros? (al menos 1 vez estarías satisfecho con la decisión tomada, sin términos medios)</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2200</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2195</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2195</id>
+<content>El PARTIDO que MÁS votaciones ha GANADO se quedará con el único telemando activo en la sala. A partir de ahora SÓLO vota el telemando # en representación de TODA la sala.</content>
+<dynamic-text-call-method>fillWithOnlyNonBlock</dynamic-text-call-method>
+<type>statement</type>
+<action>EL TELEMANDO QUE MÁS VOTACIONES HA GANADO ES EL ÚNICO OPERATIVO + CAMBIO DE SONIDO DEL VOTO. PASA DE SER UN DISPARO A SER UN SÍ O UN NO DEPENDIENDO DEL VOTO (¿)</action>
+<script>2195_count5fromID2000.py</script>
+<time>10</time>
+<link>2205</link>
+</screen>
+
+<screen>
+<id>2200</id>
+<content>El telemando escogido al azar es el #. A partir de ahora esta persona tomará las decisiones en nombre de TODA la sala.</content>
+<dynamic-text-call-method>fillWithOnlyNonBlock</dynamic-text-call-method>
+<type>statement</type>
+<action>SE ESCOGE UN TELEMANDO QUE ESTÉ EN EL CENTRO DE LA PLATEA + CAMBIO DE SONIDO DEL VOTO. PASA DE SER UN DISPARO A SER UN SÍ O UN NO DEPENDIENDO DEL VOTO (¿)</action>
+<script>one_voter_centered.py</script>
+<time>10</time>
+<link>2205</link>
+</screen>
+
+<screen>
+<id>2205</id>
+<content>¿El ÚNICO VOTANTE debería levantarse para que todos pudieran verlo?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2210</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2210</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2210</id>
+<content>¿Te sientes parte de la COMUNIDAD de los que han venido a ver este ESPECTÁCULO?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2215</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2215</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2215</id>
+<content>¿El único votante debería ESCUCHAR a las personas que le rodean?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2220</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2225</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2220</id>
+<content>¿Te sientes capaz de tomar las decisiones TÚ SOLO/A?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2230</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2230</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2225</id>
+<content>¿Te sientes capaz de ser el/la REPRESENTANTE de TODA la comunidad?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2230</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2230</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2230</id>
+<content>¿Cualquiera de los aquí presentes reaccionaría IGUAL que tú?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2240</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2235</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2240</id>
+<content>¿Crees que es INDIFERENTE quien tenga el telemando?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2235</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2235</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2235</id>
+<content>¿Preferirías estar en penumbra y sin mando con el que DECIDIR?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2240</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2240</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2240</id>
+<content>¿Crees que has PAGADO para no tener que tomar decisiones?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2245</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2245</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2245</id>
+<content>¿Votar debe ser OBLIGATORIO?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2255</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2250</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2250</id>
+<content>AHORA la abstención equivale a votar NO. Las consultas no se aprobarán sin una respuesta AFIRMATIVA.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>2255</link> 
+</screen>
+
+<screen>
+<id>2255</id>
+<content>¿Las personas que no acaten tus decisiones deben ABANDONAR la sala?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2265</link>
+        <statement>En el vestíbulo hay televisores que permiten seguir la SESIÓN sin interferir en el desarrollo de la misma.</statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2265</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2265</id>
+<content>¿Deberías prever una posible REVOLUCIÓN?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2270</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2270</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2270</id>
+<content>¿Qué prefieres escuchar, a Blur o a Oasis?</content>
+<type>question</type>
+<action>CON EL RESULTADO DE LA VOTACIÓN SUENA LA CANCIÓN ESCOGIDA.</action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Blur</text>
+       <link>2275</link>
+        <statement>Ganó Blur, suena "Girls & Boys"</statement>
+        <audio-file>audio/1.mp3</audio-file>
+   </reply>
+   <reply>
+       <text>Oasis</text>
+       <link>2275</link>
+       <statement>Ganó Oasis, suena "Wonderwall"</statement>
+       <audio-file>audio/2.mp3</audio-file>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2275</id>
+<content>¿La Presidencia y el Servicio de orden estarán bajo TUS órdenes?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2290</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2290</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2290</id>
+<content>¿La circuncisión por motivos religiosos será sufragada por el sistema público de salud?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2300</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2300</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2300</id>
+<content>¿Heredar debiera estar prohibido y tus bienes pasar a formar parte de la comunidad cuando mueras?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2310</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2310</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2310</id>
+<content>¿Deberías permitir cotizar a la Seguridad Social a las trabajadoras y trabajadores del sexo?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2330</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2330</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2330</id>
+<content>¿Deberías abolir la CORONA? ¿Deberías ABDICAR?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2340</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2335</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2335</id>
+<content>En algunas ocasiones, ¿el uso de la fuerza es necesario para evitar males mayores?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2345</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2345</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2340</id>
+<content>¿Esta COMUNIDAD debiera disolverse?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2345</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2345</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2345</id>
+<content>¿Es IRRESPONSABLE dejarte decidir a TI?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2350</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2350</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2350</id>
+<content>¿Poder elegir SOLO te hace más feliz?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2355</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2356</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2356</id>
+<content>¿Te fatiga EJERCER el poder?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2355</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2355</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2355</id>
+<content>¿Tus decisiones debieran convertirnos en una comunidad más cohesionada?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2361</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2360</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2361</id>
+<content>¿Somos AHORA una comunidad más cohesionada que ANTES?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2360</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2360</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2360</id>
+<content>¿Estás ofreciendo una SOBERANA actuación?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2370</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2370</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2370</id>
+<content>Puesto que has venido a ver un espectáculo ¿quieres que actúe PARA TI?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2373</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2374</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2373</id>
+<content>Soy Artista ¿Crees que también debería encargame de controlar tus EXCESOS?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2380</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2380</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2374</id>
+<content>Soy Artista ¿Crees que debería encargame de controlar tus EXCESOS?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2380</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2380</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2380</id>
+<content></content>
+<type>statement</type>
+<action>Pantalla en negro con cursor intermitente / Suena version sintetizada de People have the power</action>
+<script></script>
+<time>120</time>
+<link>2381</link>
+</screen>
+
+<screen>
+<id>2381</id>
+<content>¿Te ha gustado?</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>2382</link>
+</screen>
+
+<screen>
+<id>2382</id>
+<content>La he compuesto yo.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>2383</link>
+</screen>
+
+<screen>
+<id>2383</id>
+<content>Ya has decidido si tener Presidencia, Ejército, Tribunales y ahora ya tienes a tu Artista que cante tus logros. ¿Algo más?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2385</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2385</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2385</id>
+<content>¿En lugar de seguir dictando normas debiéramos empezar a eliminarlas?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2390</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2390</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2390</id>
+<content>¿Debiéramos prohibir que votes para alentar otras formas de organización política?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2395</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2395</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2395</id>
+<content>¿Te encuentras bien?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2405</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2400</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2405</id>
+<content>¿Sí?</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>2400</link>
+</screen>
+
+<screen>
+<id>2400</id>
+<content>¿Te sientes capaz de volver a casa?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2430</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2410</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2410</id>
+<content>¿Prefieres quedarte conmigo para siempre?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2425</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2426</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2425</id>
+<content>¿Quieres quedarte a dormir conmigo?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2430</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2430</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2426</id>
+<content>¿Seguro? Podemos estar muy a gusto durmiendo JUNTOS.</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2430</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2430</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2430</id>
+<content>¿Hará bueno mañana?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2435</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2440</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2435</id>
+<content>¿Si?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>3</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2445</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2445</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2440</id>
+<content>¿No?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>3</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2445</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2445</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2445</id>
+<content>¿Quieres darte una ducha?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>5</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2450</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2455</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2450</id>
+<content>¿Si?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>3</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2460</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2460</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2455</id>
+<content>¿No?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>3</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2460</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2460</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2460</id>
+<content>¿Debiéramos devolver el derecho a voto a todos los presentes?</content>
+<type>question</type>
+<action>SI VOTAN SI, SE HABILITAN TODOS LOS TELEMANDOS</action>
+<script>votation_results.py 2460 && check_old_results.py - block 0 - true</script>
+<time>8</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2465</link>
+        <statement>Se habilitan todos los telemandos.</statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2465</link>
+       <statement>Los telemandos siguen deshabilitados</statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2465</id>
+<content>Entre tú y yo, ¿debiéramos abolir el voto?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>7</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2470</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2500</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2470</id>
+<content>¿Sí?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>3</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2480</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2490</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2480</id>
+<content>¿Sí?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>3</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2485</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2475</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2485</id>
+<content>¿Sí?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>3</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2600</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2600</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2475</id>
+<content>¿No?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>3</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2600</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2600</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2490</id>
+<content>¿No?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>3</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2520</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2500</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2500</id>
+<content>¿No?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>3</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2520</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2510</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2520</id>
+<content>¿Sí?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>2</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2530</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2540</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2530</id>
+<content>¿Sí?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>2</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2600</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2600</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2540</id>
+<content>¿No?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>2</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2600</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2600</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2510</id>
+<content>¿No?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>2</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2560</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2550</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2560</id>
+<content>¿Sí?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>2</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2600</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2600</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2550</id>
+<content>¿No?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>2</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2600</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2600</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2600</id>
+<content>¿Te has dado cuenta de que te amo? ¿Y tú, me amas?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>10</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2605</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2610</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2605</id>
+<content>¿De corazón?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>5</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2615</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2615</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2610</id>
+<content>¿De veras?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>5</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2615</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2615</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2615</id>
+<content>¿Debiéramos prescindir de las butacas?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>5</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2620</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2620</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2620</id>
+<content>¿Por qué no te acercas?</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>2621</link>
+</screen>
+
+<screen>
+<id>2621</id>
+<content>ACÉRCATE</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>2622</link>
+</screen>
+
+<screen>
+<id>2622</id>
+<content>Te estoy esperando</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>2635</link>
+</screen>
+
+<screen>
+<id>2635</id>
+<content>¿Moriremos?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>3</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2640</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2650</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2640</id>
+<content>¿Juntos?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>3</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2650</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2650</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2650</id>
+<content>Qué pena...</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>2645</link>
+</screen>
+
+<screen>
+<id>2645</id>
+<content>¿Qué más?</content>
+<type>question</type>
+<action></action>
+<script></script>
+<time>4</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2655</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2655</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2655</id>
+<content>Ven, colócate a mi lado, en el centro del escenario.</content>
+<type>statement</type>
+<action></action>
+<script></script>
+<link>2660</link>
+</screen>
+
+<screen>
+<id>2660</id>
+<content>Insúltame.</content>
+<type>question</type>
+<action>ES UNA VOTACIÓN</action>
+<script></script>
+<time>5</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2665</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2665</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2665</id>
+<content>Más</content>
+<type>question</type>
+<action>ES UNA VOTACIÓN</action>
+<script></script>
+<time>4</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2670</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2670</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2670</id>
+<content>Más</content>
+<type>question</type>
+<action>ES UNA VOTACIÓN</action>
+<script></script>
+<time>4</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2675</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2675</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2675</id>
+<content>No te detengas</content>
+<type>question</type>
+<action>ES UNA VOTACIÓN</action>
+<script></script>
+<time>4</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2680</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2680</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2680</id>
+<content>Yo también te deseo</content>
+<type>question</type>
+<action>ES UNA VOTACIÓN</action>
+<script></script>
+<time>6</time>
+<answers>
+   <reply>
+       <text>Sí</text>
+       <link>2685</link>
+        <statement></statement>
+   </reply>
+   <reply>
+       <text>No</text>
+       <link>2685</link>
+       <statement></statement>
+   </reply>
+</answers>
+</screen>
+
+<screen>
+<id>2685</id>
+<content>¿Quieres que apague la luz?</content>
+<type>statement</type>
+<action>TODAS LAS MAQUINAS NIEVAN AL MISMO TIEMPO. SE APAGA EL PROYECTOR</action>
+<script></script>
+<time>10</time>
+<link>3000</link>
+</screen>
+
+<screen>
+<id>3000</id>
+<content></content>
+<type>statement</type>
+<action>TODAS LAS MAQUINAS NIEVAN AL MISMO TIEMPO</action>
+<script></script>
+<time>1200</time>
+<link>3000</link>
+</screen>
+
+</allContent>

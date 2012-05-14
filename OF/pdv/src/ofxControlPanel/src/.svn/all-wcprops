@@ -1,0 +1,359 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src
+END
+simpleLogger.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/simpleLogger.h
+END
+guiTypeText.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeText.h
+END
+guiVariablePointer.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiVariablePointer.h
+END
+guiTypeMultiToggle.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeMultiToggle.cpp
+END
+guiCallbackValue.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiCallbackValue.h
+END
+guiTypePanel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypePanel.cpp
+END
+guiBaseObject.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiBaseObject.cpp
+END
+guiCallback.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiCallback.h
+END
+guiCustomImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiCustomImpl.h
+END
+guiTypeTextDropDown.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeTextDropDown.cpp
+END
+guiTypeTextInput.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeTextInput.cpp
+END
+ofxAutoControlPanel.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/ofxAutoControlPanel.h
+END
+guiTypeVideo.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeVideo.cpp
+END
+guiTypeFileLister.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeFileLister.h
+END
+guiTypeVairableLister.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeVairableLister.cpp
+END
+guiTypeCustom.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeCustom.cpp
+END
+simpleFileLister.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/simpleFileLister.h
+END
+ofxControlPanel.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/ofxControlPanel.h
+END
+guiTextBase.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTextBase.cpp
+END
+guiType2DSlider.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiType2DSlider.h
+END
+guiTypeButtonSlider.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeButtonSlider.cpp
+END
+guiTypeLogger.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeLogger.cpp
+END
+guiValue.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiValue.h
+END
+guiTypeChartPlotter.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeChartPlotter.h
+END
+guiTypeDrawable.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeDrawable.cpp
+END
+guiColor.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiColor.h
+END
+simpleLogger.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/simpleLogger.cpp
+END
+guiTypeLabel.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeLabel.h
+END
+guiTypeText.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeText.cpp
+END
+guiTypeToggle.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeToggle.h
+END
+simpleColor.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/simpleColor.h
+END
+guiCallbackValue.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiCallbackValue.cpp
+END
+guiTypeSlider.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeSlider.h
+END
+guiCallback.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiCallback.cpp
+END
+guiXmlValue.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiXmlValue.h
+END
+guiTypeMultiToggle.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeMultiToggle.h
+END
+guiTypeFileLister.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeFileLister.cpp
+END
+guiBaseObject.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiBaseObject.h
+END
+guiTypePanel.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypePanel.h
+END
+simpleFileLister.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/simpleFileLister.cpp
+END
+guiTypeTextDropDown.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeTextDropDown.h
+END
+ofxControlPanel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/ofxControlPanel.cpp
+END
+guiType2DSlider.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiType2DSlider.cpp
+END
+guiIncludes.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiIncludes.h
+END
+guiTypeTextInput.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeTextInput.h
+END
+guiValue.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiValue.cpp
+END
+guiTypeChartPlotter.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeChartPlotter.cpp
+END
+guiTypeVideo.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeVideo.h
+END
+guiColor.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiColor.cpp
+END
+guiTypeVairableLister.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeVairableLister.h
+END
+guiTypeLabel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeLabel.cpp
+END
+guiTypeCustom.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeCustom.h
+END
+guiTypeToggle.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeToggle.cpp
+END
+simpleColor.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/simpleColor.cpp
+END
+guiTextBase.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTextBase.h
+END
+guiTypeSlider.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeSlider.cpp
+END
+guiTypeButtonSlider.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeButtonSlider.h
+END
+guiTypeLogger.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeLogger.h
+END
+guiTypeDrawable.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxControlPanel/src/guiTypeDrawable.h
+END

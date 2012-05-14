@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<action>
+	<subAction>
+		<type>mouse</type>
+		<x>602</x>
+		<y>784</y>
+		<sleep>2</sleep>
+	</subAction>
+
+	<subAction>
+		<type>mouse</type>
+		<x>648</x>
+		<y>784</y>
+		<sleep>2</sleep>
+	</subAction>
+
+</action>

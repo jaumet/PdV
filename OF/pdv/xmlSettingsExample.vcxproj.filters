@@ -1,0 +1,560 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\testApp.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp">
+      <Filter>addons_comunity\ofxXmlSettings\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.cpp">
+      <Filter>addons_comunity\ofxXmlSettings\libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp">
+      <Filter>addons_comunity\ofxXmlSettings\libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlerror.cpp">
+      <Filter>addons_comunity\ofxXmlSettings\libs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\exportPDF.cpp" />
+    <ClCompile Include="src\screen1.cpp">
+      <Filter>screens</Filter>
+    </ClCompile>
+    <ClCompile Include="src\screen2.cpp">
+      <Filter>screens</Filter>
+    </ClCompile>
+    <ClCompile Include="src\screen3.cpp">
+      <Filter>screens</Filter>
+    </ClCompile>
+    <ClCompile Include="src\seatManager.cpp">
+      <Filter>dataManagers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\votesManager.cpp">
+      <Filter>dataManagers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\actionsManager.cpp" />
+    <ClCompile Include="src\ofxControlPanel\src\guiBaseObject.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\guiCallback.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\guiCallbackValue.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\guiColor.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\guiTextBase.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\guiType2DSlider.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\guiTypeButtonSlider.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\guiTypeChartPlotter.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\guiTypeCustom.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\guiTypeDrawable.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\guiTypeFileLister.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\guiTypeLabel.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\guiTypeLogger.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\guiTypeMultiToggle.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\guiTypePanel.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\guiTypeSlider.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\guiTypeText.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\guiTypeTextDropDown.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\guiTypeTextInput.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\guiTypeToggle.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\guiTypeVairableLister.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\guiTypeVideo.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\guiValue.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\ofxControlPanel.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\simpleColor.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\simpleFileLister.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxControlPanel\src\simpleLogger.cpp">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxTimer\src\ofxTimer.cpp">
+      <Filter>addons_comunity\ofxTimer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxMidi\libs\RtMidi.cpp">
+      <Filter>addons_comunity\ofxMidi\libs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxMidi\src\ofxMidiIn.cpp">
+      <Filter>addons_comunity\ofxMidi\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxMidi\src\ofxMidiOut.cpp">
+      <Filter>addons_comunity\ofxMidi\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxTween\src\ofxTween.cpp">
+      <Filter>addons_comunity\ofxTween\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxTween\src\Easings\ofxEasing.cpp">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxTween\src\Easings\ofxEasingBack.cpp">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxTween\src\Easings\ofxEasingBounce.cpp">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxTween\src\Easings\ofxEasingCirc.cpp">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxTween\src\Easings\ofxEasingCubic.cpp">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxTween\src\Easings\ofxEasingElastic.cpp">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxTween\src\Easings\ofxEasingExpo.cpp">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxTween\src\Easings\ofxEasingLinear.cpp">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxTween\src\Easings\ofxEasingQuad.cpp">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxTween\src\Easings\ofxEasingQuart.cpp">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxTween\src\Easings\ofxEasingQuint.cpp">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxTween\src\Easings\ofxEasingSine.cpp">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClCompile>
+    <ClCompile Include="src\callPythonScripts.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.cpp">
+      <Filter>addons_comunity\ofxOsc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.cpp">
+      <Filter>addons_comunity\ofxOsc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.cpp">
+      <Filter>addons_comunity\ofxOsc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscSender.cpp">
+      <Filter>addons_comunity\ofxOsc\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OSCManager.cpp">
+      <Filter>dataManagers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\screen0.cpp">
+      <Filter>screens</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxManagerWindows.cpp">
+      <Filter>addons_contributed</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxTextBox.cpp">
+      <Filter>addons_contributed</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxVirtualKeyboard.cpp">
+      <Filter>addons_contributed</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxVirtualMouse.cpp">
+      <Filter>addons_contributed</Filter>
+    </ClCompile>
+    <ClCompile Include="src\guiManager.cpp" />
+    <ClCompile Include="src\fontManager.cpp" />
+    <ClCompile Include="src\screensManager.cpp">
+      <Filter>dataManagers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\screenInfo.cpp">
+      <Filter>screens</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ofxKeyAndMouseLogger.cpp" />
+    <ClCompile Include="src\statusProgramLog.cpp" />
+    <ClCompile Include="src\colorPalette.cpp" />
+    <ClCompile Include="src\settingsManager.cpp" />
+    <ClCompile Include="src\translateManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\testApp.h" />
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h">
+      <Filter>addons_comunity\ofxXmlSettings\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.h">
+      <Filter>addons_comunity\ofxXmlSettings\libs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\exportPDF.h" />
+    <ClInclude Include="src\screen.h">
+      <Filter>screens</Filter>
+    </ClInclude>
+    <ClInclude Include="src\screen1.h">
+      <Filter>screens</Filter>
+    </ClInclude>
+    <ClInclude Include="src\screen2.h">
+      <Filter>screens</Filter>
+    </ClInclude>
+    <ClInclude Include="src\screen3.h">
+      <Filter>screens</Filter>
+    </ClInclude>
+    <ClInclude Include="src\seatManager.h">
+      <Filter>dataManagers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\votesManager.h">
+      <Filter>dataManagers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\actionsManager.h" />
+    <ClInclude Include="src\ofxControlPanel\src\guiBaseObject.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiCallback.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiCallbackValue.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiColor.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiCustomImpl.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiIncludes.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiTextBase.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiType2DSlider.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiTypeButtonSlider.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiTypeChartPlotter.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiTypeCustom.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiTypeDrawable.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiTypeFileLister.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiTypeLabel.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiTypeLogger.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiTypeMultiToggle.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiTypePanel.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiTypeSlider.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiTypeText.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiTypeTextDropDown.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiTypeTextInput.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiTypeToggle.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiTypeVairableLister.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiTypeVideo.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiValue.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiVariablePointer.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\guiXmlValue.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\ofxAutoControlPanel.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\ofxControlPanel.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\simpleColor.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\simpleFileLister.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxControlPanel\src\simpleLogger.h">
+      <Filter>addons_comunity\ofxControlPanel\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxTimer\src\ofxTimer.h">
+      <Filter>addons_comunity\ofxTimer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxMidi\libs\RtMidi.h">
+      <Filter>addons_comunity\ofxMidi\libs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxMidi\libs\RtError.h">
+      <Filter>addons_comunity\ofxMidi\libs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxMidi\src\ofxMidiOut.h">
+      <Filter>addons_comunity\ofxMidi\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxMidi\src\ofxMidi.h">
+      <Filter>addons_comunity\ofxMidi\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxMidi\src\ofxMidiConstants.h">
+      <Filter>addons_comunity\ofxMidi\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxMidi\src\ofxMidiEvents.h">
+      <Filter>addons_comunity\ofxMidi\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxMidi\src\ofxMidiIn.h">
+      <Filter>addons_comunity\ofxMidi\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxTween\src\ofxTween.h">
+      <Filter>addons_comunity\ofxTween\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxTween\src\Easings\ofxEasingSine.h">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxTween\src\Easings\ofxEasing.h">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxTween\src\Easings\ofxEasingBack.h">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxTween\src\Easings\ofxEasingBounce.h">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxTween\src\Easings\ofxEasingCirc.h">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxTween\src\Easings\ofxEasingCubic.h">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxTween\src\Easings\ofxEasingElastic.h">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxTween\src\Easings\ofxEasingExpo.h">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxTween\src\Easings\ofxEasingLinear.h">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxTween\src\Easings\ofxEasingQuad.h">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxTween\src\Easings\ofxEasingQuart.h">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxTween\src\Easings\ofxEasingQuint.h">
+      <Filter>addons_comunity\ofxTween\src\Easing</Filter>
+    </ClInclude>
+    <ClInclude Include="src\callPythonScripts.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOsc.h">
+      <Filter>addons_comunity\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscArg.h">
+      <Filter>addons_comunity\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.h">
+      <Filter>addons_comunity\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.h">
+      <Filter>addons_comunity\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.h">
+      <Filter>addons_comunity\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscSender.h">
+      <Filter>addons_comunity\ofxOsc\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\include\ip\IpEndpointName.h">
+      <Filter>addons_comunity\ofxOsc\lib\include\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\include\ip\NetworkingUtils.h">
+      <Filter>addons_comunity\ofxOsc\lib\include\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\include\ip\PacketListener.h">
+      <Filter>addons_comunity\ofxOsc\lib\include\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\include\ip\TimerListener.h">
+      <Filter>addons_comunity\ofxOsc\lib\include\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\include\ip\UdpSocket.h">
+      <Filter>addons_comunity\ofxOsc\lib\include\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\include\osc\MessageMappingOscPacketListener.h">
+      <Filter>addons_comunity\ofxOsc\lib\include\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\include\osc\OscException.h">
+      <Filter>addons_comunity\ofxOsc\lib\include\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\include\osc\OscHostEndianness.h">
+      <Filter>addons_comunity\ofxOsc\lib\include\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\include\osc\OscOutboundPacketStream.h">
+      <Filter>addons_comunity\ofxOsc\lib\include\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\include\osc\OscPacketListener.h">
+      <Filter>addons_comunity\ofxOsc\lib\include\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\include\osc\OscPrintReceivedElements.h">
+      <Filter>addons_comunity\ofxOsc\lib\include\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\include\osc\OscReceivedElements.h">
+      <Filter>addons_comunity\ofxOsc\lib\include\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\include\osc\OscTypes.h">
+      <Filter>addons_comunity\ofxOsc\lib\include\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="src\OSCManager.h">
+      <Filter>dataManagers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\screen0.h">
+      <Filter>screens</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxManagerWindows.h">
+      <Filter>addons_contributed</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxTextBox.h">
+      <Filter>addons_contributed</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxVirtualKeyboard.h">
+      <Filter>addons_contributed</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxVirtualMouse.h">
+      <Filter>addons_contributed</Filter>
+    </ClInclude>
+    <ClInclude Include="src\guiManager.h" />
+    <ClInclude Include="src\fontManager.h" />
+    <ClInclude Include="src\screensManager.h">
+      <Filter>dataManagers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxTwitter.h">
+      <Filter>addons_comunity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\screenInfo.h">
+      <Filter>screens</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofxKeyAndMouseLogger.h" />
+    <ClInclude Include="src\statusProgramLog.h" />
+    <ClInclude Include="src\colorPalette.h" />
+    <ClInclude Include="src\settingsManager.h" />
+    <ClInclude Include="src\translateManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="screens">
+      <UniqueIdentifier>{1a5ca836-927f-4b65-b183-ffbf2ccc6489}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dataManagers">
+      <UniqueIdentifier>{5c7abbb4-a903-4026-8398-0ce09dada4f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons_comunity">
+      <UniqueIdentifier>{d79abca0-5b91-4000-9e03-3b535f96d5b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons_comunity\ofxXmlSettings">
+      <UniqueIdentifier>{58e01360-6f41-4cc9-ba3a-e1e0ffd3e8cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons_comunity\ofxXmlSettings\src">
+      <UniqueIdentifier>{3a0e3e4d-5f79-4a70-acc5-11ccc4383a46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons_comunity\ofxXmlSettings\libs">
+      <UniqueIdentifier>{d818a970-759f-4cdc-9543-d175f3988094}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons_comunity\ofxTimer">
+      <UniqueIdentifier>{04a93e34-d868-473e-b5ab-b6d3f615a07d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons_comunity\ofxControlPanel">
+      <UniqueIdentifier>{a9c5992a-61da-41bb-99d1-869aae99faec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons_comunity\ofxControlPanel\src">
+      <UniqueIdentifier>{5587f670-a22f-4155-91e4-d73554bf9996}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons_comunity\ofxMidi">
+      <UniqueIdentifier>{fa1b290b-1e21-4b9f-b820-b31fc1e7a595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons_comunity\ofxMidi\src">
+      <UniqueIdentifier>{f2675aad-e985-48c3-a9cf-cdc075e32d22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons_comunity\ofxMidi\libs">
+      <UniqueIdentifier>{e2a3cb6c-50e8-457e-8c78-ffcdc89c9cdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons_comunity\ofxTween">
+      <UniqueIdentifier>{37d09d59-ca0f-4aa0-a828-820d36c4aca7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons_comunity\ofxTween\src">
+      <UniqueIdentifier>{4d712ef7-5ded-45f3-8d1b-0a60503c0001}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons_comunity\ofxTween\src\Easing">
+      <UniqueIdentifier>{a6a4cdfa-2e53-497c-af7b-e1ee00907eb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons_comunity\ofxOsc">
+      <UniqueIdentifier>{32fa07c9-80d3-450a-bd5a-b53da61bdea1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons_comunity\ofxOsc\src">
+      <UniqueIdentifier>{ed4ce980-fcf4-4b7d-b3af-0fd7b721953c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons_comunity\ofxOsc\lib">
+      <UniqueIdentifier>{c898a5fe-7a72-4499-a406-aab6d6a00358}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons_comunity\ofxOsc\lib\include">
+      <UniqueIdentifier>{06dbeada-f5f8-46da-bfb2-8f9b6e9547ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons_comunity\ofxOsc\lib\include\ip">
+      <UniqueIdentifier>{70433048-87a8-43c4-b863-7907b54a1d10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons_comunity\ofxOsc\lib\include\osc">
+      <UniqueIdentifier>{8453ff05-bd33-41f0-b5d0-12a1618f0733}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons_contributed">
+      <UniqueIdentifier>{2033fa6c-5e24-4f52-a6a1-dbb806115801}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,161 @@
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/tornadoes_pdvpython/!svn/ver/15
+END
+common.py
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/tornadoes_pdvpython/!svn/ver/1/common.py
+END
+gridgrouper.py
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/tornadoes_pdvpython/!svn/ver/1/gridgrouper.py
+END
+parsing_map_data.py
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/tornadoes_pdvpython/!svn/ver/1/parsing_map_data.py
+END
+gridgrouper.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/tornadoes_pdvpython/!svn/ver/1/gridgrouper.pyc
+END
+check_old_results.py
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/tornadoes_pdvpython/!svn/ver/1/check_old_results.py
+END
+audience0.py
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/tornadoes_pdvpython/!svn/ver/1/audience0.py
+END
+president.py
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/tornadoes_pdvpython/!svn/ver/12/president.py
+END
+2195_count5fromID2000.py
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/tornadoes_pdvpython/!svn/ver/1/2195_count5fromID2000.py
+END
+initiator.py
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/tornadoes_pdvpython/!svn/ver/1/initiator.py
+END
+recolocation2.py
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/tornadoes_pdvpython/!svn/ver/3/recolocation2.py
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/tornadoes_pdvpython/!svn/ver/1/README
+END
+5to1_voter.py
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/tornadoes_pdvpython/!svn/ver/9/5to1_voter.py
+END
+blockNoVotes.py
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/tornadoes_pdvpython/!svn/ver/14/blockNoVotes.py
+END
+one_voter_centered.py
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/tornadoes_pdvpython/!svn/ver/1/one_voter_centered.py
+END
+only5_bygroup.py
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/tornadoes_pdvpython/!svn/ver/1/only5_bygroup.py
+END
+kmeans.py
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/tornadoes_pdvpython/!svn/ver/1/kmeans.py
+END
+kmeans.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/tornadoes_pdvpython/!svn/ver/1/kmeans.pyc
+END
+mdb2tsv.py
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/tornadoes_pdvpython/!svn/ver/1/mdb2tsv.py
+END
+Documentation-calls-scripts.txt
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/tornadoes_pdvpython/!svn/ver/1/Documentation-calls-scripts.txt
+END
+giveAllVote.py
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/tornadoes_pdvpython/!svn/ver/5/giveAllVote.py
+END
+blockAllVote.py
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/tornadoes_pdvpython/!svn/ver/10/blockAllVote.py
+END
+lala
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/tornadoes_pdvpython/!svn/ver/1/lala
+END
+mdb2tsv.pyc
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/tornadoes_pdvpython/!svn/ver/1/mdb2tsv.pyc
+END
+votation_results.py
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/tornadoes_pdvpython/!svn/ver/3/votation_results.py
+END
+analyzer.py
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/tornadoes_pdvpython/!svn/ver/15/analyzer.py
+END
+yesAllVote.py
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/tornadoes_pdvpython/!svn/ver/11/yesAllVote.py
+END

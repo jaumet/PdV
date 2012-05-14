@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/tornadoes_pdv/!svn/ver/35/exportBookPDF/application.windows/lib
+END
+exportBookPDF.jar
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/tornadoes_pdv/!svn/ver/35/exportBookPDF/application.windows/lib/exportBookPDF.jar
+END
+core.jar
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/tornadoes_pdv/!svn/ver/35/exportBookPDF/application.windows/lib/core.jar
+END
+pdf.jar
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/tornadoes_pdv/!svn/ver/35/exportBookPDF/application.windows/lib/pdf.jar
+END
+itext.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/tornadoes_pdv/!svn/ver/35/exportBookPDF/application.windows/lib/itext.jar
+END
+args.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/tornadoes_pdv/!svn/ver/35/exportBookPDF/application.windows/lib/args.txt
+END

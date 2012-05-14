@@ -1,0 +1,155 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings
+END
+ofxEasingCubic.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasingCubic.h
+END
+ofxEasingQuad.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasingQuad.cpp
+END
+ofxEasingQuart.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasingQuart.cpp
+END
+easing_terms_of_use.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/easing_terms_of_use.html
+END
+ofxEasingSine.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasingSine.cpp
+END
+ofxEasingQuad.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasingQuad.h
+END
+ofxEasingBack.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasingBack.cpp
+END
+ofxEasingQuint.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasingQuint.cpp
+END
+ofxEasingQuart.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasingQuart.h
+END
+ofxEasingSine.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasingSine.h
+END
+ofxEasingBack.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasingBack.h
+END
+ofxEasingQuint.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasingQuint.h
+END
+ofxEasingLinear.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasingLinear.cpp
+END
+ofxEasingExpo.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasingExpo.cpp
+END
+ofxEasingBounce.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasingBounce.cpp
+END
+ofxEasing.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasing.cpp
+END
+ofxEasingLinear.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasingLinear.h
+END
+ofxEasingExpo.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasingExpo.h
+END
+ofxEasingCirc.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasingCirc.cpp
+END
+ofxEasingBounce.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasingBounce.h
+END
+ofxEasingElastic.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasingElastic.cpp
+END
+ofxEasing.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasing.h
+END
+ofxEasingCubic.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasingCubic.cpp
+END
+ofxEasingCirc.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasingCirc.h
+END
+ofxEasingElastic.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/tornadoes_pdv/!svn/ver/1/pdv/src/ofxTween/src/Easings/ofxEasingElastic.h
+END

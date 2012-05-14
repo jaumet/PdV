@@ -1,0 +1,27 @@
+- Trobar manera que la companyia pugui  manegar de forma autónoma l'adaptació del mapa del teatre (possible?) en tot cas fer el mapa de Montpellier Mèxic i Barcelona
+1) How-to de com repapejar:
+-- Com fer el mapDefault.tsv
+-Primer: fer la imatge del nou teatre tenint en compte les àrees que hi ha per a seients (no es pot esvair l'àrea de resultats!!). La millor manera es que la MK faci la nova imatge amb cercles amb un punt al mig, d'aquesta manera podrem fer el map.tsv més fàcilment
+	Cal decidir la numeració dels seients.
+-Segon: fer les linies del map.tsv amb 11 columnes (seatid	keypadid	Xcolumn	Yrow	Xpx	Ypx	section	group	type	active	gender)
+	Calen tates línies com seients hi ha al teatre.
+	Map.tsv NO funciona si no té tabuladors entre cada columna i un salt de linea al final de línea (sense espais)
+	Recomano editar el map.tsv amb el Note++ per a evitar errors entre "espais" i "tabuladors".
+	-	Els valors per defecte son:
+	seatid = 1,2,3...	
+	keypadid = 1,2,3...	
+	Xcolumn = 0	(Ja no usem aquesta columna!)
+	Yrow = 0 (Ja no usem aquesta columna!)
+	
+	IMPORTANT! Aquesta és la feina principal a fer en el map.tsv
+	Aquí cal donar les coordenades en pixels de cada seient. Cal igualar les coordenades de fileres i columnes, si aquestes son perfectes verticals o perfectes horitzontals.
+	Xpx = ...
+	Ypx = ...
+	
+	section = (OPCIONAL) No ho usem, però es pot posar paraules com "centre", "dreta", "esquerra" segons la distribució inicial de seients per grades .
+	group = INICIALMENT és "0" per a totes les línies
+	type = Això són els càrrecs (bàsicament "president"). INICIALMENT té valor "null"
+	active = Això inicialment té valor de true. En la primera votació es posen els "false" dels que NO han votat. Els valors que pot prendre aquesta columna són: "false", "block", "true", "yes", "no" o "abs".
+	gender = INICIALMENT tñe valor de "null". Dreprés de la pregunte: Perdona ¿Eres un hombre?, els valors possibles són: "null", "w", "m"
+
+

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/tornadoes_pdv/!svn/ver/34/OSCMouseArduinoBridge/application.windows64/lib
+END
+core.jar
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/tornadoes_pdv/!svn/ver/34/OSCMouseArduinoBridge/application.windows64/lib/core.jar
+END
+oscP5.jar
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/tornadoes_pdv/!svn/ver/34/OSCMouseArduinoBridge/application.windows64/lib/oscP5.jar
+END
+OSCMouseArduinoBridge.jar
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/tornadoes_pdv/!svn/ver/34/OSCMouseArduinoBridge/application.windows64/lib/OSCMouseArduinoBridge.jar
+END
+args.txt
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/tornadoes_pdv/!svn/ver/34/OSCMouseArduinoBridge/application.windows64/lib/args.txt
+END
+serial.jar
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/tornadoes_pdv/!svn/ver/34/OSCMouseArduinoBridge/application.windows64/lib/serial.jar
+END
+RXTXcomm.jar
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/tornadoes_pdv/!svn/ver/34/OSCMouseArduinoBridge/application.windows64/lib/RXTXcomm.jar
+END
